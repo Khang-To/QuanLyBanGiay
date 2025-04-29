@@ -10,6 +10,7 @@ namespace QuanLyBanGiay.Data
     {
         public int ID { get; set; }
         public string TenLoai { get; set; } = null!;
+        public string? Mota {  get; set; }
 
         public virtual ICollection<Giay> Giays { get; set; } = new List<Giay>();
     }
