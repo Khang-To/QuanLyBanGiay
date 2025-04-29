@@ -1,8 +1,8 @@
 .vs/
 *.user
 *.suo
-QuanLyBanGiay/bin/
-QuanLyBanGiay/obj/
+bin/
+obj/
 *.log
 bin/
 obj/
