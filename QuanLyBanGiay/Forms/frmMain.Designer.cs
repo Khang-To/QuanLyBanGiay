@@ -36,6 +36,18 @@
             toolStripSeparator1 = new ToolStripSeparator();
             mnuThoat = new ToolStripMenuItem();
             mnuQuanLi = new ToolStripMenuItem();
+            mnuDanhMuc = new ToolStripMenuItem();
+            mnuThuongHieu = new ToolStripMenuItem();
+            mnuLoaiGiay = new ToolStripMenuItem();
+            mnuMauGiay = new ToolStripMenuItem();
+            toolStripSeparator4 = new ToolStripSeparator();
+            mnuGiay = new ToolStripMenuItem();
+            toolStripSeparator5 = new ToolStripSeparator();
+            mnuNhaCungCap = new ToolStripMenuItem();
+            mnuKhachHang = new ToolStripMenuItem();
+            mnuNhanVien = new ToolStripMenuItem();
+            toolStripSeparator6 = new ToolStripSeparator();
+            mnuKho = new ToolStripMenuItem();
             mnuGiaoDich = new ToolStripMenuItem();
             mnuNhapHang = new ToolStripMenuItem();
             mnuHoaDon = new ToolStripMenuItem();
@@ -52,9 +64,7 @@
             gIÀYToolStripMenuItem = new ToolStripMenuItem();
             kHÁCHHÀNGToolStripMenuItem = new ToolStripMenuItem();
             nHÀCUNGCẤPToolStripMenuItem = new ToolStripMenuItem();
-            mnuNhanVien = new ToolStripMenuItem();
             toolStripSeparator3 = new ToolStripSeparator();
-            mnuKho = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             lblTrangThai = new ToolStripStatusLabel();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
@@ -82,42 +92,113 @@
             // mnuDangNhap
             // 
             mnuDangNhap.Name = "mnuDangNhap";
-            mnuDangNhap.Size = new Size(180, 22);
+            mnuDangNhap.Size = new Size(167, 22);
             mnuDangNhap.Text = "ĐĂNG &NHẬP...";
             mnuDangNhap.Click += mnuDangNhap_Click;
             // 
             // mnuDangXuat
             // 
             mnuDangXuat.Name = "mnuDangXuat";
-            mnuDangXuat.Size = new Size(180, 22);
+            mnuDangXuat.Size = new Size(167, 22);
             mnuDangXuat.Text = "ĐĂNG &XUẤT...";
             mnuDangXuat.Click += mnuDangXuat_Click;
             // 
             // mnuDoiMatKhau
             // 
             mnuDoiMatKhau.Name = "mnuDoiMatKhau";
-            mnuDoiMatKhau.Size = new Size(180, 22);
+            mnuDoiMatKhau.Size = new Size(167, 22);
             mnuDoiMatKhau.Text = "ĐỔI &MẬT KHẨU...";
             mnuDoiMatKhau.Click += mnuDoiMatKhau_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(177, 6);
+            toolStripSeparator1.Size = new Size(164, 6);
             // 
             // mnuThoat
             // 
             mnuThoat.Name = "mnuThoat";
             mnuThoat.ShortcutKeys = Keys.Alt | Keys.F4;
-            mnuThoat.Size = new Size(180, 22);
+            mnuThoat.Size = new Size(167, 22);
             mnuThoat.Text = "&THOÁT";
             mnuThoat.Click += mnuThoat_Click;
             // 
             // mnuQuanLi
             // 
+            mnuQuanLi.DropDownItems.AddRange(new ToolStripItem[] { mnuDanhMuc, toolStripSeparator5, mnuNhaCungCap, mnuKhachHang, mnuNhanVien, toolStripSeparator6, mnuKho });
             mnuQuanLi.Name = "mnuQuanLi";
             mnuQuanLi.Size = new Size(65, 20);
             mnuQuanLi.Text = "&QUẢN LÍ";
+            // 
+            // mnuDanhMuc
+            // 
+            mnuDanhMuc.DropDownItems.AddRange(new ToolStripItem[] { mnuThuongHieu, mnuLoaiGiay, mnuMauGiay, toolStripSeparator4, mnuGiay });
+            mnuDanhMuc.Name = "mnuDanhMuc";
+            mnuDanhMuc.Size = new Size(180, 22);
+            mnuDanhMuc.Text = "&DANH MỤC GIÀY...";
+            // 
+            // mnuThuongHieu
+            // 
+            mnuThuongHieu.Name = "mnuThuongHieu";
+            mnuThuongHieu.Size = new Size(162, 22);
+            mnuThuongHieu.Text = "&THƯƠNG HIỆU...";
+            // 
+            // mnuLoaiGiay
+            // 
+            mnuLoaiGiay.Name = "mnuLoaiGiay";
+            mnuLoaiGiay.Size = new Size(162, 22);
+            mnuLoaiGiay.Text = "&LOẠI GIÀY...";
+            // 
+            // mnuMauGiay
+            // 
+            mnuMauGiay.Name = "mnuMauGiay";
+            mnuMauGiay.Size = new Size(162, 22);
+            mnuMauGiay.Text = "&MÀU GIÀY...";
+            // 
+            // toolStripSeparator4
+            // 
+            toolStripSeparator4.Name = "toolStripSeparator4";
+            toolStripSeparator4.Size = new Size(159, 6);
+            // 
+            // mnuGiay
+            // 
+            mnuGiay.Name = "mnuGiay";
+            mnuGiay.Size = new Size(162, 22);
+            mnuGiay.Text = "&GIÀY...";
+            // 
+            // toolStripSeparator5
+            // 
+            toolStripSeparator5.Name = "toolStripSeparator5";
+            toolStripSeparator5.Size = new Size(177, 6);
+            // 
+            // mnuNhaCungCap
+            // 
+            mnuNhaCungCap.Name = "mnuNhaCungCap";
+            mnuNhaCungCap.Size = new Size(180, 22);
+            mnuNhaCungCap.Text = "&NHÀ CUNG CẤP...";
+            // 
+            // mnuKhachHang
+            // 
+            mnuKhachHang.Name = "mnuKhachHang";
+            mnuKhachHang.Size = new Size(180, 22);
+            mnuKhachHang.Text = "&KHÁCH HÀNG...";
+            // 
+            // mnuNhanVien
+            // 
+            mnuNhanVien.Name = "mnuNhanVien";
+            mnuNhanVien.Size = new Size(180, 22);
+            mnuNhanVien.Text = "NHÂN &VIÊN...";
+            // 
+            // toolStripSeparator6
+            // 
+            toolStripSeparator6.Name = "toolStripSeparator6";
+            toolStripSeparator6.Size = new Size(177, 6);
+            // 
+            // mnuKho
+            // 
+            mnuKho.Name = "mnuKho";
+            mnuKho.Size = new Size(180, 22);
+            mnuKho.Text = "KH&O...";
             // 
             // mnuGiaoDich
             // 
@@ -129,13 +210,13 @@
             // mnuNhapHang
             // 
             mnuNhapHang.Name = "mnuNhapHang";
-            mnuNhapHang.Size = new Size(180, 22);
+            mnuNhapHang.Size = new Size(153, 22);
             mnuNhapHang.Text = "&NHẬP HÀNG...";
             // 
             // mnuHoaDon
             // 
             mnuHoaDon.Name = "mnuHoaDon";
-            mnuHoaDon.Size = new Size(180, 22);
+            mnuHoaDon.Size = new Size(153, 22);
             mnuHoaDon.Text = "&HÓA ĐƠN...";
             // 
             // mnuBaoCaoThongKe
@@ -218,22 +299,10 @@
             nHÀCUNGCẤPToolStripMenuItem.Size = new Size(180, 22);
             nHÀCUNGCẤPToolStripMenuItem.Text = "NHÀ &CUNG CẤP...";
             // 
-            // mnuNhanVien
-            // 
-            mnuNhanVien.Name = "mnuNhanVien";
-            mnuNhanVien.Size = new Size(166, 22);
-            mnuNhanVien.Text = "&NHÂN VIÊN...";
-            // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
             toolStripSeparator3.Size = new Size(163, 6);
-            // 
-            // mnuKho
-            // 
-            mnuKho.Name = "mnuKho";
-            mnuKho.Size = new Size(166, 22);
-            mnuKho.Text = "&KHO...";
             // 
             // statusStrip1
             // 
@@ -301,7 +370,6 @@
         private ToolStripMenuItem mnuBaoCaoThongKe;
         private ToolStripMenuItem mnuTroGiup;
         private StatusStrip statusStrip1;
-        private ToolStripMenuItem mnuDanhMuc;
         private ToolStripMenuItem mnuThongTinPhanMem;
         private ToolStripMenuItem mnuHuongDanSuDung;
         private ToolStripStatusLabel lblTrangThai;
@@ -316,13 +384,23 @@
         private ToolStripMenuItem đỐITÁCToolStripMenuItem;
         private ToolStripMenuItem kHÁCHHÀNGToolStripMenuItem;
         private ToolStripMenuItem nHÀCUNGCẤPToolStripMenuItem;
-        private ToolStripMenuItem mnuNhanVien;
         private ToolStripMenuItem mnuGiaoDich;
         private ToolStripMenuItem mnuNhapHang;
         private ToolStripMenuItem mnuHoaDon;
         private ToolStripSeparator toolStripSeparator3;
-        private ToolStripMenuItem mnuKho;
         private ToolStripMenuItem mnuThongKeHoaDon;
         private ToolStripMenuItem mnuThongKeNhapHang;
+        private ToolStripMenuItem mnuDanhMuc;
+        private ToolStripMenuItem mnuThuongHieu;
+        private ToolStripMenuItem mnuLoaiGiay;
+        private ToolStripMenuItem mnuMauGiay;
+        private ToolStripSeparator toolStripSeparator4;
+        private ToolStripMenuItem mnuGiay;
+        private ToolStripSeparator toolStripSeparator5;
+        private ToolStripMenuItem mnuNhaCungCap;
+        private ToolStripMenuItem mnuKhachHang;
+        private ToolStripMenuItem mnuNhanVien;
+        private ToolStripSeparator toolStripSeparator6;
+        private ToolStripMenuItem mnuKho;
     }
 }
