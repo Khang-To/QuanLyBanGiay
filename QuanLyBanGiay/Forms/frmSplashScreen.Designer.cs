@@ -51,7 +51,7 @@
             // 
             lblPhanTram.AutoSize = true;
             lblPhanTram.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPhanTram.Location = new Point(255, 307);
+            lblPhanTram.Location = new Point(273, 307);
             lblPhanTram.Name = "lblPhanTram";
             lblPhanTram.Size = new Size(48, 25);
             lblPhanTram.TabIndex = 1;

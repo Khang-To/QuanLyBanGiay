@@ -37,10 +37,6 @@
             toolStripLabel1 = new ToolStripLabel();
             toolStrip = new ToolStrip();
             btnXuat = new ToolStripButton();
-            DiaChi = new DataGridViewTextBoxColumn();
-            DienThoai = new DataGridViewTextBoxColumn();
-            TenNhaCungCap = new DataGridViewTextBoxColumn();
-            ID = new DataGridViewTextBoxColumn();
             dataGridView = new DataGridView();
             groupBox2 = new GroupBox();
             btnHuyBo = new Button();
@@ -55,6 +51,10 @@
             txtTenNhaCungCap = new TextBox();
             label1 = new Label();
             groupBox1 = new GroupBox();
+            ID = new DataGridViewTextBoxColumn();
+            TenNhaCungCap = new DataGridViewTextBoxColumn();
+            DienThoai = new DataGridViewTextBoxColumn();
+            DiaChi = new DataGridViewTextBoxColumn();
             toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             groupBox2.SuspendLayout();
@@ -122,34 +122,6 @@
             btnXuat.Size = new Size(68, 28);
             btnXuat.Text = "Xuất...";
             btnXuat.Click += btnXuat_Click;
-            // 
-            // DiaChi
-            // 
-            DiaChi.DataPropertyName = "DiaChi";
-            DiaChi.HeaderText = "Địa chỉ";
-            DiaChi.Name = "DiaChi";
-            DiaChi.ReadOnly = true;
-            // 
-            // DienThoai
-            // 
-            DienThoai.DataPropertyName = "DienThoai";
-            DienThoai.HeaderText = "SĐT";
-            DienThoai.Name = "DienThoai";
-            DienThoai.ReadOnly = true;
-            // 
-            // TenNhaCungCap
-            // 
-            TenNhaCungCap.DataPropertyName = "TenNhaCungCap";
-            TenNhaCungCap.HeaderText = "Tên nhà cung cấp";
-            TenNhaCungCap.Name = "TenNhaCungCap";
-            TenNhaCungCap.ReadOnly = true;
-            // 
-            // ID
-            // 
-            ID.DataPropertyName = "ID";
-            ID.HeaderText = "ID";
-            ID.Name = "ID";
-            ID.ReadOnly = true;
             // 
             // dataGridView
             // 
@@ -321,6 +293,35 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin nhà cung cấp";
             // 
+            // ID
+            // 
+            ID.DataPropertyName = "ID";
+            ID.FillWeight = 50F;
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            // 
+            // TenNhaCungCap
+            // 
+            TenNhaCungCap.DataPropertyName = "TenNhaCungCap";
+            TenNhaCungCap.HeaderText = "Tên nhà cung cấp";
+            TenNhaCungCap.Name = "TenNhaCungCap";
+            TenNhaCungCap.ReadOnly = true;
+            // 
+            // DienThoai
+            // 
+            DienThoai.DataPropertyName = "DienThoai";
+            DienThoai.HeaderText = "SĐT";
+            DienThoai.Name = "DienThoai";
+            DienThoai.ReadOnly = true;
+            // 
+            // DiaChi
+            // 
+            DiaChi.DataPropertyName = "DiaChi";
+            DiaChi.HeaderText = "Địa chỉ";
+            DiaChi.Name = "DiaChi";
+            DiaChi.ReadOnly = true;
+            // 
             // frmNhaCungCap
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -353,10 +354,6 @@
         private ToolStripLabel toolStripLabel1;
         private ToolStrip toolStrip;
         private ToolStripButton btnXuat;
-        private DataGridViewTextBoxColumn DiaChi;
-        private DataGridViewTextBoxColumn DienThoai;
-        private DataGridViewTextBoxColumn TenNhaCungCap;
-        private DataGridViewTextBoxColumn ID;
         private DataGridView dataGridView;
         private GroupBox groupBox2;
         private Button btnHuyBo;
@@ -371,5 +368,9 @@
         private TextBox txtTenNhaCungCap;
         private Label label1;
         private GroupBox groupBox1;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn TenNhaCungCap;
+        private DataGridViewTextBoxColumn DienThoai;
+        private DataGridViewTextBoxColumn DiaChi;
     }
 }

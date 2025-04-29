@@ -41,9 +41,6 @@
             label1 = new Label();
             groupBox2 = new GroupBox();
             dataGridView = new DataGridView();
-            ID = new DataGridViewTextBoxColumn();
-            TenLoai = new DataGridViewTextBoxColumn();
-            MoTa = new DataGridViewTextBoxColumn();
             toolStrip = new ToolStrip();
             toolStripLabel1 = new ToolStripLabel();
             txtTuKhoa = new ToolStripTextBox();
@@ -52,6 +49,9 @@
             btnNhap = new ToolStripButton();
             btnXuat = new ToolStripButton();
             btnLamMoi = new ToolStripButton();
+            ID = new DataGridViewTextBoxColumn();
+            TenLoai = new DataGridViewTextBoxColumn();
+            MoTa = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
@@ -203,27 +203,6 @@
             dataGridView.Size = new Size(635, 271);
             dataGridView.TabIndex = 3;
             // 
-            // ID
-            // 
-            ID.DataPropertyName = "ID";
-            ID.HeaderText = "ID";
-            ID.Name = "ID";
-            ID.ReadOnly = true;
-            // 
-            // TenLoai
-            // 
-            TenLoai.DataPropertyName = "TenLoai";
-            TenLoai.HeaderText = "Tên loại giày";
-            TenLoai.Name = "TenLoai";
-            TenLoai.ReadOnly = true;
-            // 
-            // MoTa
-            // 
-            MoTa.DataPropertyName = "MoTa";
-            MoTa.HeaderText = "Mô tả";
-            MoTa.Name = "MoTa";
-            MoTa.ReadOnly = true;
-            // 
             // toolStrip
             // 
             toolStrip.ImageScalingSize = new Size(24, 24);
@@ -281,6 +260,28 @@
             btnLamMoi.Name = "btnLamMoi";
             btnLamMoi.Size = new Size(82, 28);
             btnLamMoi.Text = "Làm mới";
+            // 
+            // ID
+            // 
+            ID.DataPropertyName = "ID";
+            ID.FillWeight = 50F;
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            // 
+            // TenLoai
+            // 
+            TenLoai.DataPropertyName = "TenLoai";
+            TenLoai.HeaderText = "Tên loại giày";
+            TenLoai.Name = "TenLoai";
+            TenLoai.ReadOnly = true;
+            // 
+            // MoTa
+            // 
+            MoTa.DataPropertyName = "MoTa";
+            MoTa.HeaderText = "Mô tả";
+            MoTa.Name = "MoTa";
+            MoTa.ReadOnly = true;
             // 
             // frmLoaiGiay
             // 

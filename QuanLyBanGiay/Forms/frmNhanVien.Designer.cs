@@ -48,12 +48,6 @@
             toolStripLabel1 = new ToolStripLabel();
             toolStrip = new ToolStrip();
             dataGridView = new DataGridView();
-            ID = new DataGridViewTextBoxColumn();
-            HoVaTen = new DataGridViewTextBoxColumn();
-            DienThoai = new DataGridViewTextBoxColumn();
-            DiaChi = new DataGridViewTextBoxColumn();
-            TenDangNhap = new DataGridViewTextBoxColumn();
-            QuyenHan = new DataGridViewTextBoxColumn();
             groupBox2 = new GroupBox();
             txtHoVaTenNhanVien = new TextBox();
             groupBox1 = new GroupBox();
@@ -64,6 +58,12 @@
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
+            ID = new DataGridViewTextBoxColumn();
+            HoVaTen = new DataGridViewTextBoxColumn();
+            DienThoai = new DataGridViewTextBoxColumn();
+            DiaChi = new DataGridViewTextBoxColumn();
+            TenDangNhap = new DataGridViewTextBoxColumn();
+            QuyenHan = new DataGridViewTextBoxColumn();
             toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             groupBox2.SuspendLayout();
@@ -262,48 +262,6 @@
             dataGridView.Size = new Size(794, 243);
             dataGridView.TabIndex = 3;
             // 
-            // ID
-            // 
-            ID.DataPropertyName = "ID";
-            ID.HeaderText = "ID";
-            ID.Name = "ID";
-            ID.ReadOnly = true;
-            // 
-            // HoVaTen
-            // 
-            HoVaTen.DataPropertyName = "HoVaTen";
-            HoVaTen.HeaderText = "Họ và tên";
-            HoVaTen.Name = "HoVaTen";
-            HoVaTen.ReadOnly = true;
-            // 
-            // DienThoai
-            // 
-            DienThoai.DataPropertyName = "DienThoai";
-            DienThoai.HeaderText = "SĐT";
-            DienThoai.Name = "DienThoai";
-            DienThoai.ReadOnly = true;
-            // 
-            // DiaChi
-            // 
-            DiaChi.DataPropertyName = "DiaChi";
-            DiaChi.HeaderText = "Địa chỉ";
-            DiaChi.Name = "DiaChi";
-            DiaChi.ReadOnly = true;
-            // 
-            // TenDangNhap
-            // 
-            TenDangNhap.DataPropertyName = "TenDangNhap";
-            TenDangNhap.HeaderText = "Tên đăng nhập";
-            TenDangNhap.Name = "TenDangNhap";
-            TenDangNhap.ReadOnly = true;
-            // 
-            // QuyenHan
-            // 
-            QuyenHan.DataPropertyName = "QuyenHan";
-            QuyenHan.HeaderText = "Quyền hạn";
-            QuyenHan.Name = "QuyenHan";
-            QuyenHan.ReadOnly = true;
-            // 
             // groupBox2
             // 
             groupBox2.Controls.Add(dataGridView);
@@ -418,6 +376,49 @@
             label4.TabIndex = 0;
             label4.Text = "Tên đăng nhập:";
             // 
+            // ID
+            // 
+            ID.DataPropertyName = "ID";
+            ID.FillWeight = 50F;
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            // 
+            // HoVaTen
+            // 
+            HoVaTen.DataPropertyName = "HoVaTen";
+            HoVaTen.HeaderText = "Họ và tên";
+            HoVaTen.Name = "HoVaTen";
+            HoVaTen.ReadOnly = true;
+            // 
+            // DienThoai
+            // 
+            DienThoai.DataPropertyName = "DienThoai";
+            DienThoai.HeaderText = "SĐT";
+            DienThoai.Name = "DienThoai";
+            DienThoai.ReadOnly = true;
+            // 
+            // DiaChi
+            // 
+            DiaChi.DataPropertyName = "DiaChi";
+            DiaChi.HeaderText = "Địa chỉ";
+            DiaChi.Name = "DiaChi";
+            DiaChi.ReadOnly = true;
+            // 
+            // TenDangNhap
+            // 
+            TenDangNhap.DataPropertyName = "TenDangNhap";
+            TenDangNhap.HeaderText = "Tên đăng nhập";
+            TenDangNhap.Name = "TenDangNhap";
+            TenDangNhap.ReadOnly = true;
+            // 
+            // QuyenHan
+            // 
+            QuyenHan.DataPropertyName = "QuyenHan";
+            QuyenHan.HeaderText = "Quyền hạn";
+            QuyenHan.Name = "QuyenHan";
+            QuyenHan.ReadOnly = true;
+            // 
             // frmNhanVien
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -466,12 +467,6 @@
         private GroupBox groupBox2;
         private TextBox txtHoVaTenNhanVien;
         private GroupBox groupBox1;
-        private DataGridViewTextBoxColumn ID;
-        private DataGridViewTextBoxColumn HoVaTen;
-        private DataGridViewTextBoxColumn DienThoai;
-        private DataGridViewTextBoxColumn DiaChi;
-        private DataGridViewTextBoxColumn TenDangNhap;
-        private DataGridViewTextBoxColumn QuyenHan;
         private GroupBox groupBox3;
         private ComboBox cboQuyenHan;
         private TextBox txtMatKhau;
@@ -479,5 +474,11 @@
         private Label label6;
         private Label label5;
         private Label label4;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn HoVaTen;
+        private DataGridViewTextBoxColumn DienThoai;
+        private DataGridViewTextBoxColumn DiaChi;
+        private DataGridViewTextBoxColumn TenDangNhap;
+        private DataGridViewTextBoxColumn QuyenHan;
     }
 }

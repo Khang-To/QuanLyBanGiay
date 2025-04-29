@@ -143,3 +143,11 @@ E:\DULIEU\ME\LapTrinhQuanLi\QuanLyBanGiay\QuanLyBanGiay\obj\Debug\net8.0-windows
 E:\DULIEU\ME\LapTrinhQuanLi\QuanLyBanGiay\QuanLyBanGiay\obj\Debug\net8.0-windows\ref\QuanLyBanGiay.dll
 E:\DULIEU\ME\LapTrinhQuanLi\QuanLyBanGiay\QuanLyBanGiay\obj\Debug\net8.0-windows\QuanLyBanGiay.Forms.frmMain.resources
 E:\DULIEU\ME\LapTrinhQuanLi\QuanLyBanGiay\QuanLyBanGiay\obj\Debug\net8.0-windows\QuanLyBanGiay.Forms.frmSplashScreen.resources
+E:\DULIEU\ME\LapTrinhQuanLi\QuanLyBanGiay\QuanLyBanGiay\obj\Debug\net8.0-windows\QuanLyBanGiay.Forms.frmDangNhap.resources
+E:\DULIEU\ME\LapTrinhQuanLi\QuanLyBanGiay\QuanLyBanGiay\obj\Debug\net8.0-windows\QuanLyBanGiay.Forms.frmHoaDon.resources
+E:\DULIEU\ME\LapTrinhQuanLi\QuanLyBanGiay\QuanLyBanGiay\obj\Debug\net8.0-windows\QuanLyBanGiay.Forms.frmHoaDon_ChiTiet.resources
+E:\DULIEU\ME\LapTrinhQuanLi\QuanLyBanGiay\QuanLyBanGiay\obj\Debug\net8.0-windows\QuanLyBanGiay.Forms.frmPhieuNhap.resources
+E:\DULIEU\ME\LapTrinhQuanLi\QuanLyBanGiay\QuanLyBanGiay\obj\Debug\net8.0-windows\QuanLyBanGiay.Forms.frmPhieuNhap_ChiTiet.resources
+E:\DULIEU\ME\LapTrinhQuanLi\QuanLyBanGiay\QuanLyBanGiay\obj\Debug\net8.0-windows\QuanLyBanGiay.Forms.frmThuongHieu.resources
+E:\DULIEU\ME\LapTrinhQuanLi\QuanLyBanGiay\QuanLyBanGiay\obj\Debug\net8.0-windows\QuanLyBanGiay.Forms.frmGiay.resources
+E:\DULIEU\ME\LapTrinhQuanLi\QuanLyBanGiay\QuanLyBanGiay\obj\Debug\net8.0-windows\QuanLyBanGiay.Forms.frmMauSac.resources
