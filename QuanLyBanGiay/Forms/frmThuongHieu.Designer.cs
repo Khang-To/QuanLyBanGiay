@@ -119,6 +119,7 @@
             txtTuKhoa.BorderStyle = BorderStyle.FixedSingle;
             txtTuKhoa.Name = "txtTuKhoa";
             txtTuKhoa.Size = new Size(140, 31);
+            txtTuKhoa.KeyDown += txtTuKhoa_KeyDown;
             // 
             // btnTimKiem
             // 
@@ -270,7 +271,9 @@
             ClientSize = new Size(547, 450);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
+            MinimumSize = new Size(563, 489);
             Name = "frmThuongHieu";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Thương hiệu giày";
             Load += frmThuongHieu_Load;
             groupBox2.ResumeLayout(false);

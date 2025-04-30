@@ -39,6 +39,8 @@
             panel1 = new Panel();
             groupBox2 = new GroupBox();
             dataGridView = new DataGridView();
+            ID = new DataGridViewTextBoxColumn();
+            TenMau = new DataGridViewTextBoxColumn();
             toolStrip = new ToolStrip();
             toolStripLabel1 = new ToolStripLabel();
             txtTuKhoa = new ToolStripTextBox();
@@ -47,8 +49,6 @@
             btnNhap = new ToolStripButton();
             btnXuat = new ToolStripButton();
             btnLamMoi = new ToolStripButton();
-            ID = new DataGridViewTextBoxColumn();
-            TenMau = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
@@ -67,6 +67,7 @@
             btnHuyBo.TabIndex = 17;
             btnHuyBo.Text = "HỦY BỎ";
             btnHuyBo.UseVisualStyleBackColor = false;
+            btnHuyBo.Click += btnHuyBo_Click;
             // 
             // btnLuu
             // 
@@ -80,6 +81,7 @@
             btnLuu.TabIndex = 16;
             btnLuu.Text = "LƯU";
             btnLuu.UseVisualStyleBackColor = false;
+            btnLuu.Click += btnLuu_Click;
             // 
             // btnXoa
             // 
@@ -92,6 +94,7 @@
             btnXoa.TabIndex = 15;
             btnXoa.Text = "XÓA";
             btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnSua
             // 
@@ -103,6 +106,7 @@
             btnSua.TabIndex = 14;
             btnSua.Text = "SỬA";
             btnSua.UseVisualStyleBackColor = true;
+            btnSua.Click += btnSua_Click;
             // 
             // btnThem
             // 
@@ -116,6 +120,7 @@
             btnThem.TabIndex = 13;
             btnThem.Text = "THÊM";
             btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
             // 
             // txtMauSac
             // 
@@ -178,6 +183,21 @@
             dataGridView.Size = new Size(533, 352);
             dataGridView.TabIndex = 3;
             // 
+            // ID
+            // 
+            ID.DataPropertyName = "ID";
+            ID.FillWeight = 50F;
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            // 
+            // TenMau
+            // 
+            TenMau.DataPropertyName = "TenMau";
+            TenMau.HeaderText = "Màu";
+            TenMau.Name = "TenMau";
+            TenMau.ReadOnly = true;
+            // 
             // toolStrip
             // 
             toolStrip.ImageScalingSize = new Size(24, 24);
@@ -198,6 +218,7 @@
             txtTuKhoa.BorderStyle = BorderStyle.FixedSingle;
             txtTuKhoa.Name = "txtTuKhoa";
             txtTuKhoa.Size = new Size(140, 31);
+            txtTuKhoa.KeyDown += txtTuKhoa_KeyDown;
             // 
             // btnTimKiem
             // 
@@ -206,6 +227,7 @@
             btnTimKiem.Name = "btnTimKiem";
             btnTimKiem.Size = new Size(56, 28);
             btnTimKiem.Text = "Tìm";
+            btnTimKiem.Click += btnTimKiem_Click;
             // 
             // toolStripSeparator1
             // 
@@ -219,6 +241,7 @@
             btnNhap.Name = "btnNhap";
             btnNhap.Size = new Size(73, 28);
             btnNhap.Text = "Nhập...";
+            btnNhap.Click += btnNhap_Click;
             // 
             // btnXuat
             // 
@@ -227,6 +250,7 @@
             btnXuat.Name = "btnXuat";
             btnXuat.Size = new Size(68, 28);
             btnXuat.Text = "Xuất...";
+            btnXuat.Click += btnXuat_Click;
             // 
             // btnLamMoi
             // 
@@ -235,21 +259,7 @@
             btnLamMoi.Name = "btnLamMoi";
             btnLamMoi.Size = new Size(82, 28);
             btnLamMoi.Text = "Làm mới";
-            // 
-            // ID
-            // 
-            ID.DataPropertyName = "ID";
-            ID.FillWeight = 50F;
-            ID.HeaderText = "ID";
-            ID.Name = "ID";
-            ID.ReadOnly = true;
-            // 
-            // TenMau
-            // 
-            TenMau.DataPropertyName = "TenMau";
-            TenMau.HeaderText = "Màu";
-            TenMau.Name = "TenMau";
-            TenMau.ReadOnly = true;
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // frmMauSac
             // 
@@ -262,6 +272,7 @@
             Name = "frmMauSac";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Màu giày";
+            Load += frmMauSac_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             groupBox2.ResumeLayout(false);

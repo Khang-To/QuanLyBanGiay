@@ -31,6 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmKhachHang));
             groupBox2 = new GroupBox();
             dataGridView = new DataGridView();
+            ID = new DataGridViewTextBoxColumn();
+            HoVaTen = new DataGridViewTextBoxColumn();
+            DienThoai = new DataGridViewTextBoxColumn();
+            DiaChi = new DataGridViewTextBoxColumn();
             toolStrip = new ToolStrip();
             toolStripLabel1 = new ToolStripLabel();
             txtTuKhoa = new ToolStripTextBox();
@@ -51,10 +55,6 @@
             txtHoVaTenKhachHang = new TextBox();
             label1 = new Label();
             groupBox1 = new GroupBox();
-            ID = new DataGridViewTextBoxColumn();
-            HoVaTen = new DataGridViewTextBoxColumn();
-            DienThoai = new DataGridViewTextBoxColumn();
-            DiaChi = new DataGridViewTextBoxColumn();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             toolStrip.SuspendLayout();
@@ -88,6 +88,35 @@
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView.Size = new Size(794, 271);
             dataGridView.TabIndex = 3;
+            // 
+            // ID
+            // 
+            ID.DataPropertyName = "ID";
+            ID.FillWeight = 50F;
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            // 
+            // HoVaTen
+            // 
+            HoVaTen.DataPropertyName = "HoVaTen";
+            HoVaTen.HeaderText = "Họ và tên";
+            HoVaTen.Name = "HoVaTen";
+            HoVaTen.ReadOnly = true;
+            // 
+            // DienThoai
+            // 
+            DienThoai.DataPropertyName = "DienThoai";
+            DienThoai.HeaderText = "SĐT";
+            DienThoai.Name = "DienThoai";
+            DienThoai.ReadOnly = true;
+            // 
+            // DiaChi
+            // 
+            DiaChi.DataPropertyName = "DiaChi";
+            DiaChi.HeaderText = "Địa chỉ";
+            DiaChi.Name = "DiaChi";
+            DiaChi.ReadOnly = true;
             // 
             // toolStrip
             // 
@@ -293,35 +322,6 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin khách hàng:";
             // 
-            // ID
-            // 
-            ID.DataPropertyName = "ID";
-            ID.FillWeight = 50F;
-            ID.HeaderText = "ID";
-            ID.Name = "ID";
-            ID.ReadOnly = true;
-            // 
-            // HoVaTen
-            // 
-            HoVaTen.DataPropertyName = "HoVaTen";
-            HoVaTen.HeaderText = "Họ và tên";
-            HoVaTen.Name = "HoVaTen";
-            HoVaTen.ReadOnly = true;
-            // 
-            // DienThoai
-            // 
-            DienThoai.DataPropertyName = "DienThoai";
-            DienThoai.HeaderText = "SĐT";
-            DienThoai.Name = "DienThoai";
-            DienThoai.ReadOnly = true;
-            // 
-            // DiaChi
-            // 
-            DiaChi.DataPropertyName = "DiaChi";
-            DiaChi.HeaderText = "Địa chỉ";
-            DiaChi.Name = "DiaChi";
-            DiaChi.ReadOnly = true;
-            // 
             // frmKhachHang
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -331,6 +331,7 @@
             Controls.Add(groupBox1);
             MinimumSize = new Size(816, 489);
             Name = "frmKhachHang";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Khách hàng";
             Load += frmKhachHang_Load;
             groupBox2.ResumeLayout(false);
