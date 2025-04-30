@@ -31,8 +31,8 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            txtTenDangNhap = new TextBox();
+            txtMatKhau = new TextBox();
             btnDangNhap = new Button();
             btnHuyBo = new Button();
             SuspendLayout();
@@ -68,21 +68,24 @@
             label3.TabIndex = 2;
             label3.Text = "Mật khẩu:";
             // 
-            // textBox1
+            // txtTenDangNhap
             // 
-            textBox1.Anchor = AnchorStyles.Top;
-            textBox1.Location = new Point(107, 50);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(255, 23);
-            textBox1.TabIndex = 3;
+            txtTenDangNhap.Anchor = AnchorStyles.Top;
+            txtTenDangNhap.Location = new Point(107, 50);
+            txtTenDangNhap.Name = "txtTenDangNhap";
+            txtTenDangNhap.Size = new Size(255, 23);
+            txtTenDangNhap.TabIndex = 3;
+            txtTenDangNhap.KeyDown += txtTenDangNhap_KeyDown;
             // 
-            // textBox2
+            // txtMatKhau
             // 
-            textBox2.Anchor = AnchorStyles.Top;
-            textBox2.Location = new Point(107, 102);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(255, 23);
-            textBox2.TabIndex = 4;
+            txtMatKhau.Anchor = AnchorStyles.Top;
+            txtMatKhau.Location = new Point(107, 102);
+            txtMatKhau.Name = "txtMatKhau";
+            txtMatKhau.Size = new Size(255, 23);
+            txtMatKhau.TabIndex = 4;
+            txtMatKhau.UseSystemPasswordChar = true;
+            txtMatKhau.KeyDown += txtMatKhau_KeyDown;
             // 
             // btnDangNhap
             // 
@@ -96,6 +99,7 @@
             btnDangNhap.TabIndex = 5;
             btnDangNhap.Text = "ĐĂNG NHẬP";
             btnDangNhap.UseVisualStyleBackColor = false;
+            btnDangNhap.Click += btnDangNhap_Click;
             // 
             // btnHuyBo
             // 
@@ -109,6 +113,7 @@
             btnHuyBo.TabIndex = 6;
             btnHuyBo.Text = "HỦY BỎ";
             btnHuyBo.UseVisualStyleBackColor = false;
+            btnHuyBo.Click += btnHuyBo_Click;
             // 
             // frmDangNhap
             // 
@@ -117,12 +122,13 @@
             ClientSize = new Size(374, 195);
             Controls.Add(btnHuyBo);
             Controls.Add(btnDangNhap);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtMatKhau);
+            Controls.Add(txtTenDangNhap);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmDangNhap";
@@ -137,9 +143,9 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private TextBox textBox1;
-        private TextBox textBox2;
         private Button btnDangNhap;
         private Button btnHuyBo;
+        public TextBox txtTenDangNhap;
+        public TextBox txtMatKhau;
     }
 }

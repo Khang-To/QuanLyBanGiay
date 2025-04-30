@@ -36,7 +36,7 @@
             // 
             // timer
             // 
-            timer.Interval = 35;
+            timer.Interval = 20;
             timer.Tick += timer_Tick;
             // 
             // progressBar

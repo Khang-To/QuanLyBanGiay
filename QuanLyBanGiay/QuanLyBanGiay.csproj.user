@@ -4,6 +4,9 @@
     <Compile Update="Forms\frmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\frmDoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\frmGiay.cs">
       <SubType>Form</SubType>
     </Compile>
