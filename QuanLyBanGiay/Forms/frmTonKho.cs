@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace QuanLyBanGiay.Forms
 {
-    public partial class frmPhieuNhap_ChiTiet : Form
+    public partial class frmTonKho : Form
     {
-        public frmPhieuNhap_ChiTiet()
+        public frmTonKho()
         {
             InitializeComponent();
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
