@@ -408,13 +408,11 @@
         private ToolStripStatusLabel lblTrangThai;
         private ToolStripStatusLabel toolStripStatusLabel1;
         private ToolStripStatusLabel lblLienKet;
-        private ToolStripMenuItem mnuThietLap;
         private ToolStripMenuItem lOẠIGIÀYToolStripMenuItem;
         private ToolStripMenuItem tHƯƠNGHIỆUToolStripMenuItem;
         private ToolStripMenuItem mÀUGIÀYToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripMenuItem gIÀYToolStripMenuItem;
-        private ToolStripMenuItem đỐITÁCToolStripMenuItem;
         private ToolStripMenuItem kHÁCHHÀNGToolStripMenuItem;
         private ToolStripMenuItem nHÀCUNGCẤPToolStripMenuItem;
         private ToolStripMenuItem mnuGiaoDich;

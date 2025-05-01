@@ -16,6 +16,7 @@ namespace QuanLyBanGiay.Forms
     public partial class frmNhanVien : Form
     {
         QLBGDbContext context = new QLBGDbContext();
+        private frmDoiMatKhau? frmDMK = null;
         int id;
         public frmNhanVien()
         {
@@ -219,8 +220,22 @@ namespace QuanLyBanGiay.Forms
 
         private void btnDoiMatKhau_Click(object sender, EventArgs e)
         {
+            string tenDangNhap = txtTenDangNhap.Text.Trim();
+            if (!string.IsNullOrEmpty(tenDangNhap))
+            {
+                if (frmDMK == null || frmDMK.IsDisposed)
+                {
+                    var frm = new frmDoiMatKhau(tenDangNhap, true);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
 
+                }
+                else
+                {
+                    frmDMK.Activate();
+                }
+            }
         }
-        #endregion       
     }
+        #endregion       
 }
