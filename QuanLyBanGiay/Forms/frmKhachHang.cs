@@ -14,6 +14,7 @@ namespace QuanLyBanGiay.Forms
 {
     public partial class frmKhachHang : Form
     {
+        public int KhachHangIDMoi { get; set; } = 0;
         QLBGDbContext context = new QLBGDbContext();
         int id;
         public frmKhachHang()
@@ -109,6 +110,7 @@ namespace QuanLyBanGiay.Forms
                     kh.DiaChi = txtDiaChi.Text;
                     context.KhachHangs.Add(kh);
                     context.SaveChanges();
+                    KhachHangIDMoi = kh.ID;
                 }
                 else    //Sửa
                 {
