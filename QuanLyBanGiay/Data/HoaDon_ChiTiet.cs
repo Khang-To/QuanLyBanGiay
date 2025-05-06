@@ -11,23 +11,21 @@ namespace QuanLyBanGiay.Data
     {
         public int ID { get; set; }
         public int HoaDonID { get; set; }
-        public int SanPhamID { get; set; }
+        public int SizeGiayID { get; set; }
         public int SoLuongBan { get; set; }
         public int DonGiaBan { get; set; }
-
         public virtual HoaDon HoaDon { get; set; } = null!;
         public virtual SizeGiay SizeGiay { get; set; } = null!;
     }
-
     [NotMapped]
     public class DanhSachHoaDon_ChiTiet
     {
         public int ID { get; set; }
         public int HoaDonID { get; set; }
-        public int SanPhamID { get; set; }
-        public string TenSanPham { get; set; } = null!;
-        public int SoLuongBan { get; set; }
-        public int DonGiaBan { get; set; }
-        public double ThanhTien { get; set; }
+        public int SizeGiayID { get; set; }
+        public string TenGiay { get; set; } = null!; 
+        public int SoLuongNhap { get; set; }
+        public int DonGiaNhap { get; set; }
+        public double ThanhTien { get; set; } 
     }
 }

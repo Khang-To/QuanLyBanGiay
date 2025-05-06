@@ -220,10 +220,9 @@ namespace QuanLyBanGiay.Migrations
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     HoaDonID = table.Column<int>(type: "int", nullable: false),
-                    SanPhamID = table.Column<int>(type: "int", nullable: false),
+                    SizeGiayID = table.Column<int>(type: "int", nullable: false),
                     SoLuongBan = table.Column<int>(type: "int", nullable: false),
-                    DonGiaBan = table.Column<int>(type: "int", nullable: false),
-                    SizeGiayID = table.Column<int>(type: "int", nullable: false)
+                    DonGiaBan = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

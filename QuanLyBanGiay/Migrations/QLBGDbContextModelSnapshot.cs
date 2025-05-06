@@ -101,9 +101,6 @@ namespace QuanLyBanGiay.Migrations
                     b.Property<int>("HoaDonID")
                         .HasColumnType("int");
 
-                    b.Property<int>("SanPhamID")
-                        .HasColumnType("int");
-
                     b.Property<int>("SizeGiayID")
                         .HasColumnType("int");
 
