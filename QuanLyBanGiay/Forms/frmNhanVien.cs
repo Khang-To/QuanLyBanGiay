@@ -119,7 +119,7 @@ namespace QuanLyBanGiay.Forms
                         nv.DienThoai = txtSDTNhanVien.Text;
                         nv.DiaChi = txtDiaChiNhanVien.Text;
                         nv.TenDangNhap = txtTenDangNhap.Text;
-                        nv.MatKhau = BC.HashPassword(txtMatKhau.Text); // Mã hóa mật khẩu
+                        nv.MatKhau = BC.HashPassword(txtMatKhau.Text); 
                         nv.QuyenHan = cboQuyenHan.SelectedIndex == 0 ? "admin" : "user";
                         context.NhanViens.Add(nv);
                         context.SaveChanges();
@@ -137,9 +137,9 @@ namespace QuanLyBanGiay.Forms
                         nv.QuyenHan = cboQuyenHan.SelectedIndex == 0 ? "admin" : "user";
                         context.NhanViens.Update(nv);
                         if (string.IsNullOrEmpty(txtMatKhau.Text))
-                            context.Entry(nv).Property(x => x.MatKhau).IsModified = false; // Giữ nguyên mật khẩu cũ
+                            context.Entry(nv).Property(x => x.MatKhau).IsModified = false;
                         else
-                            nv.MatKhau = BC.HashPassword(txtMatKhau.Text); // Cập nhật mật khẩu mới
+                            nv.MatKhau = BC.HashPassword(txtMatKhau.Text); 
                         context.SaveChanges();
                     }
                 }

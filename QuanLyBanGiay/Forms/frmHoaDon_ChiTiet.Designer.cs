@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            button1 = new Button();
+            btnKhachHangMoi = new Button();
             txtGhiChuHoaDon = new TextBox();
             label3 = new Label();
             cboKhachHang = new ComboBox();
@@ -38,11 +38,13 @@
             label1 = new Label();
             groupBox2 = new GroupBox();
             dataGridView = new DataGridView();
+            SanPhamID = new DataGridViewTextBoxColumn();
+            TenSanPham = new DataGridViewTextBoxColumn();
+            DonGiaBan = new DataGridViewTextBoxColumn();
+            SoLuongBan = new DataGridViewTextBoxColumn();
+            ThanhTien = new DataGridViewTextBoxColumn();
             panel1 = new Panel();
             numDonGiaBan = new NumericUpDown();
-            cboGiaTri = new ComboBox();
-            cboLocTheo = new ComboBox();
-            label6 = new Label();
             numSoLuongBan = new NumericUpDown();
             label7 = new Label();
             label5 = new Label();
@@ -53,11 +55,8 @@
             panel2 = new Panel();
             btnInHoaDon = new Button();
             btnLuu = new Button();
-            SanPhamID = new DataGridViewTextBoxColumn();
-            TenSanPham = new DataGridViewTextBoxColumn();
-            DonGiaBan = new DataGridViewTextBoxColumn();
-            SoLuongBan = new DataGridViewTextBoxColumn();
-            ThanhTien = new DataGridViewTextBoxColumn();
+            label8 = new Label();
+            lblSoLuongTon = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
@@ -69,7 +68,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(button1);
+            groupBox1.Controls.Add(btnKhachHangMoi);
             groupBox1.Controls.Add(txtGhiChuHoaDon);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(cboKhachHang);
@@ -84,16 +83,17 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin hóa đơn:";
             // 
-            // button1
+            // btnKhachHangMoi
             // 
-            button1.Anchor = AnchorStyles.Top;
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(662, 59);
-            button1.Name = "button1";
-            button1.Size = new Size(148, 39);
-            button1.TabIndex = 6;
-            button1.Text = "KHÁCH HÀNG MỚI...";
-            button1.UseVisualStyleBackColor = true;
+            btnKhachHangMoi.Anchor = AnchorStyles.Top;
+            btnKhachHangMoi.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnKhachHangMoi.Location = new Point(662, 59);
+            btnKhachHangMoi.Name = "btnKhachHangMoi";
+            btnKhachHangMoi.Size = new Size(148, 39);
+            btnKhachHangMoi.TabIndex = 6;
+            btnKhachHangMoi.Text = "KHÁCH HÀNG MỚI...";
+            btnKhachHangMoi.UseVisualStyleBackColor = true;
+            btnKhachHangMoi.Click += btnKhachHangMoi_Click;
             // 
             // txtGhiChuHoaDon
             // 
@@ -182,12 +182,46 @@
             dataGridView.Size = new Size(819, 296);
             dataGridView.TabIndex = 2;
             // 
+            // SanPhamID
+            // 
+            SanPhamID.DataPropertyName = "SanPhamID";
+            SanPhamID.HeaderText = "ID";
+            SanPhamID.Name = "SanPhamID";
+            SanPhamID.ReadOnly = true;
+            SanPhamID.Visible = false;
+            // 
+            // TenSanPham
+            // 
+            TenSanPham.DataPropertyName = "TenSanPham";
+            TenSanPham.HeaderText = "Tên giày";
+            TenSanPham.Name = "TenSanPham";
+            TenSanPham.ReadOnly = true;
+            // 
+            // DonGiaBan
+            // 
+            DonGiaBan.HeaderText = "Đơn giá";
+            DonGiaBan.Name = "DonGiaBan";
+            DonGiaBan.ReadOnly = true;
+            // 
+            // SoLuongBan
+            // 
+            SoLuongBan.DataPropertyName = "SoLuongBan";
+            SoLuongBan.HeaderText = "Số lượng";
+            SoLuongBan.Name = "SoLuongBan";
+            SoLuongBan.ReadOnly = true;
+            // 
+            // ThanhTien
+            // 
+            ThanhTien.DataPropertyName = "ThanhTien";
+            ThanhTien.HeaderText = "Thành tiền";
+            ThanhTien.Name = "ThanhTien";
+            ThanhTien.ReadOnly = true;
+            // 
             // panel1
             // 
+            panel1.Controls.Add(lblSoLuongTon);
+            panel1.Controls.Add(label8);
             panel1.Controls.Add(numDonGiaBan);
-            panel1.Controls.Add(cboGiaTri);
-            panel1.Controls.Add(cboLocTheo);
-            panel1.Controls.Add(label6);
             panel1.Controls.Add(numSoLuongBan);
             panel1.Controls.Add(label7);
             panel1.Controls.Add(label5);
@@ -207,36 +241,6 @@
             numDonGiaBan.Name = "numDonGiaBan";
             numDonGiaBan.Size = new Size(120, 23);
             numDonGiaBan.TabIndex = 19;
-            // 
-            // cboGiaTri
-            // 
-            cboGiaTri.Anchor = AnchorStyles.Top;
-            cboGiaTri.FormattingEnabled = true;
-            cboGiaTri.Location = new Point(196, 7);
-            cboGiaTri.Name = "cboGiaTri";
-            cboGiaTri.Size = new Size(121, 23);
-            cboGiaTri.TabIndex = 18;
-            // 
-            // cboLocTheo
-            // 
-            cboLocTheo.Anchor = AnchorStyles.Top;
-            cboLocTheo.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboLocTheo.FormattingEnabled = true;
-            cboLocTheo.Items.AddRange(new object[] { "Tất cả", "Size", "Màu" });
-            cboLocTheo.Location = new Point(73, 7);
-            cboLocTheo.Name = "cboLocTheo";
-            cboLocTheo.Size = new Size(117, 23);
-            cboLocTheo.TabIndex = 17;
-            // 
-            // label6
-            // 
-            label6.Anchor = AnchorStyles.Top;
-            label6.AutoSize = true;
-            label6.Location = new Point(11, 10);
-            label6.Name = "label6";
-            label6.Size = new Size(56, 15);
-            label6.TabIndex = 15;
-            label6.Text = "Lọc theo:";
             // 
             // numSoLuongBan
             // 
@@ -270,7 +274,7 @@
             // 
             cboSanPham.Anchor = AnchorStyles.Top;
             cboSanPham.FormattingEnabled = true;
-            cboSanPham.Location = new Point(48, 55);
+            cboSanPham.Location = new Point(50, 22);
             cboSanPham.Name = "cboSanPham";
             cboSanPham.Size = new Size(210, 23);
             cboSanPham.TabIndex = 10;
@@ -280,7 +284,7 @@
             // 
             label4.Anchor = AnchorStyles.Top;
             label4.AutoSize = true;
-            label4.Location = new Point(9, 58);
+            label4.Location = new Point(11, 22);
             label4.Name = "label4";
             label4.Size = new Size(33, 15);
             label4.TabIndex = 9;
@@ -343,40 +347,23 @@
             btnLuu.UseVisualStyleBackColor = true;
             btnLuu.Click += btnLuu_Click;
             // 
-            // SanPhamID
+            // label8
             // 
-            SanPhamID.DataPropertyName = "SanPhamID";
-            SanPhamID.HeaderText = "ID";
-            SanPhamID.Name = "SanPhamID";
-            SanPhamID.ReadOnly = true;
-            SanPhamID.Visible = false;
+            label8.AutoSize = true;
+            label8.Location = new Point(11, 62);
+            label8.Name = "label8";
+            label8.Size = new Size(78, 15);
+            label8.TabIndex = 20;
+            label8.Text = "Số lượng tồn:";
             // 
-            // TenSanPham
+            // lblSoLuongTon
             // 
-            TenSanPham.DataPropertyName = "TenSanPham";
-            TenSanPham.HeaderText = "Tên giày";
-            TenSanPham.Name = "TenSanPham";
-            TenSanPham.ReadOnly = true;
-            // 
-            // DonGiaBan
-            // 
-            DonGiaBan.HeaderText = "Đơn giá";
-            DonGiaBan.Name = "DonGiaBan";
-            DonGiaBan.ReadOnly = true;
-            // 
-            // SoLuongBan
-            // 
-            SoLuongBan.DataPropertyName = "SoLuongBan";
-            SoLuongBan.HeaderText = "Số lượng";
-            SoLuongBan.Name = "SoLuongBan";
-            SoLuongBan.ReadOnly = true;
-            // 
-            // ThanhTien
-            // 
-            ThanhTien.DataPropertyName = "ThanhTien";
-            ThanhTien.HeaderText = "Thành tiền";
-            ThanhTien.Name = "ThanhTien";
-            ThanhTien.ReadOnly = true;
+            lblSoLuongTon.AutoSize = true;
+            lblSoLuongTon.Location = new Point(95, 63);
+            lblSoLuongTon.Name = "lblSoLuongTon";
+            lblSoLuongTon.Size = new Size(19, 15);
+            lblSoLuongTon.TabIndex = 21;
+            lblSoLuongTon.Text = "00";
             // 
             // frmHoaDon_ChiTiet
             // 
@@ -411,7 +398,7 @@
         private Label label2;
         private ComboBox cboNhanVien;
         private Label label1;
-        private Button button1;
+        private Button btnKhachHangMoi;
         private GroupBox groupBox2;
         private DataGridView dataGridView;
         private Panel panel2;
@@ -420,19 +407,18 @@
         private Button btnXacNhanBan;
         private Button btnInHoaDon;
         private Button btnLuu;
-        private ComboBox cboLocTheo;
-        private Label label6;
         private NumericUpDown numSoLuongBan;
         private Label label7;
         private Label label5;
         private ComboBox cboSanPham;
         private Label label4;
-        private ComboBox cboGiaTri;
         private NumericUpDown numDonGiaBan;
         private DataGridViewTextBoxColumn SanPhamID;
         private DataGridViewTextBoxColumn TenSanPham;
         private DataGridViewTextBoxColumn DonGiaBan;
         private DataGridViewTextBoxColumn SoLuongBan;
         private DataGridViewTextBoxColumn ThanhTien;
+        private Label lblSoLuongTon;
+        private Label label8;
     }
 }

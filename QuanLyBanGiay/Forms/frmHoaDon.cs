@@ -15,6 +15,7 @@ namespace QuanLyBanGiay.Forms
 {
     public partial class frmHoaDon : Form
     {
+        frmHoaDon_ChiTiet? frmHoaDon_ChiTiet = null;
         QLBGDbContext context = new QLBGDbContext();
         int id = 0;
         public frmHoaDon()
@@ -58,9 +59,16 @@ namespace QuanLyBanGiay.Forms
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            using (frmHoaDon_ChiTiet chiTiet = new frmHoaDon_ChiTiet())
+            if (frmHoaDon_ChiTiet == null || frmHoaDon_ChiTiet.IsDisposed)
             {
-                chiTiet.ShowDialog();
+                var frmChiTiet = new frmHoaDon_ChiTiet();
+                frmChiTiet.MdiParent = this.MdiParent;
+                frmChiTiet.Show();
+
+            }
+            else
+            {
+                frmHoaDon_ChiTiet.Activate();
             }
         }
 

@@ -213,7 +213,6 @@
             cboGiay.Name = "cboGiay";
             cboGiay.Size = new Size(581, 28);
             cboGiay.TabIndex = 9;
-            cboGiay.SelectedIndexChanged += this.cboSanPham_SelectedIndexChanged;
             // 
             // label6
             // 

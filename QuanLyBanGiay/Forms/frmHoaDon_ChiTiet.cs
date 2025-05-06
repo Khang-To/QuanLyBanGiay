@@ -14,6 +14,7 @@ namespace QuanLyBanGiay.Forms
 {
     public partial class frmHoaDon_ChiTiet : Form
     {
+        frmKhachHang? frmKhachHang = null!;
         QLBGDbContext context = new QLBGDbContext();
         int id = 0;
         BindingList<DanhSachHoaDon_ChiTiet> hoaDonChiTiet = new BindingList<DanhSachHoaDon_ChiTiet>();
@@ -230,6 +231,21 @@ namespace QuanLyBanGiay.Forms
                 int maSanPham = Convert.ToInt32(cboSanPham.SelectedValue?.ToString());
                 var sanPham = context.Giays.Find(maSanPham)!;
                 numDonGiaBan.Value = sanPham.GiaBan;
+            }
+        }
+
+        private void btnKhachHangMoi_Click(object sender, EventArgs e)
+        {
+            if (frmKhachHang == null || frmKhachHang.IsDisposed)
+            {
+                var frmKhachHang = new frmKhachHang();
+                frmKhachHang.MdiParent = this.MdiParent;
+                frmKhachHang.Show();
+
+            }
+            else
+            {
+                frmKhachHang.Activate();
             }
         }
     }
