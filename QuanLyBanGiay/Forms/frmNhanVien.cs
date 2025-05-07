@@ -16,6 +16,7 @@ namespace QuanLyBanGiay.Forms
     public partial class frmNhanVien : Form
     {
         QLBGDbContext context = new QLBGDbContext();
+        private frmDoiMatKhau? frmDMK = null;
         int id;
         public frmNhanVien()
         {
@@ -118,7 +119,7 @@ namespace QuanLyBanGiay.Forms
                         nv.DienThoai = txtSDTNhanVien.Text;
                         nv.DiaChi = txtDiaChiNhanVien.Text;
                         nv.TenDangNhap = txtTenDangNhap.Text;
-                        nv.MatKhau = BC.HashPassword(txtMatKhau.Text); // Mã hóa mật khẩu
+                        nv.MatKhau = BC.HashPassword(txtMatKhau.Text); 
                         nv.QuyenHan = cboQuyenHan.SelectedIndex == 0 ? "admin" : "user";
                         context.NhanViens.Add(nv);
                         context.SaveChanges();
@@ -136,9 +137,9 @@ namespace QuanLyBanGiay.Forms
                         nv.QuyenHan = cboQuyenHan.SelectedIndex == 0 ? "admin" : "user";
                         context.NhanViens.Update(nv);
                         if (string.IsNullOrEmpty(txtMatKhau.Text))
-                            context.Entry(nv).Property(x => x.MatKhau).IsModified = false; // Giữ nguyên mật khẩu cũ
+                            context.Entry(nv).Property(x => x.MatKhau).IsModified = false;
                         else
-                            nv.MatKhau = BC.HashPassword(txtMatKhau.Text); // Cập nhật mật khẩu mới
+                            nv.MatKhau = BC.HashPassword(txtMatKhau.Text); 
                         context.SaveChanges();
                     }
                 }
@@ -219,8 +220,22 @@ namespace QuanLyBanGiay.Forms
 
         private void btnDoiMatKhau_Click(object sender, EventArgs e)
         {
+            string tenDangNhap = txtTenDangNhap.Text.Trim();
+            if (!string.IsNullOrEmpty(tenDangNhap))
+            {
+                if (frmDMK == null || frmDMK.IsDisposed)
+                {
+                    var frm = new frmDoiMatKhau(tenDangNhap, true);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
 
+                }
+                else
+                {
+                    frmDMK.Activate();
+                }
+            }
         }
-        #endregion       
     }
+        #endregion       
 }

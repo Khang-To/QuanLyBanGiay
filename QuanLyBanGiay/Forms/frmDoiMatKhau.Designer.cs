@@ -51,6 +51,7 @@
             btnHuyBo.TabIndex = 4;
             btnHuyBo.Text = "HỦY BỎ";
             btnHuyBo.UseVisualStyleBackColor = false;
+            btnHuyBo.Click += btnHuyBo_Click;
             // 
             // btnDangNhap
             // 
@@ -64,6 +65,7 @@
             btnDangNhap.TabIndex = 3;
             btnDangNhap.Text = "ĐỔI MẬT KHẨU";
             btnDangNhap.UseVisualStyleBackColor = false;
+            btnDangNhap.Click += btnDoiMatKhau_Click;
             // 
             // txtMatKhauCu
             // 
@@ -71,7 +73,7 @@
             txtMatKhauCu.Location = new Point(109, 87);
             txtMatKhauCu.Name = "txtMatKhauCu";
             txtMatKhauCu.Size = new Size(255, 23);
-            txtMatKhauCu.TabIndex = 1;
+            txtMatKhauCu.TabIndex = 0;
             txtMatKhauCu.UseSystemPasswordChar = true;
             // 
             // txtTenDangNhap
@@ -80,7 +82,7 @@
             txtTenDangNhap.Location = new Point(109, 58);
             txtTenDangNhap.Name = "txtTenDangNhap";
             txtTenDangNhap.Size = new Size(255, 23);
-            txtTenDangNhap.TabIndex = 0;
+            txtTenDangNhap.TabIndex = 4;
             // 
             // label3
             // 
@@ -119,7 +121,7 @@
             txtMatKhauMoi.Location = new Point(109, 116);
             txtMatKhauMoi.Name = "txtMatKhauMoi";
             txtMatKhauMoi.Size = new Size(255, 23);
-            txtMatKhauMoi.TabIndex = 2;
+            txtMatKhauMoi.TabIndex = 1;
             txtMatKhauMoi.UseSystemPasswordChar = true;
             // 
             // label4

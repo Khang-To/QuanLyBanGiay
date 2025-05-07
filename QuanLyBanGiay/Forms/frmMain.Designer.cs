@@ -33,6 +33,7 @@
             mnuHeThong = new ToolStripMenuItem();
             mnuDangNhap = new ToolStripMenuItem();
             mnuDangXuat = new ToolStripMenuItem();
+            mnuDoiMatKhau = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
             mnuThoat = new ToolStripMenuItem();
             mnuQuanLi = new ToolStripMenuItem();
@@ -72,7 +73,6 @@
             lblNgayGio = new ToolStripStatusLabel();
             lblLienKet = new ToolStripStatusLabel();
             timer = new System.Windows.Forms.Timer(components);
-            mnuDoiMatKhau = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             SuspendLayout();
@@ -96,27 +96,34 @@
             // mnuDangNhap
             // 
             mnuDangNhap.Name = "mnuDangNhap";
-            mnuDangNhap.Size = new Size(180, 22);
+            mnuDangNhap.Size = new Size(167, 22);
             mnuDangNhap.Text = "ĐĂNG &NHẬP...";
             mnuDangNhap.Click += mnuDangNhap_Click;
             // 
             // mnuDangXuat
             // 
             mnuDangXuat.Name = "mnuDangXuat";
-            mnuDangXuat.Size = new Size(180, 22);
+            mnuDangXuat.Size = new Size(167, 22);
             mnuDangXuat.Text = "ĐĂNG &XUẤT...";
             mnuDangXuat.Click += mnuDangXuat_Click;
+            // 
+            // mnuDoiMatKhau
+            // 
+            mnuDoiMatKhau.Name = "mnuDoiMatKhau";
+            mnuDoiMatKhau.Size = new Size(167, 22);
+            mnuDoiMatKhau.Text = "ĐỔI &MẬT KHẨU...";
+            mnuDoiMatKhau.Click += mnuDoiMatKhau_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(177, 6);
+            toolStripSeparator1.Size = new Size(164, 6);
             // 
             // mnuThoat
             // 
             mnuThoat.Name = "mnuThoat";
             mnuThoat.ShortcutKeys = Keys.Alt | Keys.F4;
-            mnuThoat.Size = new Size(180, 22);
+            mnuThoat.Size = new Size(167, 22);
             mnuThoat.Text = "&THOÁT";
             mnuThoat.Click += mnuThoat_Click;
             // 
@@ -131,7 +138,7 @@
             // 
             mnuDanhMuc.DropDownItems.AddRange(new ToolStripItem[] { mnuThuongHieu, mnuLoaiGiay, mnuMauGiay, toolStripSeparator4, mnuGiay });
             mnuDanhMuc.Name = "mnuDanhMuc";
-            mnuDanhMuc.Size = new Size(175, 22);
+            mnuDanhMuc.Size = new Size(180, 22);
             mnuDanhMuc.Text = "&DANH MỤC GIÀY...";
             // 
             // mnuThuongHieu
@@ -170,38 +177,38 @@
             // toolStripSeparator5
             // 
             toolStripSeparator5.Name = "toolStripSeparator5";
-            toolStripSeparator5.Size = new Size(172, 6);
+            toolStripSeparator5.Size = new Size(177, 6);
             // 
             // mnuNhaCungCap
             // 
             mnuNhaCungCap.Name = "mnuNhaCungCap";
-            mnuNhaCungCap.Size = new Size(175, 22);
+            mnuNhaCungCap.Size = new Size(180, 22);
             mnuNhaCungCap.Text = "&NHÀ CUNG CẤP...";
             mnuNhaCungCap.Click += mnuNhaCungCap_Click;
             // 
             // mnuKhachHang
             // 
             mnuKhachHang.Name = "mnuKhachHang";
-            mnuKhachHang.Size = new Size(175, 22);
+            mnuKhachHang.Size = new Size(180, 22);
             mnuKhachHang.Text = "&KHÁCH HÀNG...";
             mnuKhachHang.Click += mnuKhachHang_Click;
             // 
             // mnuNhanVien
             // 
             mnuNhanVien.Name = "mnuNhanVien";
-            mnuNhanVien.Size = new Size(175, 22);
+            mnuNhanVien.Size = new Size(180, 22);
             mnuNhanVien.Text = "NHÂN &VIÊN...";
             mnuNhanVien.Click += mnuNhanVien_Click;
             // 
             // toolStripSeparator6
             // 
             toolStripSeparator6.Name = "toolStripSeparator6";
-            toolStripSeparator6.Size = new Size(172, 6);
+            toolStripSeparator6.Size = new Size(177, 6);
             // 
             // mnuKho
             // 
             mnuKho.Name = "mnuKho";
-            mnuKho.Size = new Size(175, 22);
+            mnuKho.Size = new Size(180, 22);
             mnuKho.Text = "KH&O...";
             // 
             // mnuGiaoDich
@@ -214,20 +221,20 @@
             // mnuNhapHang
             // 
             mnuNhapHang.Name = "mnuNhapHang";
-            mnuNhapHang.Size = new Size(153, 22);
+            mnuNhapHang.Size = new Size(180, 22);
             mnuNhapHang.Text = "&NHẬP HÀNG...";
             mnuNhapHang.Click += mnuNhapHang_Click;
             // 
             // mnuHoaDon
             // 
             mnuHoaDon.Name = "mnuHoaDon";
-            mnuHoaDon.Size = new Size(153, 22);
+            mnuHoaDon.Size = new Size(180, 22);
             mnuHoaDon.Text = "&HÓA ĐƠN...";
             mnuHoaDon.Click += mnuHoaDon_Click;
             // 
             // mnuBaoCaoThongKe
             // 
-            mnuBaoCaoThongKe.DropDownItems.AddRange(new ToolStripItem[] { mnuThongKeHoaDon, mnuThongKeNhapHang, mnuThongKeDoanhThu });
+            mnuBaoCaoThongKe.DropDownItems.AddRange(new ToolStripItem[] { mnuThongKeNhapHang, mnuThongKeDoanhThu, mnuThongKeHoaDon });
             mnuBaoCaoThongKe.Name = "mnuBaoCaoThongKe";
             mnuBaoCaoThongKe.Size = new Size(140, 20);
             mnuBaoCaoThongKe.Text = "&BÁO CÁO - THỐNG KÊ";
@@ -361,13 +368,6 @@
             timer.Interval = 1000;
             timer.Tick += timer_Tick;
             // 
-            // mnuDoiMatKhau
-            // 
-            mnuDoiMatKhau.Name = "mnuDoiMatKhau";
-            mnuDoiMatKhau.Size = new Size(180, 22);
-            mnuDoiMatKhau.Text = "ĐỔI &MẬT KHẨU...";
-            mnuDoiMatKhau.Click += mnuDoiMatKhau_Click;
-            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -408,13 +408,11 @@
         private ToolStripStatusLabel lblTrangThai;
         private ToolStripStatusLabel toolStripStatusLabel1;
         private ToolStripStatusLabel lblLienKet;
-        private ToolStripMenuItem mnuThietLap;
         private ToolStripMenuItem lOẠIGIÀYToolStripMenuItem;
         private ToolStripMenuItem tHƯƠNGHIỆUToolStripMenuItem;
         private ToolStripMenuItem mÀUGIÀYToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripMenuItem gIÀYToolStripMenuItem;
-        private ToolStripMenuItem đỐITÁCToolStripMenuItem;
         private ToolStripMenuItem kHÁCHHÀNGToolStripMenuItem;
         private ToolStripMenuItem nHÀCUNGCẤPToolStripMenuItem;
         private ToolStripMenuItem mnuGiaoDich;

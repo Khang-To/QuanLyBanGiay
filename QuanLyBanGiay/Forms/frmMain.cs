@@ -15,7 +15,6 @@ namespace QuanLyBanGiay.Forms
 {
     public partial class frmMain : Form
     {
-        QLBGDbContext context = new QLBGDbContext();
         frmMauSac? mauSac = null;
         frmThuongHieu? thuongHieu = null;
         frmLoaiGiay? loaiGiay = null;
@@ -30,6 +29,13 @@ namespace QuanLyBanGiay.Forms
         string hoVaTenNhanVien = "";
 
         frmSplashScreen splashScreen = new frmSplashScreen();
+
+        public static class DangNhapSession 
+        { 
+            public static int NhanVienID; 
+            public static string TenDangNhap; 
+        }
+
         public frmMain()
         {
             InitializeComponent();
@@ -65,17 +71,19 @@ namespace QuanLyBanGiay.Forms
         LamLai:
             if (dangNhap == null || dangNhap.IsDisposed)
                 dangNhap = new frmDangNhap();
+
             if (dangNhap.ShowDialog() == DialogResult.OK)
             {
-                string tenDangNhap = dangNhap.txtTenDangNhap.Text;
+                string tenDangNhap = dangNhap.txtTenDangNhap.Text.Trim();
                 string matKhau = dangNhap.txtMatKhau.Text;
-                if (tenDangNhap.Trim() == "")
+
+                if (tenDangNhap == "")
                 {
                     MessageBox.Show("Tên đăng nhập không được bỏ trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     dangNhap.txtTenDangNhap.Focus();
                     goto LamLai;
                 }
-                else if (matKhau.Trim() == "")
+                else if (matKhau == "")
                 {
                     MessageBox.Show("Mật khẩu không được bỏ trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     dangNhap.txtMatKhau.Focus();
@@ -83,35 +91,43 @@ namespace QuanLyBanGiay.Forms
                 }
                 else
                 {
-                    var nhanVien = context.NhanViens.Where(r => r.TenDangNhap == tenDangNhap).SingleOrDefault();
-                    if (nhanVien == null)
+                    using (var context = new QLBGDbContext())
                     {
-                        MessageBox.Show("Tên đăng nhập không chính xác!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        dangNhap.txtTenDangNhap.Focus();
-                        goto LamLai;
-                    }
-                    else
-                    {
-                        if (BC.Verify(matKhau, nhanVien.MatKhau))
+                        var nhanVien = context.NhanViens.SingleOrDefault(r => r.TenDangNhap == tenDangNhap);
+
+                        if (nhanVien == null)
                         {
-                            hoVaTenNhanVien = nhanVien.HoVaTen;
-                            if (nhanVien.QuyenHan == "admin")
-                                QuyenQuanLy();
-                            else if (nhanVien.QuyenHan == "user")
-                                QuyenNhanVien();
-                            else
-                                ChuaPhanQuyen();
+                            MessageBox.Show("Tên đăng nhập không chính xác!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            dangNhap.txtTenDangNhap.Focus();
+                            goto LamLai;
                         }
                         else
                         {
-                            MessageBox.Show("Mật khẩu không chính xác!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            dangNhap.txtMatKhau.Focus();
-                            goto LamLai;
+                            if (BC.Verify(matKhau, nhanVien.MatKhau))
+                            {
+                                hoVaTenNhanVien = nhanVien.HoVaTen;
+                                DangNhapSession.NhanVienID = nhanVien.ID;
+                                DangNhapSession.TenDangNhap = nhanVien.TenDangNhap;
+
+                                if (nhanVien.QuyenHan == "admin")
+                                    QuyenQuanLy();
+                                else if (nhanVien.QuyenHan == "user")
+                                    QuyenNhanVien();
+                                else
+                                    ChuaPhanQuyen();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Mật khẩu không chính xác!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                dangNhap.txtMatKhau.Focus();
+                                goto LamLai;
+                            }
                         }
                     }
                 }
             }
         }
+
 
         private void ChuaPhanQuyen()
         {
@@ -124,6 +140,7 @@ namespace QuanLyBanGiay.Forms
             mnuHoaDon.Enabled = false;
             mnuNhapHang.Enabled = false;
             mnuNhaCungCap.Enabled = false;
+            mnuDoiMatKhau.Enabled = false;
             mnuThongKeHoaDon.Enabled = false;
             mnuThongKeNhapHang.Enabled = false;
             mnuThongKeDoanhThu.Enabled = false;
@@ -141,6 +158,7 @@ namespace QuanLyBanGiay.Forms
             mnuKhachHang.Enabled = true;
             mnuNhanVien.Enabled = true;
             mnuHoaDon.Enabled = true;
+            mnuDoiMatKhau.Enabled = true;
             mnuNhapHang.Enabled = true;
             mnuNhaCungCap.Enabled = true;
             mnuThongKeHoaDon.Enabled = true;
@@ -157,6 +175,7 @@ namespace QuanLyBanGiay.Forms
             mnuDangXuat.Enabled = true;
             mnuDanhMuc.Enabled = false;
             mnuKho.Enabled = true;
+            mnuDoiMatKhau.Enabled = true;
             mnuKhachHang.Enabled = true;
             mnuNhanVien.Enabled = false;
             mnuHoaDon.Enabled = true;
@@ -326,9 +345,9 @@ namespace QuanLyBanGiay.Forms
         {
             if (doiMatKhau == null || doiMatKhau.IsDisposed)
             {
-                doiMatKhau = new frmDoiMatKhau();
-                doiMatKhau.MdiParent = this;
-                doiMatKhau.Show();
+                var frm = new frmDoiMatKhau(DangNhapSession.TenDangNhap);
+                frm.MdiParent = this;
+                frm.Show();
             }
             else
             {

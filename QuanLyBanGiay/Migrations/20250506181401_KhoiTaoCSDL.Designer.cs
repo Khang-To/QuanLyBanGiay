@@ -12,7 +12,7 @@ using QuanLyBanGiay.Data;
 namespace QuanLyBanGiay.Migrations
 {
     [DbContext(typeof(QLBGDbContext))]
-    [Migration("20250429180624_KhoiTaoCSDL")]
+    [Migration("20250506181401_KhoiTaoCSDL")]
     partial class KhoiTaoCSDL
     {
         /// <inheritdoc />
@@ -102,9 +102,6 @@ namespace QuanLyBanGiay.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("HoaDonID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SanPhamID")
                         .HasColumnType("int");
 
                     b.Property<int>("SizeGiayID")
