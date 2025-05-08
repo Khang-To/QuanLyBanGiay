@@ -26,14 +26,15 @@ namespace QuanLyBanGiay.Forms
         frmNhanVien? nhanVien = null;
         frmDangNhap? dangNhap = null;
         frmDoiMatKhau? doiMatKhau = null;
+        frmTonKho? tonKho = null;
         string hoVaTenNhanVien = "";
 
         frmSplashScreen splashScreen = new frmSplashScreen();
 
-        public static class DangNhapSession 
-        { 
-            public static int NhanVienID; 
-            public static string TenDangNhap; 
+        public static class DangNhapSession
+        {
+            public static int NhanVienID;
+            public static string TenDangNhap;
         }
 
         public frmMain()
@@ -215,20 +216,6 @@ namespace QuanLyBanGiay.Forms
             }
         }
 
-        private void mnuLoaiGiay_Click(object sender, EventArgs e)
-        {
-            if (loaiGiay == null || loaiGiay.IsDisposed)
-            {
-                loaiGiay = new frmLoaiGiay();
-                loaiGiay.MdiParent = this;
-                loaiGiay.Show();
-            }
-            else
-            {
-                loaiGiay.Activate();
-            }
-        }
-
         private void mnuThuongHieu_Click(object sender, EventArgs e)
         {
             if (thuongHieu == null || thuongHieu.IsDisposed)
@@ -372,6 +359,20 @@ namespace QuanLyBanGiay.Forms
         private void timer_Tick(object sender, EventArgs e)
         {
             lblNgayGio.Text = "D: " + DateTime.Now.ToString("dddd dd/MM/yyyy") + ", H: " + DateTime.Now.ToString("HH:mm:ss");
+        }
+
+        private void mnuKho_Click(object sender, EventArgs e)
+        {
+            if (tonKho == null || tonKho.IsDisposed)
+            {
+                tonKho = new frmTonKho();
+                tonKho.MdiParent = this;
+                tonKho.Show();
+            }
+            else
+            {
+                tonKho.Activate();
+            }
         }
     }
 }

@@ -338,5 +338,11 @@ namespace QuanLyBanGiay.Forms
                 .ToList();
             dataGridView.DataSource = pn;
         }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            frmPhieuNhap_Load(sender,e);
+            txtTuKhoa.Text = "";
+        }
     }
 }

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPhieuNhap));
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             btnXuat = new ToolStripButton();
             btnNhap = new ToolStripButton();
             btnTimKiem = new ToolStripButton();
@@ -51,6 +51,7 @@
             btnThem = new Button();
             btnXoa = new Button();
             btnInPhieuNhap = new Button();
+            btnLamMoi = new ToolStripButton();
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             groupBox2.SuspendLayout();
@@ -98,7 +99,7 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(20, 20);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, txtTuKhoa, btnTimKiem, btnNhap, btnXuat });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, txtTuKhoa, btnTimKiem, btnNhap, btnXuat, btnLamMoi });
             toolStrip1.Location = new Point(3, 23);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(1045, 27);
@@ -150,9 +151,9 @@
             // NgayNhap
             // 
             NgayNhap.DataPropertyName = "NgayNhap";
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Format = "dd/MM/yyyy";
-            NgayNhap.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
+            NgayNhap.DefaultCellStyle = dataGridViewCellStyle1;
             NgayNhap.HeaderText = "Ngày nhập";
             NgayNhap.MinimumWidth = 6;
             NgayNhap.Name = "NgayNhap";
@@ -161,11 +162,11 @@
             // TongTienPhieuNhap
             // 
             TongTienPhieuNhap.DataPropertyName = "TongTienPhieuNhap";
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            dataGridViewCellStyle5.ForeColor = Color.Blue;
-            dataGridViewCellStyle5.Format = "N0";
-            TongTienPhieuNhap.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            dataGridViewCellStyle2.ForeColor = Color.Blue;
+            dataGridViewCellStyle2.Format = "N0";
+            TongTienPhieuNhap.DefaultCellStyle = dataGridViewCellStyle2;
             TongTienPhieuNhap.HeaderText = "Tổng tiền";
             TongTienPhieuNhap.MinimumWidth = 6;
             TongTienPhieuNhap.Name = "TongTienPhieuNhap";
@@ -174,8 +175,8 @@
             // XemChiTiet
             // 
             XemChiTiet.DataPropertyName = "XemChiTiet";
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            XemChiTiet.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            XemChiTiet.DefaultCellStyle = dataGridViewCellStyle3;
             XemChiTiet.HeaderText = "Chi tiết";
             XemChiTiet.MinimumWidth = 6;
             XemChiTiet.Name = "XemChiTiet";
@@ -251,6 +252,15 @@
             btnInPhieuNhap.Text = "In phiếu nhập...";
             btnInPhieuNhap.UseVisualStyleBackColor = true;
             // 
+            // btnLamMoi
+            // 
+            btnLamMoi.Image = (Image)resources.GetObject("btnLamMoi.Image");
+            btnLamMoi.ImageTransparentColor = Color.Magenta;
+            btnLamMoi.Name = "btnLamMoi";
+            btnLamMoi.Size = new Size(91, 24);
+            btnLamMoi.Text = "Làm mới";
+            btnLamMoi.Click += btnLamMoi_Click;
+            // 
             // frmPhieuNhap
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -291,5 +301,6 @@
         private DataGridViewTextBoxColumn NgayNhap;
         private DataGridViewTextBoxColumn TongTienPhieuNhap;
         private DataGridViewLinkColumn XemChiTiet;
+        private ToolStripButton btnLamMoi;
     }
 }
