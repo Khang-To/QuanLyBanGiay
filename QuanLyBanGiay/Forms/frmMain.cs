@@ -374,5 +374,10 @@ namespace QuanLyBanGiay.Forms
                 tonKho.Activate();
             }
         }
+
+        private void mnuThongKeGiay_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
