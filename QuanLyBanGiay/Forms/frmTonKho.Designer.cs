@@ -306,9 +306,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(972, 511);
             Controls.Add(groupBox1);
+            MinimumSize = new Size(990, 558);
             Name = "frmTonKho";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmTonKho";
+            Text = "Kho";
             Load += frmTonKho_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

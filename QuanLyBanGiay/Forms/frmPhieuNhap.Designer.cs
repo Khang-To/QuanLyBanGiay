@@ -38,6 +38,7 @@
             txtTuKhoa = new ToolStripTextBox();
             toolStripLabel1 = new ToolStripLabel();
             toolStrip1 = new ToolStrip();
+            btnLamMoi = new ToolStripButton();
             dataGridView = new DataGridView();
             ID = new DataGridViewTextBoxColumn();
             HoVaTenNhanVien = new DataGridViewTextBoxColumn();
@@ -51,7 +52,6 @@
             btnThem = new Button();
             btnXoa = new Button();
             btnInPhieuNhap = new Button();
-            btnLamMoi = new ToolStripButton();
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             groupBox2.SuspendLayout();
@@ -105,6 +105,15 @@
             toolStrip1.Size = new Size(1045, 27);
             toolStrip1.TabIndex = 0;
             toolStrip1.Text = "toolStrip1";
+            // 
+            // btnLamMoi
+            // 
+            btnLamMoi.Image = (Image)resources.GetObject("btnLamMoi.Image");
+            btnLamMoi.ImageTransparentColor = Color.Magenta;
+            btnLamMoi.Name = "btnLamMoi";
+            btnLamMoi.Size = new Size(91, 24);
+            btnLamMoi.Text = "Làm mới";
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // dataGridView
             // 
@@ -252,15 +261,6 @@
             btnInPhieuNhap.Text = "In phiếu nhập...";
             btnInPhieuNhap.UseVisualStyleBackColor = true;
             // 
-            // btnLamMoi
-            // 
-            btnLamMoi.Image = (Image)resources.GetObject("btnLamMoi.Image");
-            btnLamMoi.ImageTransparentColor = Color.Magenta;
-            btnLamMoi.Name = "btnLamMoi";
-            btnLamMoi.Size = new Size(91, 24);
-            btnLamMoi.Text = "Làm mới";
-            btnLamMoi.Click += btnLamMoi_Click;
-            // 
             // frmPhieuNhap
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -268,6 +268,7 @@
             ClientSize = new Size(1051, 599);
             Controls.Add(groupBox2);
             Controls.Add(panel1);
+            MinimumSize = new Size(1069, 646);
             Name = "frmPhieuNhap";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Phiếu nhập";
