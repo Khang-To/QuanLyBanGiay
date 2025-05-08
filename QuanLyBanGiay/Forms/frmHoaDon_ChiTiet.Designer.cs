@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             groupBox1 = new GroupBox();
             btnKhachHangMoi = new Button();
             txtGhiChuHoaDon = new TextBox();
@@ -38,32 +40,39 @@
             label1 = new Label();
             groupBox2 = new GroupBox();
             dataGridView = new DataGridView();
-            SanPhamID = new DataGridViewTextBoxColumn();
-            TenSanPham = new DataGridViewTextBoxColumn();
-            DonGiaBan = new DataGridViewTextBoxColumn();
-            SoLuongBan = new DataGridViewTextBoxColumn();
-            ThanhTien = new DataGridViewTextBoxColumn();
             panel1 = new Panel();
+            lblSoLuongTonKho = new Label();
+            label14 = new Label();
+            label11 = new Label();
             label10 = new Label();
             cboLoaiGiay = new ComboBox();
             label9 = new Label();
             cboSize = new ComboBox();
             label6 = new Label();
             cboMauSac = new ComboBox();
-            lblSoLuongTon = new Label();
+            lblSoLuongHienTai = new Label();
             label8 = new Label();
             numDonGiaBan = new NumericUpDown();
             numSoLuongBan = new NumericUpDown();
             label7 = new Label();
             label5 = new Label();
-            cboSanPham = new ComboBox();
+            cboGiay = new ComboBox();
             label4 = new Label();
             btnXoa = new Button();
             btnXacNhanBan = new Button();
             panel2 = new Panel();
+            lblTongTien = new Label();
+            label12 = new Label();
             btnInHoaDon = new Button();
             btnLuu = new Button();
-            label11 = new Label();
+            SizeGiayID = new DataGridViewTextBoxColumn();
+            TenGiay = new DataGridViewTextBoxColumn();
+            DonGiaBan = new DataGridViewTextBoxColumn();
+            SoLuongBan = new DataGridViewTextBoxColumn();
+            ThanhTien = new DataGridViewTextBoxColumn();
+            GiayID = new DataGridViewTextBoxColumn();
+            colSize = new DataGridViewTextBoxColumn();
+            MauSacID = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
@@ -179,7 +188,7 @@
             dataGridView.AllowUserToDeleteRows = false;
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Columns.AddRange(new DataGridViewColumn[] { SanPhamID, TenSanPham, DonGiaBan, SoLuongBan, ThanhTien });
+            dataGridView.Columns.AddRange(new DataGridViewColumn[] { SizeGiayID, TenGiay, DonGiaBan, SoLuongBan, ThanhTien, GiayID, colSize, MauSacID });
             dataGridView.Dock = DockStyle.Fill;
             dataGridView.Location = new Point(3, 130);
             dataGridView.MultiSelect = false;
@@ -188,24 +197,318 @@
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView.Size = new Size(819, 285);
             dataGridView.TabIndex = 2;
+            dataGridView.SelectionChanged += dataGridView_SelectionChanged;
             // 
-            // SanPhamID
+            // panel1
             // 
-            SanPhamID.DataPropertyName = "SanPhamID";
-            SanPhamID.HeaderText = "ID";
-            SanPhamID.Name = "SanPhamID";
-            SanPhamID.ReadOnly = true;
-            SanPhamID.Visible = false;
+            panel1.Controls.Add(lblSoLuongTonKho);
+            panel1.Controls.Add(label14);
+            panel1.Controls.Add(label11);
+            panel1.Controls.Add(label10);
+            panel1.Controls.Add(cboLoaiGiay);
+            panel1.Controls.Add(label9);
+            panel1.Controls.Add(cboSize);
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(cboMauSac);
+            panel1.Controls.Add(lblSoLuongHienTai);
+            panel1.Controls.Add(label8);
+            panel1.Controls.Add(numDonGiaBan);
+            panel1.Controls.Add(numSoLuongBan);
+            panel1.Controls.Add(label7);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(cboGiay);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(btnXoa);
+            panel1.Controls.Add(btnXacNhanBan);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(3, 19);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(819, 111);
+            panel1.TabIndex = 0;
             // 
-            // TenSanPham
+            // lblSoLuongTonKho
             // 
-            TenSanPham.DataPropertyName = "TenSanPham";
-            TenSanPham.HeaderText = "Tên giày";
-            TenSanPham.Name = "TenSanPham";
-            TenSanPham.ReadOnly = true;
+            lblSoLuongTonKho.Anchor = AnchorStyles.Top;
+            lblSoLuongTonKho.AutoSize = true;
+            lblSoLuongTonKho.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
+            lblSoLuongTonKho.ForeColor = Color.Red;
+            lblSoLuongTonKho.Location = new Point(606, 32);
+            lblSoLuongTonKho.Name = "lblSoLuongTonKho";
+            lblSoLuongTonKho.Size = new Size(15, 17);
+            lblSoLuongTonKho.TabIndex = 30;
+            lblSoLuongTonKho.Text = "0";
+            // 
+            // label14
+            // 
+            label14.Anchor = AnchorStyles.Top;
+            label14.AutoSize = true;
+            label14.Location = new Point(478, 59);
+            label14.Name = "label14";
+            label14.Size = new Size(122, 15);
+            label14.TabIndex = 29;
+            label14.Text = "Số lượng tồn sau bán:";
+            // 
+            // label11
+            // 
+            label11.Anchor = AnchorStyles.Top;
+            label11.AutoSize = true;
+            label11.Location = new Point(5, 10);
+            label11.Name = "label11";
+            label11.Size = new Size(56, 15);
+            label11.TabIndex = 28;
+            label11.Text = "Lọc theo:";
+            // 
+            // label10
+            // 
+            label10.Anchor = AnchorStyles.Top;
+            label10.AutoSize = true;
+            label10.Location = new Point(71, 10);
+            label10.Name = "label10";
+            label10.Size = new Size(57, 15);
+            label10.TabIndex = 27;
+            label10.Text = "Loại giày:";
+            // 
+            // cboLoaiGiay
+            // 
+            cboLoaiGiay.Anchor = AnchorStyles.Top;
+            cboLoaiGiay.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboLoaiGiay.FormattingEnabled = true;
+            cboLoaiGiay.Location = new Point(134, 7);
+            cboLoaiGiay.Name = "cboLoaiGiay";
+            cboLoaiGiay.Size = new Size(121, 23);
+            cboLoaiGiay.TabIndex = 26;
+            cboLoaiGiay.SelectionChangeCommitted += cboLoaiGiay_SelectionChangeCommitted;
+            // 
+            // label9
+            // 
+            label9.Anchor = AnchorStyles.Top;
+            label9.AutoSize = true;
+            label9.Location = new Point(450, 10);
+            label9.Name = "label9";
+            label9.Size = new Size(27, 15);
+            label9.TabIndex = 25;
+            label9.Text = "Size";
+            // 
+            // cboSize
+            // 
+            cboSize.Anchor = AnchorStyles.Top;
+            cboSize.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboSize.FormattingEnabled = true;
+            cboSize.Location = new Point(483, 7);
+            cboSize.Name = "cboSize";
+            cboSize.Size = new Size(84, 23);
+            cboSize.TabIndex = 24;
+            cboSize.SelectionChangeCommitted += cboSize_SelectionChangeCommitted;
+            // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.Top;
+            label6.AutoSize = true;
+            label6.Location = new Point(287, 10);
+            label6.Name = "label6";
+            label6.Size = new Size(34, 15);
+            label6.TabIndex = 23;
+            label6.Text = "Màu:";
+            // 
+            // cboMauSac
+            // 
+            cboMauSac.Anchor = AnchorStyles.Top;
+            cboMauSac.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboMauSac.FormattingEnabled = true;
+            cboMauSac.Location = new Point(327, 7);
+            cboMauSac.Name = "cboMauSac";
+            cboMauSac.Size = new Size(84, 23);
+            cboMauSac.TabIndex = 22;
+            cboMauSac.SelectionChangeCommitted += cboMauSac_SelectionChangeCommitted;
+            // 
+            // lblSoLuongHienTai
+            // 
+            lblSoLuongHienTai.Anchor = AnchorStyles.Top;
+            lblSoLuongHienTai.AutoSize = true;
+            lblSoLuongHienTai.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
+            lblSoLuongHienTai.ForeColor = Color.Blue;
+            lblSoLuongHienTai.Location = new Point(606, 57);
+            lblSoLuongHienTai.Name = "lblSoLuongHienTai";
+            lblSoLuongHienTai.Size = new Size(15, 17);
+            lblSoLuongHienTai.TabIndex = 21;
+            lblSoLuongHienTai.Text = "0";
+            // 
+            // label8
+            // 
+            label8.Anchor = AnchorStyles.Top;
+            label8.AutoSize = true;
+            label8.Location = new Point(480, 34);
+            label8.Name = "label8";
+            label8.Size = new Size(120, 15);
+            label8.TabIndex = 20;
+            label8.Text = "Số lượng tồn hiện tại:";
+            // 
+            // numDonGiaBan
+            // 
+            numDonGiaBan.Anchor = AnchorStyles.Top;
+            numDonGiaBan.Location = new Point(431, 77);
+            numDonGiaBan.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
+            numDonGiaBan.Name = "numDonGiaBan";
+            numDonGiaBan.Size = new Size(120, 23);
+            numDonGiaBan.TabIndex = 19;
+            // 
+            // numSoLuongBan
+            // 
+            numSoLuongBan.Anchor = AnchorStyles.Top;
+            numSoLuongBan.Location = new Point(215, 77);
+            numSoLuongBan.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
+            numSoLuongBan.Name = "numSoLuongBan";
+            numSoLuongBan.Size = new Size(120, 23);
+            numSoLuongBan.TabIndex = 14;
+            // 
+            // label7
+            // 
+            label7.Anchor = AnchorStyles.Top;
+            label7.AutoSize = true;
+            label7.Location = new Point(152, 79);
+            label7.Name = "label7";
+            label7.Size = new Size(57, 15);
+            label7.TabIndex = 13;
+            label7.Text = "Số lượng:";
+            // 
+            // label5
+            // 
+            label5.Anchor = AnchorStyles.Top;
+            label5.AutoSize = true;
+            label5.Location = new Point(374, 79);
+            label5.Name = "label5";
+            label5.Size = new Size(51, 15);
+            label5.TabIndex = 11;
+            label5.Text = "Đơn giá:";
+            // 
+            // cboGiay
+            // 
+            cboGiay.Anchor = AnchorStyles.Top;
+            cboGiay.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboGiay.FormattingEnabled = true;
+            cboGiay.Location = new Point(48, 41);
+            cboGiay.Name = "cboGiay";
+            cboGiay.Size = new Size(399, 23);
+            cboGiay.TabIndex = 10;
+            cboGiay.SelectionChangeCommitted += cboGiay_SelectionChangeCommitted;
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.Top;
+            label4.AutoSize = true;
+            label4.Location = new Point(9, 44);
+            label4.Name = "label4";
+            label4.Size = new Size(33, 15);
+            label4.TabIndex = 9;
+            label4.Text = "Giày:";
+            // 
+            // btnXoa
+            // 
+            btnXoa.Anchor = AnchorStyles.Top;
+            btnXoa.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnXoa.ForeColor = Color.Red;
+            btnXoa.Location = new Point(659, 55);
+            btnXoa.Name = "btnXoa";
+            btnXoa.Size = new Size(148, 39);
+            btnXoa.TabIndex = 8;
+            btnXoa.Text = "XÓA";
+            btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click;
+            // 
+            // btnXacNhanBan
+            // 
+            btnXacNhanBan.Anchor = AnchorStyles.Top;
+            btnXacNhanBan.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnXacNhanBan.ForeColor = Color.Green;
+            btnXacNhanBan.Location = new Point(659, 10);
+            btnXacNhanBan.Name = "btnXacNhanBan";
+            btnXacNhanBan.Size = new Size(148, 39);
+            btnXacNhanBan.TabIndex = 7;
+            btnXacNhanBan.Text = "XÁC NHẬN BÁN";
+            btnXacNhanBan.UseVisualStyleBackColor = true;
+            btnXacNhanBan.Click += btnXacNhanBan_Click;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(lblTongTien);
+            panel2.Controls.Add(label12);
+            panel2.Controls.Add(btnInHoaDon);
+            panel2.Controls.Add(btnLuu);
+            panel2.Dock = DockStyle.Bottom;
+            panel2.Location = new Point(3, 415);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(819, 50);
+            panel2.TabIndex = 1;
+            // 
+            // lblTongTien
+            // 
+            lblTongTien.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            lblTongTien.AutoSize = true;
+            lblTongTien.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTongTien.ForeColor = Color.Blue;
+            lblTongTien.Location = new Point(621, 16);
+            lblTongTien.Name = "lblTongTien";
+            lblTongTien.Size = new Size(48, 17);
+            lblTongTien.TabIndex = 12;
+            lblTongTien.Text = "0 VND";
+            // 
+            // label12
+            // 
+            label12.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label12.Location = new Point(549, 16);
+            label12.Name = "label12";
+            label12.Size = new Size(66, 17);
+            label12.TabIndex = 11;
+            label12.Text = "Tổng tiền:";
+            // 
+            // btnInHoaDon
+            // 
+            btnInHoaDon.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnInHoaDon.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnInHoaDon.Location = new Point(225, 6);
+            btnInHoaDon.Name = "btnInHoaDon";
+            btnInHoaDon.Size = new Size(148, 39);
+            btnInHoaDon.TabIndex = 10;
+            btnInHoaDon.Text = "IN HÓA ĐƠN...";
+            btnInHoaDon.UseVisualStyleBackColor = true;
+            // 
+            // btnLuu
+            // 
+            btnLuu.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnLuu.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLuu.ForeColor = Color.Blue;
+            btnLuu.Location = new Point(71, 6);
+            btnLuu.Name = "btnLuu";
+            btnLuu.Size = new Size(148, 39);
+            btnLuu.TabIndex = 9;
+            btnLuu.Text = "LƯU HÓA ĐƠN";
+            btnLuu.UseVisualStyleBackColor = true;
+            btnLuu.Click += btnLuu_Click;
+            // 
+            // SizeGiayID
+            // 
+            SizeGiayID.DataPropertyName = "SizeGiayID";
+            SizeGiayID.HeaderText = "ID";
+            SizeGiayID.Name = "SizeGiayID";
+            SizeGiayID.ReadOnly = true;
+            SizeGiayID.Visible = false;
+            // 
+            // TenGiay
+            // 
+            TenGiay.DataPropertyName = "TenGiay";
+            TenGiay.HeaderText = "Tên giày";
+            TenGiay.Name = "TenGiay";
+            TenGiay.ReadOnly = true;
             // 
             // DonGiaBan
             // 
+            DonGiaBan.DataPropertyName = "DonGiaBan";
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.Blue;
+            dataGridViewCellStyle1.Format = "N0";
+            DonGiaBan.DefaultCellStyle = dataGridViewCellStyle1;
             DonGiaBan.HeaderText = "Đơn giá";
             DonGiaBan.Name = "DonGiaBan";
             DonGiaBan.ReadOnly = true;
@@ -220,226 +523,38 @@
             // ThanhTien
             // 
             ThanhTien.DataPropertyName = "ThanhTien";
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.Green;
+            dataGridViewCellStyle2.Format = "N0";
+            ThanhTien.DefaultCellStyle = dataGridViewCellStyle2;
             ThanhTien.HeaderText = "Thành tiền";
             ThanhTien.Name = "ThanhTien";
             ThanhTien.ReadOnly = true;
             // 
-            // panel1
+            // GiayID
             // 
-            panel1.Controls.Add(label11);
-            panel1.Controls.Add(label10);
-            panel1.Controls.Add(cboLoaiGiay);
-            panel1.Controls.Add(label9);
-            panel1.Controls.Add(cboSize);
-            panel1.Controls.Add(label6);
-            panel1.Controls.Add(cboMauSac);
-            panel1.Controls.Add(lblSoLuongTon);
-            panel1.Controls.Add(label8);
-            panel1.Controls.Add(numDonGiaBan);
-            panel1.Controls.Add(numSoLuongBan);
-            panel1.Controls.Add(label7);
-            panel1.Controls.Add(label5);
-            panel1.Controls.Add(cboSanPham);
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(btnXoa);
-            panel1.Controls.Add(btnXacNhanBan);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(3, 19);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(819, 111);
-            panel1.TabIndex = 0;
+            GiayID.DataPropertyName = "GiayID";
+            GiayID.HeaderText = "Column1";
+            GiayID.Name = "GiayID";
+            GiayID.ReadOnly = true;
+            GiayID.Visible = false;
             // 
-            // label10
+            // colSize
             // 
-            label10.AutoSize = true;
-            label10.Location = new Point(71, 19);
-            label10.Name = "label10";
-            label10.Size = new Size(57, 15);
-            label10.TabIndex = 27;
-            label10.Text = "Loại giày:";
+            colSize.DataPropertyName = "Size";
+            colSize.HeaderText = "Column1";
+            colSize.Name = "colSize";
+            colSize.ReadOnly = true;
+            colSize.Visible = false;
             // 
-            // cboLoaiGiay
+            // MauSacID
             // 
-            cboLoaiGiay.FormattingEnabled = true;
-            cboLoaiGiay.Location = new Point(134, 16);
-            cboLoaiGiay.Name = "cboLoaiGiay";
-            cboLoaiGiay.Size = new Size(121, 23);
-            cboLoaiGiay.TabIndex = 26;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(450, 19);
-            label9.Name = "label9";
-            label9.Size = new Size(27, 15);
-            label9.TabIndex = 25;
-            label9.Text = "Size";
-            // 
-            // cboSize
-            // 
-            cboSize.FormattingEnabled = true;
-            cboSize.Location = new Point(483, 16);
-            cboSize.Name = "cboSize";
-            cboSize.Size = new Size(84, 23);
-            cboSize.TabIndex = 24;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(287, 19);
-            label6.Name = "label6";
-            label6.Size = new Size(34, 15);
-            label6.TabIndex = 23;
-            label6.Text = "Màu:";
-            // 
-            // cboMauSac
-            // 
-            cboMauSac.FormattingEnabled = true;
-            cboMauSac.Location = new Point(327, 16);
-            cboMauSac.Name = "cboMauSac";
-            cboMauSac.Size = new Size(84, 23);
-            cboMauSac.TabIndex = 22;
-            // 
-            // lblSoLuongTon
-            // 
-            lblSoLuongTon.AutoSize = true;
-            lblSoLuongTon.Location = new Point(84, 93);
-            lblSoLuongTon.Name = "lblSoLuongTon";
-            lblSoLuongTon.Size = new Size(19, 15);
-            lblSoLuongTon.TabIndex = 21;
-            lblSoLuongTon.Text = "00";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(5, 93);
-            label8.Name = "label8";
-            label8.Size = new Size(78, 15);
-            label8.TabIndex = 20;
-            label8.Text = "Số lượng tồn:";
-            // 
-            // numDonGiaBan
-            // 
-            numDonGiaBan.Location = new Point(533, 55);
-            numDonGiaBan.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
-            numDonGiaBan.Name = "numDonGiaBan";
-            numDonGiaBan.Size = new Size(120, 23);
-            numDonGiaBan.TabIndex = 19;
-            // 
-            // numSoLuongBan
-            // 
-            numSoLuongBan.Anchor = AnchorStyles.Top;
-            numSoLuongBan.Location = new Point(327, 55);
-            numSoLuongBan.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
-            numSoLuongBan.Name = "numSoLuongBan";
-            numSoLuongBan.Size = new Size(120, 23);
-            numSoLuongBan.TabIndex = 14;
-            // 
-            // label7
-            // 
-            label7.Anchor = AnchorStyles.Top;
-            label7.AutoSize = true;
-            label7.Location = new Point(264, 58);
-            label7.Name = "label7";
-            label7.Size = new Size(57, 15);
-            label7.TabIndex = 13;
-            label7.Text = "Số lượng:";
-            // 
-            // label5
-            // 
-            label5.Anchor = AnchorStyles.Top;
-            label5.AutoSize = true;
-            label5.Location = new Point(482, 58);
-            label5.Name = "label5";
-            label5.Size = new Size(51, 15);
-            label5.TabIndex = 11;
-            label5.Text = "Đơn giá:";
-            // 
-            // cboSanPham
-            // 
-            cboSanPham.Anchor = AnchorStyles.Top;
-            cboSanPham.FormattingEnabled = true;
-            cboSanPham.Location = new Point(48, 54);
-            cboSanPham.Name = "cboSanPham";
-            cboSanPham.Size = new Size(210, 23);
-            cboSanPham.TabIndex = 10;
-            cboSanPham.SelectionChangeCommitted += cboSanPham_SelectionChangeCommitted;
-            // 
-            // label4
-            // 
-            label4.Anchor = AnchorStyles.Top;
-            label4.AutoSize = true;
-            label4.Location = new Point(9, 58);
-            label4.Name = "label4";
-            label4.Size = new Size(33, 15);
-            label4.TabIndex = 9;
-            label4.Text = "Giày:";
-            // 
-            // btnXoa
-            // 
-            btnXoa.Anchor = AnchorStyles.Top;
-            btnXoa.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnXoa.Location = new Point(659, 55);
-            btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(148, 39);
-            btnXoa.TabIndex = 8;
-            btnXoa.Text = "XÓA";
-            btnXoa.UseVisualStyleBackColor = true;
-            btnXoa.Click += btnXoa_Click;
-            // 
-            // btnXacNhanBan
-            // 
-            btnXacNhanBan.Anchor = AnchorStyles.Top;
-            btnXacNhanBan.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnXacNhanBan.Location = new Point(659, 10);
-            btnXacNhanBan.Name = "btnXacNhanBan";
-            btnXacNhanBan.Size = new Size(148, 39);
-            btnXacNhanBan.TabIndex = 7;
-            btnXacNhanBan.Text = "XÁC NHẬN BÁN";
-            btnXacNhanBan.UseVisualStyleBackColor = true;
-            btnXacNhanBan.Click += btnXacNhanBan_Click;
-            // 
-            // panel2
-            // 
-            panel2.Controls.Add(btnInHoaDon);
-            panel2.Controls.Add(btnLuu);
-            panel2.Dock = DockStyle.Bottom;
-            panel2.Location = new Point(3, 415);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(819, 50);
-            panel2.TabIndex = 1;
-            // 
-            // btnInHoaDon
-            // 
-            btnInHoaDon.Anchor = AnchorStyles.Top;
-            btnInHoaDon.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnInHoaDon.Location = new Point(417, 6);
-            btnInHoaDon.Name = "btnInHoaDon";
-            btnInHoaDon.Size = new Size(148, 39);
-            btnInHoaDon.TabIndex = 10;
-            btnInHoaDon.Text = "IN HÓA ĐƠN...";
-            btnInHoaDon.UseVisualStyleBackColor = true;
-            // 
-            // btnLuu
-            // 
-            btnLuu.Anchor = AnchorStyles.Top;
-            btnLuu.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLuu.Location = new Point(253, 6);
-            btnLuu.Name = "btnLuu";
-            btnLuu.Size = new Size(148, 39);
-            btnLuu.TabIndex = 9;
-            btnLuu.Text = "LƯU HÓA ĐƠN";
-            btnLuu.UseVisualStyleBackColor = true;
-            btnLuu.Click += btnLuu_Click;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(9, 19);
-            label11.Name = "label11";
-            label11.Size = new Size(56, 15);
-            label11.TabIndex = 28;
-            label11.Text = "Lọc theo:";
+            MauSacID.DataPropertyName = "MauSacID";
+            MauSacID.HeaderText = "Column1";
+            MauSacID.Name = "MauSacID";
+            MauSacID.ReadOnly = true;
+            MauSacID.Visible = false;
             // 
             // frmHoaDon_ChiTiet
             // 
@@ -462,6 +577,7 @@
             ((System.ComponentModel.ISupportInitialize)numDonGiaBan).EndInit();
             ((System.ComponentModel.ISupportInitialize)numSoLuongBan).EndInit();
             panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -486,15 +602,10 @@
         private NumericUpDown numSoLuongBan;
         private Label label7;
         private Label label5;
-        private ComboBox cboSanPham;
+        private ComboBox cboGiay;
         private Label label4;
         private NumericUpDown numDonGiaBan;
-        private DataGridViewTextBoxColumn SanPhamID;
-        private DataGridViewTextBoxColumn TenSanPham;
-        private DataGridViewTextBoxColumn DonGiaBan;
-        private DataGridViewTextBoxColumn SoLuongBan;
-        private DataGridViewTextBoxColumn ThanhTien;
-        private Label lblSoLuongTon;
+        private Label lblSoLuongHienTai;
         private Label label8;
         private Label label9;
         private ComboBox cboSize;
@@ -503,5 +614,17 @@
         private Label label10;
         private ComboBox cboLoaiGiay;
         private Label label11;
+        private Label label12;
+        private Label lblTongTien;
+        private Label lblSoLuongTonKho;
+        private Label label14;
+        private DataGridViewTextBoxColumn SizeGiayID;
+        private DataGridViewTextBoxColumn TenGiay;
+        private DataGridViewTextBoxColumn DonGiaBan;
+        private DataGridViewTextBoxColumn SoLuongBan;
+        private DataGridViewTextBoxColumn ThanhTien;
+        private DataGridViewTextBoxColumn GiayID;
+        private DataGridViewTextBoxColumn colSize;
+        private DataGridViewTextBoxColumn MauSacID;
     }
 }

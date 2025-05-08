@@ -20,12 +20,15 @@ namespace QuanLyBanGiay.Data
     [NotMapped]
     public class DanhSachHoaDon_ChiTiet
     {
-        public int ID { get; set; }
-        public int HoaDonID { get; set; }
-        public int SizeGiayID { get; set; }
-        public string TenGiay { get; set; } = null!; 
-        public int SoLuongNhap { get; set; }
-        public int DonGiaNhap { get; set; }
-        public double ThanhTien { get; set; } 
+        public int GiayID { get; set; }
+        public string TenGiay { get; set; } = "";
+        public string Loai { get; set; } = "";
+        public string MauSac { get; set; } = "";
+        public int Size { get; set; }
+        public int SoLuongBan { get; set; }
+        public int DonGiaBan { get; set; }
+
+        public double ThanhTien => SoLuongBan * DonGiaBan;
     }
+
 }
