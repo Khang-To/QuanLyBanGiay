@@ -58,25 +58,32 @@ namespace QuanLyBanGiay.Forms
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            using (frmHoaDon_ChiTiet chiTiet = new frmHoaDon_ChiTiet())
+            if (frmHoaDon_ChiTiet == null || frmHoaDon_ChiTiet.IsDisposed)
             {
-                chiTiet.ShowDialog();
+                var frmChiTiet = new frmHoaDon_ChiTiet();
+                frmChiTiet.MdiParent = this.MdiParent;
+                frmChiTiet.Show();
+
+            }
+            else
+            {
+                frmHoaDon_ChiTiet.Activate();
             }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (dataGridView.CurrentRow != null)
+            if (dataGridView.CurrentRow != null && dataGridView.CurrentRow.Index >= 0)
             {
-                id = Convert.ToInt32(dataGridView.CurrentRow?.Cells[0].Value?.ToString());
-                using (frmHoaDon_ChiTiet chiTiet = new frmHoaDon_ChiTiet(id))
-                {
-                    chiTiet.ShowDialog();
-                }
+                int hoaDonID = Convert.ToInt32(dataGridView.CurrentRow.Cells["ID"].Value);
+
+                frmHoaDon_ChiTiet frmChiTiet = new frmHoaDon_ChiTiet(hoaDonID);
+                frmChiTiet.ShowDialog();
+                frmHoaDon_Load(sender, e);
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn một dòng để cập nhật.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn một hóa đơn để sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -86,25 +93,29 @@ namespace QuanLyBanGiay.Forms
             {
                 if (MessageBox.Show("Xác nhận xóa hóa đơn đang chọn?", "Xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    id = Convert.ToInt32(dataGridView.CurrentRow?.Cells[0].Value?.ToString());
-                    HoaDon hd = context.HoaDons.Find(id)!;
+                    int id = Convert.ToInt32(dataGridView.CurrentRow.Cells[0].Value.ToString());
+                    var hd = context.HoaDons.Find(id);
                     if (hd != null)
                     {
-                        // Xóa chi tiết hóa đơn
-                        HoaDon_ChiTiet ct = context.HoaDonChiTiets.Where(r => r.HoaDonID == id).SingleOrDefault()!;
-                        context.HoaDonChiTiets.Remove(ct);
+                        // Xóa chi tiết trước
+                        var chiTietList = context.HoaDonChiTiets.Where(ct => ct.HoaDonID == id).ToList();
+                        context.HoaDonChiTiets.RemoveRange(chiTietList);
+
                         // Xóa hóa đơn
                         context.HoaDons.Remove(hd);
+
                         context.SaveChanges();
                     }
+
                     frmHoaDon_Load(sender, e);
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn một dòng để xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn một hóa đơn để xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
@@ -138,8 +149,13 @@ namespace QuanLyBanGiay.Forms
 
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 5)
-                btnSua_Click(sender, e);
+            if (e.RowIndex >= 0 && dataGridView.Columns[e.ColumnIndex].Name == "XemChiTiet")
+            {
+                int hoaDonID = Convert.ToInt32(dataGridView.Rows[e.RowIndex].Cells["ID"].Value);
+                frmHoaDon_ChiTiet frm = new frmHoaDon_ChiTiet(hoaDonID);
+                frm.MdiParent = this.MdiParent;
+                frm.Show();
+            }
         }
 
         private void btnInHoaDon_Click(object sender, EventArgs e)
