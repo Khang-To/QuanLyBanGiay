@@ -142,7 +142,7 @@ namespace QuanLyBanGiay.Forms
             mnuNhapHang.Enabled = false;
             mnuNhaCungCap.Enabled = false;
             mnuDoiMatKhau.Enabled = false;
-            mnuThongKeHoaDon.Enabled = false;
+            mnuThongKeGiay.Enabled = false;
             mnuThongKeNhapHang.Enabled = false;
             mnuThongKeDoanhThu.Enabled = false;
             lblTrangThai.ForeColor = Color.Red;
@@ -162,7 +162,7 @@ namespace QuanLyBanGiay.Forms
             mnuDoiMatKhau.Enabled = true;
             mnuNhapHang.Enabled = true;
             mnuNhaCungCap.Enabled = true;
-            mnuThongKeHoaDon.Enabled = true;
+            mnuThongKeGiay.Enabled = true;
             mnuThongKeNhapHang.Enabled = true;
             mnuThongKeDoanhThu.Enabled = true;
             lblTrangThai.ForeColor = Color.Blue;
@@ -182,7 +182,7 @@ namespace QuanLyBanGiay.Forms
             mnuHoaDon.Enabled = true;
             mnuNhapHang.Enabled = true;
             mnuNhaCungCap.Enabled = false;
-            mnuThongKeHoaDon.Enabled = false;
+            mnuThongKeGiay.Enabled = false;
             mnuThongKeNhapHang.Enabled = false;
             mnuThongKeDoanhThu.Enabled = false;
             lblTrangThai.ForeColor = Color.Green;
@@ -373,6 +373,11 @@ namespace QuanLyBanGiay.Forms
             {
                 tonKho.Activate();
             }
+        }
+
+        private void mnuThongKeGiay_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
