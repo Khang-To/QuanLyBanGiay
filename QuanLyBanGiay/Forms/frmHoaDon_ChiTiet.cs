@@ -16,6 +16,7 @@ namespace QuanLyBanGiay.Forms
     {
         QLBGDbContext context = new QLBGDbContext();
         int id = 0;
+        private int? editingRowIndex = null;
 
         public frmHoaDon_ChiTiet(int maHoaDon = 0)
         {
@@ -68,7 +69,8 @@ namespace QuanLyBanGiay.Forms
             string? selected = cboGiay.SelectedValue?.ToString();
             if (string.IsNullOrEmpty(selected) || !selected.Contains("_"))
             {
-                lblSoLuongTon.Text = "0";
+                lblSoLuongHienTai.Text = "0";              // Số lượng tồn kho ban đầu
+                lblSoLuongTonKho.Text = "0";              // Số lượng còn lại tạm thời sau khi bán
                 numSoLuongBan.Maximum = 0;
                 numSoLuongBan.Value = 0;
                 numDonGiaBan.Value = 0;
@@ -87,35 +89,35 @@ namespace QuanLyBanGiay.Forms
             if (sizeGiay != null)
             {
                 int tonKhoGoc = sizeGiay.SoLuongTon;
+                int daBanTamThoi = 0;
 
-                // Trừ số lượng đã thêm vào giỏ
-                int daChon = 0;
                 foreach (DataGridViewRow row in dataGridView.Rows)
                 {
                     if (row.IsNewRow) continue;
 
-                    if (row.Cells["GiayID"].Value != null &&
-                        row.Cells["MauSacID"].Value != null &&
-                        row.Cells["colSize"].Value != null &&
-                        (int)row.Cells["GiayID"].Value == giayID &&
-                        (int)row.Cells["MauSacID"].Value == mauID &&
-                        (int)row.Cells["colSize"].Value == size)
+                    int rowGiayID = Convert.ToInt32(row.Cells["GiayID"].Value);
+                    int rowMauID = Convert.ToInt32(row.Cells["MauSacID"].Value);
+                    int rowSize = Convert.ToInt32(row.Cells["colSize"].Value);
+
+                    if (rowGiayID == giayID && rowMauID == mauID && rowSize == size)
                     {
-                        daChon += Convert.ToInt32(row.Cells["SoLuongBan"].Value);
+                        int rowSoLuong = Convert.ToInt32(row.Cells["SoLuongBan"].Value);
+                        daBanTamThoi += rowSoLuong;
                     }
                 }
 
-                int tonKhoConLai = tonKhoGoc - daChon;
-                tonKhoConLai = Math.Max(0, tonKhoConLai);
+                int tonSauKhiTruTamThoi = Math.Max(0, tonKhoGoc - daBanTamThoi);
+                lblSoLuongTonKho.Text = tonKhoGoc.ToString();                 // tồn kho hiện tại
+                lblSoLuongHienTai.Text = tonSauKhiTruTamThoi.ToString();        // còn lại sau bán
 
-                lblSoLuongTon.Text = tonKhoConLai.ToString();
-                numSoLuongBan.Maximum = tonKhoConLai;
-                numSoLuongBan.Value = tonKhoConLai > 0 ? 1 : 0;
+                numSoLuongBan.Maximum = tonSauKhiTruTamThoi;
+                numSoLuongBan.Value = tonSauKhiTruTamThoi > 0 ? 1 : 0;
                 numDonGiaBan.Value = sizeGiay.Giay.GiaBan;
             }
             else
             {
-                lblSoLuongTon.Text = "0";
+                lblSoLuongHienTai.Text = "0";
+                lblSoLuongTonKho.Text = "0";
                 numSoLuongBan.Maximum = 0;
                 numSoLuongBan.Value = 0;
                 numDonGiaBan.Value = 0;
@@ -252,7 +254,7 @@ namespace QuanLyBanGiay.Forms
 
             // Tính lại số lượng tồn còn lại và hiển thị lại
             int soLuongTonConLai = sizeGiay.SoLuongTon - tongSoLuongDaChon;
-            lblSoLuongTon.Text = soLuongTonConLai.ToString();
+            lblSoLuongHienTai.Text = soLuongTonConLai.ToString();
 
             // Xóa dòng
             dataGridView.Rows.Remove(selectedRow);
@@ -354,7 +356,6 @@ namespace QuanLyBanGiay.Forms
                 return;
             }
 
-            int daChon = 0;
             DataGridViewRow? existingRow = null;
 
             foreach (DataGridViewRow row in dataGridView.Rows)
@@ -368,12 +369,29 @@ namespace QuanLyBanGiay.Forms
                     (int)row.Cells["colSize"].Value == size &&
                     (int)row.Cells["MauSacID"].Value == mauSacID)
                 {
-                    daChon += Convert.ToInt32(row.Cells["SoLuongBan"].Value);
-                    existingRow = row; // Ghi nhận dòng trùng
+                    existingRow = row;
+                    break;
                 }
             }
 
-            int soLuongTonThucTe = sizeGiay.SoLuongTon - daChon;
+            int tongDaChonKhacDongHienTai = 0;
+
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                if (row.IsNewRow || row == existingRow) continue;
+
+                if (row.Cells["GiayID"].Value != null &&
+                    row.Cells["colSize"].Value != null &&
+                    row.Cells["MauSacID"].Value != null &&
+                    (int)row.Cells["GiayID"].Value == idGiay &&
+                    (int)row.Cells["colSize"].Value == size &&
+                    (int)row.Cells["MauSacID"].Value == mauSacID)
+                {
+                    tongDaChonKhacDongHienTai += Convert.ToInt32(row.Cells["SoLuongBan"].Value);
+                }
+            }
+
+            int soLuongTonThucTe = sizeGiay.SoLuongTon - tongDaChonKhacDongHienTai;
 
             if (soLuongTonThucTe <= 0)
             {
@@ -387,18 +405,14 @@ namespace QuanLyBanGiay.Forms
                 return;
             }
 
+            // Sau khi thêm hoặc cập nhật dòng:
             if (existingRow != null)
             {
-                // Nếu dòng đã tồn tại, cộng dồn
-                int soLuongCu = Convert.ToInt32(existingRow.Cells["SoLuongBan"].Value);
-                int soLuongMoi = soLuongCu + soLuongNhap;
-
-                existingRow.Cells["SoLuongBan"].Value = soLuongMoi;
-                existingRow.Cells["ThanhTien"].Value = soLuongMoi * sizeGiay.Giay.GiaBan;
+                existingRow.Cells["SoLuongBan"].Value = soLuongNhap;
+                existingRow.Cells["ThanhTien"].Value = soLuongNhap * sizeGiay.Giay.GiaBan;
             }
             else
             {
-                // Nếu chưa có, thêm dòng mới
                 int rowIndex = dataGridView.Rows.Add();
                 DataGridViewRow newRow = dataGridView.Rows[rowIndex];
 
@@ -411,10 +425,16 @@ namespace QuanLyBanGiay.Forms
                 newRow.Cells["ThanhTien"].Value = sizeGiay.Giay.GiaBan * soLuongNhap;
             }
 
-            lblSoLuongTon.Text = (soLuongTonThucTe - soLuongNhap).ToString();
-            TinhTongTien();
-        }
+            // ❗ Rất quan trọng: bỏ chọn dòng hiện tại
+            dataGridView.ClearSelection();
 
+            // ✅ Cập nhật lại số lượng tồn sau bán
+            CapNhatSoLuongTon();
+
+            // ✅ Tính lại tổng tiền
+            TinhTongTien();
+
+        }
 
         private void btnKhachHangMoi_Click(object sender, EventArgs e)
         {
@@ -568,6 +588,64 @@ namespace QuanLyBanGiay.Forms
             this.Close();
         }
 
+        private void dataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView.CurrentRow == null || dataGridView.CurrentRow.IsNewRow) return;
+
+            int giayID = Convert.ToInt32(dataGridView.CurrentRow.Cells["GiayID"].Value);
+            int mauID = Convert.ToInt32(dataGridView.CurrentRow.Cells["MauSacID"].Value);
+            int size = Convert.ToInt32(dataGridView.CurrentRow.Cells["colSize"].Value);
+            int soLuongDangChon = Convert.ToInt32(dataGridView.CurrentRow.Cells["SoLuongBan"].Value);
+
+            var sizeGiay = context.SizeGiays
+                .FirstOrDefault(sg => sg.GiayID == giayID && sg.MauSacID == mauID && sg.Size == size);
+
+            if (sizeGiay != null)
+            {
+                int tonKhoGoc = sizeGiay.SoLuongTon;
+                int daBanTamThoi = 0;
+
+                foreach (DataGridViewRow row in dataGridView.Rows)
+                {
+                    if (row.IsNewRow) continue;
+
+                    int rowGiayID = Convert.ToInt32(row.Cells["GiayID"].Value);
+                    int rowMauID = Convert.ToInt32(row.Cells["MauSacID"].Value);
+                    int rowSize = Convert.ToInt32(row.Cells["colSize"].Value);
+
+                    // Bỏ qua dòng đang chọn
+                    if (row.Index == dataGridView.CurrentRow.Index) continue;
+
+                    if (rowGiayID == giayID && rowMauID == mauID && rowSize == size)
+                    {
+                        int rowSoLuong = Convert.ToInt32(row.Cells["SoLuongBan"].Value);
+                        daBanTamThoi += rowSoLuong;
+                    }
+                }
+
+                int tonSauKhiTruTamThoi = Math.Max(0, tonKhoGoc - daBanTamThoi);
+
+                lblSoLuongTonKho.Text = tonKhoGoc.ToString();
+                lblSoLuongHienTai.Text = tonSauKhiTruTamThoi.ToString();
+
+                cboGiay.SelectedValue = $"{giayID}_{mauID}_{size}";
+
+                // ⚠ Đặt Maximum trước khi gán Value để tránh lỗi
+                numSoLuongBan.Maximum = tonSauKhiTruTamThoi;
+                numSoLuongBan.Value = Math.Min(soLuongDangChon, tonSauKhiTruTamThoi);
+
+                numDonGiaBan.Value = Convert.ToDecimal(dataGridView.CurrentRow.Cells["DonGiaBan"].Value);
+            }
+            else
+            {
+                lblSoLuongTonKho.Text = "0";
+                lblSoLuongHienTai.Text = "0";
+
+                numSoLuongBan.Maximum = 0;
+                numSoLuongBan.Value = 0;
+                numDonGiaBan.Value = 0;
+            }
+        }
 
     }
 }
