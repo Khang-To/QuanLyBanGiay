@@ -49,6 +49,9 @@
     <Compile Update="Forms\frmTonKho.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Reports\frmThongKeGiay.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Update="Reports\QLBGDataSet.xsd">

@@ -1,4 +1,5 @@
 ﻿using QuanLyBanGiay.Data;
+using QuanLyBanGiay.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +28,7 @@ namespace QuanLyBanGiay.Forms
         frmDangNhap? dangNhap = null;
         frmDoiMatKhau? doiMatKhau = null;
         frmTonKho? tonKho = null;
+        frmThongKeGiay? thongKeGiay = null;
         string hoVaTenNhanVien = "";
 
         frmSplashScreen splashScreen = new frmSplashScreen();
@@ -377,7 +379,16 @@ namespace QuanLyBanGiay.Forms
 
         private void mnuThongKeGiay_Click(object sender, EventArgs e)
         {
-
+            if (thongKeGiay == null || thongKeGiay.IsDisposed)
+            {
+                thongKeGiay = new frmThongKeGiay();
+                thongKeGiay.MdiParent = this;
+                thongKeGiay.Show();
+            }
+            else
+            {
+                thongKeGiay.Activate();
+            }
         }
     }
 }
