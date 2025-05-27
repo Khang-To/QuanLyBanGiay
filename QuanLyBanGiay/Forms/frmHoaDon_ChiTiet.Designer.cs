@@ -40,7 +40,16 @@
             label1 = new Label();
             groupBox2 = new GroupBox();
             dataGridView = new DataGridView();
+            SizeGiayID = new DataGridViewTextBoxColumn();
+            TenGiay = new DataGridViewTextBoxColumn();
+            DonGiaBan = new DataGridViewTextBoxColumn();
+            SoLuongBan = new DataGridViewTextBoxColumn();
+            ThanhTien = new DataGridViewTextBoxColumn();
+            GiayID = new DataGridViewTextBoxColumn();
+            colSize = new DataGridViewTextBoxColumn();
+            MauSacID = new DataGridViewTextBoxColumn();
             panel1 = new Panel();
+            chkConHang = new CheckBox();
             lblSoLuongTonKho = new Label();
             label14 = new Label();
             label11 = new Label();
@@ -65,14 +74,6 @@
             label12 = new Label();
             btnInHoaDon = new Button();
             btnLuu = new Button();
-            SizeGiayID = new DataGridViewTextBoxColumn();
-            TenGiay = new DataGridViewTextBoxColumn();
-            DonGiaBan = new DataGridViewTextBoxColumn();
-            SoLuongBan = new DataGridViewTextBoxColumn();
-            ThanhTien = new DataGridViewTextBoxColumn();
-            GiayID = new DataGridViewTextBoxColumn();
-            colSize = new DataGridViewTextBoxColumn();
-            MauSacID = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
@@ -199,8 +200,78 @@
             dataGridView.TabIndex = 2;
             dataGridView.SelectionChanged += dataGridView_SelectionChanged;
             // 
+            // SizeGiayID
+            // 
+            SizeGiayID.DataPropertyName = "SizeGiayID";
+            SizeGiayID.HeaderText = "ID";
+            SizeGiayID.Name = "SizeGiayID";
+            SizeGiayID.ReadOnly = true;
+            SizeGiayID.Visible = false;
+            // 
+            // TenGiay
+            // 
+            TenGiay.DataPropertyName = "TenGiay";
+            TenGiay.HeaderText = "Tên giày";
+            TenGiay.Name = "TenGiay";
+            TenGiay.ReadOnly = true;
+            // 
+            // DonGiaBan
+            // 
+            DonGiaBan.DataPropertyName = "DonGiaBan";
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.Blue;
+            dataGridViewCellStyle1.Format = "N0";
+            DonGiaBan.DefaultCellStyle = dataGridViewCellStyle1;
+            DonGiaBan.HeaderText = "Đơn giá";
+            DonGiaBan.Name = "DonGiaBan";
+            DonGiaBan.ReadOnly = true;
+            // 
+            // SoLuongBan
+            // 
+            SoLuongBan.DataPropertyName = "SoLuongBan";
+            SoLuongBan.HeaderText = "Số lượng";
+            SoLuongBan.Name = "SoLuongBan";
+            SoLuongBan.ReadOnly = true;
+            // 
+            // ThanhTien
+            // 
+            ThanhTien.DataPropertyName = "ThanhTien";
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.Green;
+            dataGridViewCellStyle2.Format = "N0";
+            ThanhTien.DefaultCellStyle = dataGridViewCellStyle2;
+            ThanhTien.HeaderText = "Thành tiền";
+            ThanhTien.Name = "ThanhTien";
+            ThanhTien.ReadOnly = true;
+            // 
+            // GiayID
+            // 
+            GiayID.DataPropertyName = "GiayID";
+            GiayID.HeaderText = "Column1";
+            GiayID.Name = "GiayID";
+            GiayID.ReadOnly = true;
+            GiayID.Visible = false;
+            // 
+            // colSize
+            // 
+            colSize.DataPropertyName = "Size";
+            colSize.HeaderText = "Column1";
+            colSize.Name = "colSize";
+            colSize.ReadOnly = true;
+            colSize.Visible = false;
+            // 
+            // MauSacID
+            // 
+            MauSacID.DataPropertyName = "MauSacID";
+            MauSacID.HeaderText = "Column1";
+            MauSacID.Name = "MauSacID";
+            MauSacID.ReadOnly = true;
+            MauSacID.Visible = false;
+            // 
             // panel1
             // 
+            panel1.Controls.Add(chkConHang);
             panel1.Controls.Add(lblSoLuongTonKho);
             panel1.Controls.Add(label14);
             panel1.Controls.Add(label11);
@@ -225,6 +296,19 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(819, 111);
             panel1.TabIndex = 0;
+            // 
+            // chkConHang
+            // 
+            chkConHang.AutoSize = true;
+            chkConHang.Checked = true;
+            chkConHang.CheckState = CheckState.Checked;
+            chkConHang.Location = new Point(11, 78);
+            chkConHang.Name = "chkConHang";
+            chkConHang.Size = new Size(102, 19);
+            chkConHang.TabIndex = 31;
+            chkConHang.Text = "Giày còn hàng";
+            chkConHang.UseVisualStyleBackColor = true;
+            chkConHang.CheckedChanged += chkConHang_CheckedChanged;
             // 
             // lblSoLuongTonKho
             // 
@@ -473,6 +557,7 @@
             btnInHoaDon.TabIndex = 10;
             btnInHoaDon.Text = "IN HÓA ĐƠN...";
             btnInHoaDon.UseVisualStyleBackColor = true;
+            btnInHoaDon.Click += btnInHoaDon_Click;
             // 
             // btnLuu
             // 
@@ -486,75 +571,6 @@
             btnLuu.Text = "LƯU HÓA ĐƠN";
             btnLuu.UseVisualStyleBackColor = true;
             btnLuu.Click += btnLuu_Click;
-            // 
-            // SizeGiayID
-            // 
-            SizeGiayID.DataPropertyName = "SizeGiayID";
-            SizeGiayID.HeaderText = "ID";
-            SizeGiayID.Name = "SizeGiayID";
-            SizeGiayID.ReadOnly = true;
-            SizeGiayID.Visible = false;
-            // 
-            // TenGiay
-            // 
-            TenGiay.DataPropertyName = "TenGiay";
-            TenGiay.HeaderText = "Tên giày";
-            TenGiay.Name = "TenGiay";
-            TenGiay.ReadOnly = true;
-            // 
-            // DonGiaBan
-            // 
-            DonGiaBan.DataPropertyName = "DonGiaBan";
-            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.Blue;
-            dataGridViewCellStyle1.Format = "N0";
-            DonGiaBan.DefaultCellStyle = dataGridViewCellStyle1;
-            DonGiaBan.HeaderText = "Đơn giá";
-            DonGiaBan.Name = "DonGiaBan";
-            DonGiaBan.ReadOnly = true;
-            // 
-            // SoLuongBan
-            // 
-            SoLuongBan.DataPropertyName = "SoLuongBan";
-            SoLuongBan.HeaderText = "Số lượng";
-            SoLuongBan.Name = "SoLuongBan";
-            SoLuongBan.ReadOnly = true;
-            // 
-            // ThanhTien
-            // 
-            ThanhTien.DataPropertyName = "ThanhTien";
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.Green;
-            dataGridViewCellStyle2.Format = "N0";
-            ThanhTien.DefaultCellStyle = dataGridViewCellStyle2;
-            ThanhTien.HeaderText = "Thành tiền";
-            ThanhTien.Name = "ThanhTien";
-            ThanhTien.ReadOnly = true;
-            // 
-            // GiayID
-            // 
-            GiayID.DataPropertyName = "GiayID";
-            GiayID.HeaderText = "Column1";
-            GiayID.Name = "GiayID";
-            GiayID.ReadOnly = true;
-            GiayID.Visible = false;
-            // 
-            // colSize
-            // 
-            colSize.DataPropertyName = "Size";
-            colSize.HeaderText = "Column1";
-            colSize.Name = "colSize";
-            colSize.ReadOnly = true;
-            colSize.Visible = false;
-            // 
-            // MauSacID
-            // 
-            MauSacID.DataPropertyName = "MauSacID";
-            MauSacID.HeaderText = "Column1";
-            MauSacID.Name = "MauSacID";
-            MauSacID.ReadOnly = true;
-            MauSacID.Visible = false;
             // 
             // frmHoaDon_ChiTiet
             // 
@@ -626,5 +642,6 @@
         private DataGridViewTextBoxColumn GiayID;
         private DataGridViewTextBoxColumn colSize;
         private DataGridViewTextBoxColumn MauSacID;
+        private CheckBox chkConHang;
     }
 }

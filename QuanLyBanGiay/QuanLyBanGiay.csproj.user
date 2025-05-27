@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
   <ItemGroup>
     <Compile Update="Forms\frmDangNhap.cs">
       <SubType>Form</SubType>
@@ -49,16 +50,20 @@
     <Compile Update="Forms\frmTonKho.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Reports\frmInHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Reports\frmInPhieuNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Reports\frmThongKeDoanhThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Reports\frmThongKeGiay.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Reports\frmThongKePhieuNhap.cs">
       <SubType>Form</SubType>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="Reports\QLBGDataSet.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
 </Project>

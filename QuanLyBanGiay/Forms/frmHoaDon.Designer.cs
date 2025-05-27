@@ -216,6 +216,7 @@
             // 
             btnXoa.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnXoa.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnXoa.ForeColor = Color.Red;
             btnXoa.Location = new Point(699, 12);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(93, 34);
@@ -251,6 +252,7 @@
             // btnThem
             // 
             btnThem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnThem.ForeColor = Color.Green;
             btnThem.Location = new Point(45, 12);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(176, 34);

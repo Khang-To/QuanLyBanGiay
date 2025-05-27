@@ -1,4 +1,5 @@
 ﻿using QuanLyBanGiay.Data;
+using QuanLyBanGiay.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +28,9 @@ namespace QuanLyBanGiay.Forms
         frmDangNhap? dangNhap = null;
         frmDoiMatKhau? doiMatKhau = null;
         frmTonKho? tonKho = null;
+        frmThongKeGiay? thongKeGiay = null;
+        frmThongKeDoanhThu? thongKeDoanhThu = null;
+        frmThongKePhieuNhap? thongKePhieuNhap = null;
         string hoVaTenNhanVien = "";
 
         frmSplashScreen splashScreen = new frmSplashScreen();
@@ -377,7 +381,44 @@ namespace QuanLyBanGiay.Forms
 
         private void mnuThongKeGiay_Click(object sender, EventArgs e)
         {
+            if (thongKeGiay == null || thongKeGiay.IsDisposed)
+            {
+                thongKeGiay = new frmThongKeGiay();
+                thongKeGiay.MdiParent = this;
+                thongKeGiay.Show();
+            }
+            else
+            {
+                thongKeGiay.Activate();
+            }
+        }
 
+        private void mnuThongKeDoanhThu_Click(object sender, EventArgs e)
+        {
+            if (thongKeDoanhThu == null || thongKeDoanhThu.IsDisposed)
+            {
+                thongKeDoanhThu = new frmThongKeDoanhThu();
+                thongKeDoanhThu.MdiParent = this;
+                thongKeDoanhThu.Show();
+            }
+            else
+            {
+                thongKeDoanhThu.Activate();
+            }
+        }
+
+        private void mnuThongKeNhapHang_Click(object sender, EventArgs e)
+        {
+            if (thongKePhieuNhap == null || thongKePhieuNhap.IsDisposed)
+            {
+                thongKePhieuNhap = new frmThongKePhieuNhap();
+                thongKePhieuNhap.MdiParent = this;
+                thongKePhieuNhap.Show();
+            }
+            else
+            {
+                thongKePhieuNhap.Activate();
+            }
         }
     }
 }
