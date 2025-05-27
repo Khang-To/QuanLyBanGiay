@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using QuanLyBanGiay.Data;
+using QuanLyBanGiay.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -294,6 +295,7 @@ namespace QuanLyBanGiay.Forms
                     };
                     context.PhieuNhaps.Add(pn);
                     context.SaveChanges();
+                    id = pn.ID; // <-- Cập nhật lại ID của phiếu nhập mới tạo
 
                     foreach (var item in phieuNhapChiTiet)
                     {
@@ -349,6 +351,20 @@ namespace QuanLyBanGiay.Forms
                 cboGiay.Text = row.TenGiay;
                 cboMauSac.Text = row.TenMau;
                 cboGiay_SelectionChangeCommitted(sender, e);
+            }
+        }
+
+        private void btnInPhieuNhap_Click(object sender, EventArgs e)
+        {
+            if (id == 0)
+            {
+                MessageBox.Show("Vui lòng lưu phiếu nhập trước khi in.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            using (frmInPhieuNhap inPhieuNhap = new frmInPhieuNhap(id))
+            {
+                inPhieuNhap.ShowDialog();
             }
         }
     }
