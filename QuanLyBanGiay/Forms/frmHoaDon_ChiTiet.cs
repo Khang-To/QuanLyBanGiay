@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using QuanLyBanGiay.Data;
+using QuanLyBanGiay.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -146,19 +147,23 @@ namespace QuanLyBanGiay.Forms
             if (idSize != 0)
                 query = query.Where(sg => sg.Size == idSize);
 
+            // Lọc theo checkbox Giày còn hàng
+            if (chkConHang.Checked)
+                query = query.Where(sg => sg.SoLuongTon > 0);
+
             var danhSach = query.Select(sg => new
             {
                 ID = sg.GiayID + "_" + sg.MauSacID + "_" + sg.Size,
-                Display = $"{sg.Giay.TenGiay} - {sg.Giay.LoaiGiay.TenLoai} - {sg.MauSac.TenMau} - Size {sg.Size}"
+                Display = $"{sg.Giay.TenGiay} - {sg.Giay.LoaiGiay.TenLoai} - {sg.MauSac.TenMau} - Size {sg.Size} (SL: {sg.SoLuongTon})"
             }).ToList();
 
+            // Giữ lại các mục đã chọn trước đó
             if (danhSachGiuLai != null)
             {
                 foreach (string key in danhSachGiuLai)
                 {
                     if (!danhSach.Any(x => x.ID == key))
                     {
-                        // Tách giayID, mauID, size
                         var parts = key.Split('_');
                         int giayID = int.Parse(parts[0]);
                         int mauID = int.Parse(parts[1]);
@@ -174,7 +179,7 @@ namespace QuanLyBanGiay.Forms
                             danhSach.Add(new
                             {
                                 ID = key,
-                                Display = $"{sg.Giay.TenGiay} - {sg.Giay.LoaiGiay.TenLoai} - {sg.MauSac.TenMau} - Size {sg.Size}"
+                                Display = $"{sg.Giay.TenGiay} - {sg.Giay.LoaiGiay.TenLoai} - {sg.MauSac.TenMau} - Size {sg.Size} (SL: {sg.SoLuongTon})"
                             });
                         }
                     }
@@ -185,7 +190,6 @@ namespace QuanLyBanGiay.Forms
             cboGiay.ValueMember = "ID";
             cboGiay.DisplayMember = "Display";
         }
-
 
         public void BatTatChucNang()
         {
@@ -630,7 +634,6 @@ namespace QuanLyBanGiay.Forms
 
                 cboGiay.SelectedValue = $"{giayID}_{mauID}_{size}";
 
-                // ⚠ Đặt Maximum trước khi gán Value để tránh lỗi
                 numSoLuongBan.Maximum = tonSauKhiTruTamThoi;
                 numSoLuongBan.Value = Math.Min(soLuongDangChon, tonSauKhiTruTamThoi);
 
@@ -647,5 +650,24 @@ namespace QuanLyBanGiay.Forms
             }
         }
 
+        private void btnInHoaDon_Click(object sender, EventArgs e)
+        {
+            if (id != 0)
+            {
+                using (frmInHoaDon frm = new frmInHoaDon(id))
+                {
+                    frm.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng lưu hóa đơn trước khi in.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void chkConHang_CheckedChanged(object sender, EventArgs e)
+        {
+            LayGiayVaoComboBox();
+        }
     }
 }

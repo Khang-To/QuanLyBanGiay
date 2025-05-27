@@ -1,6 +1,7 @@
 ﻿using ClosedXML.Excel;
 using Microsoft.EntityFrameworkCore;
 using QuanLyBanGiay.Data;
+using QuanLyBanGiay.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -341,7 +342,18 @@ namespace QuanLyBanGiay.Forms
 
         private void btnInHoaDon_Click(object sender, EventArgs e)
         {
-
+            if (dataGridView.CurrentRow != null)
+            {
+                id = Convert.ToInt32(dataGridView.CurrentRow?.Cells[0].Value?.ToString());
+                using (frmInHoaDon inHoaDon = new frmInHoaDon(id))
+                {
+                    inHoaDon.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một dòng để in hóa đơn.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

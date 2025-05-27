@@ -1547,6 +1547,8 @@ namespace QuanLyBanGiay.Reports {
             
             private global::System.Data.DataColumn columnTenGiay;
             
+            private global::System.Data.DataColumn columnSize;
+            
             private global::System.Data.DataColumn columnSoLuongBan;
             
             private global::System.Data.DataColumn columnDonGiaBan;
@@ -1622,6 +1624,14 @@ namespace QuanLyBanGiay.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn SizeColumn {
+                get {
+                    return this.columnSize;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn SoLuongBanColumn {
                 get {
                     return this.columnSoLuongBan;
@@ -1681,13 +1691,14 @@ namespace QuanLyBanGiay.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DanhSachHoaDon_ChiTietRow AddDanhSachHoaDon_ChiTietRow(int ID, int HoaDonID, int SizeGiayID, string TenGiay, int SoLuongBan, int DonGiaBan, double ThanhTien) {
+            public DanhSachHoaDon_ChiTietRow AddDanhSachHoaDon_ChiTietRow(int ID, int HoaDonID, int SizeGiayID, string TenGiay, int Size, int SoLuongBan, int DonGiaBan, double ThanhTien) {
                 DanhSachHoaDon_ChiTietRow rowDanhSachHoaDon_ChiTietRow = ((DanhSachHoaDon_ChiTietRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
                         HoaDonID,
                         SizeGiayID,
                         TenGiay,
+                        Size,
                         SoLuongBan,
                         DonGiaBan,
                         ThanhTien};
@@ -1724,6 +1735,7 @@ namespace QuanLyBanGiay.Reports {
                 this.columnHoaDonID = base.Columns["HoaDonID"];
                 this.columnSizeGiayID = base.Columns["SizeGiayID"];
                 this.columnTenGiay = base.Columns["TenGiay"];
+                this.columnSize = base.Columns["Size"];
                 this.columnSoLuongBan = base.Columns["SoLuongBan"];
                 this.columnDonGiaBan = base.Columns["DonGiaBan"];
                 this.columnThanhTien = base.Columns["ThanhTien"];
@@ -1740,6 +1752,8 @@ namespace QuanLyBanGiay.Reports {
                 base.Columns.Add(this.columnSizeGiayID);
                 this.columnTenGiay = new global::System.Data.DataColumn("TenGiay", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTenGiay);
+                this.columnSize = new global::System.Data.DataColumn("Size", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSize);
                 this.columnSoLuongBan = new global::System.Data.DataColumn("SoLuongBan", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSoLuongBan);
                 this.columnDonGiaBan = new global::System.Data.DataColumn("DonGiaBan", typeof(int), null, global::System.Data.MappingType.Element);
@@ -3045,6 +3059,22 @@ namespace QuanLyBanGiay.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Size {
+                get {
+                    try {
+                        return ((int)(this[this.tableDanhSachHoaDon_ChiTiet.SizeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Size\' in table \'DanhSachHoaDon_ChiTiet\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDanhSachHoaDon_ChiTiet.SizeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int SoLuongBan {
                 get {
                     try {
@@ -3125,6 +3155,18 @@ namespace QuanLyBanGiay.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetTenGiayNull() {
                 this[this.tableDanhSachHoaDon_ChiTiet.TenGiayColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsSizeNull() {
+                return this.IsNull(this.tableDanhSachHoaDon_ChiTiet.SizeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetSizeNull() {
+                this[this.tableDanhSachHoaDon_ChiTiet.SizeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

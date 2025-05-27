@@ -29,6 +29,7 @@ namespace QuanLyBanGiay.Forms
         frmDoiMatKhau? doiMatKhau = null;
         frmTonKho? tonKho = null;
         frmThongKeGiay? thongKeGiay = null;
+        frmThongKeDoanhThu? thongKeDoanhThu = null;
         string hoVaTenNhanVien = "";
 
         frmSplashScreen splashScreen = new frmSplashScreen();
@@ -388,6 +389,20 @@ namespace QuanLyBanGiay.Forms
             else
             {
                 thongKeGiay.Activate();
+            }
+        }
+
+        private void mnuThongKeDoanhThu_Click(object sender, EventArgs e)
+        {
+            if (thongKeDoanhThu == null || thongKeDoanhThu.IsDisposed)
+            {
+                thongKeDoanhThu = new frmThongKeDoanhThu();
+                thongKeDoanhThu.MdiParent = this;
+                thongKeDoanhThu.Show();
+            }
+            else
+            {
+                thongKeDoanhThu.Activate();
             }
         }
     }
