@@ -1,6 +1,7 @@
 ﻿using ClosedXML.Excel;
 using Microsoft.EntityFrameworkCore;
 using QuanLyBanGiay.Data;
+using QuanLyBanGiay.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -341,8 +342,24 @@ namespace QuanLyBanGiay.Forms
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
-            frmPhieuNhap_Load(sender,e);
+            frmPhieuNhap_Load(sender, e);
             txtTuKhoa.Text = "";
+        }
+
+        private void btnInPhieuNhap_Click(object sender, EventArgs e)
+        {
+            if (dataGridView.CurrentRow != null)
+            {
+                id = Convert.ToInt32(dataGridView.CurrentRow?.Cells[0].Value?.ToString());
+                using (frmInPhieuNhap inPhieuNhap = new frmInPhieuNhap(id))
+                {
+                    inPhieuNhap.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một dòng để in phiếu nhập.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
