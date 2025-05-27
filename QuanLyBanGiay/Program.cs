@@ -1,4 +1,5 @@
 using QuanLyBanGiay.Forms;
+using QuanLyBanGiay.Reports;
 
 namespace QuanLyBanGiay
 {

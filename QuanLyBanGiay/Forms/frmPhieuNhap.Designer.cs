@@ -260,6 +260,7 @@
             btnInPhieuNhap.TabIndex = 5;
             btnInPhieuNhap.Text = "In phiếu nhập...";
             btnInPhieuNhap.UseVisualStyleBackColor = true;
+            btnInPhieuNhap.Click += btnInPhieuNhap_Click;
             // 
             // frmPhieuNhap
             // 

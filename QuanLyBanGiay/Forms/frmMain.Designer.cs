@@ -224,14 +224,14 @@
             // mnuNhapHang
             // 
             mnuNhapHang.Name = "mnuNhapHang";
-            mnuNhapHang.Size = new Size(180, 22);
+            mnuNhapHang.Size = new Size(153, 22);
             mnuNhapHang.Text = "&NHẬP HÀNG...";
             mnuNhapHang.Click += mnuNhapHang_Click;
             // 
             // mnuHoaDon
             // 
             mnuHoaDon.Name = "mnuHoaDon";
-            mnuHoaDon.Size = new Size(180, 22);
+            mnuHoaDon.Size = new Size(153, 22);
             mnuHoaDon.Text = "&HÓA ĐƠN...";
             mnuHoaDon.Click += mnuHoaDon_Click;
             // 
@@ -259,6 +259,7 @@
             mnuThongKeNhapHang.Name = "mnuThongKeNhapHang";
             mnuThongKeNhapHang.Size = new Size(214, 22);
             mnuThongKeNhapHang.Text = "THỐNG KÊ &NHẬP HÀNG...";
+            mnuThongKeNhapHang.Click += mnuThongKeNhapHang_Click;
             // 
             // mnuThongKeDoanhThu
             // 

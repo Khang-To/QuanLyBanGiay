@@ -300,6 +300,8 @@
             // chkConHang
             // 
             chkConHang.AutoSize = true;
+            chkConHang.Checked = true;
+            chkConHang.CheckState = CheckState.Checked;
             chkConHang.Location = new Point(11, 78);
             chkConHang.Name = "chkConHang";
             chkConHang.Size = new Size(102, 19);
