@@ -41,7 +41,11 @@ namespace QuanLyBanGiay.Forms
 
         public void layGiayVaoComboBox()
         {
-            cboGiay.DataSource = context.Giays.Include(g => g.ThuongHieu).Include(g => g.LoaiGiay).ToList();
+            cboGiay.DataSource = context.Giays
+                                        .Include(g => g.ThuongHieu)
+                                        .Include(g => g.LoaiGiay)
+                                        .OrderBy(g => g.TenGiay.ToLower()) // Sắp xếp theo tên giày
+                                        .ToList();
             cboGiay.ValueMember = "ID";
             cboGiay.DisplayMember = "TenGiay";
         }
