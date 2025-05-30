@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static QuanLyBanGiay.Reports.QLBGDataSet;
 
 namespace QuanLyBanGiay.Reports
 {
@@ -49,19 +50,67 @@ namespace QuanLyBanGiay.Reports
                 row.TongTienHoaDon
                  );
             }
-            ReportDataSource reportDataSource = new ReportDataSource
-            {
-                Name = "dsHoaDon", // Tên DataSet trong file .rdlc
-                Value = dsHoaDon
-            };
-
+            ReportDataSource reportDataSource = new ReportDataSource();
+            reportDataSource.Name = "dsHoaDon";
+            reportDataSource.Value = dsHoaDon;
             reportViewer.LocalReport.DataSources.Clear();
-            reportViewer.LocalReport.DataSources.Add(reportDataSource);
-            reportViewer.LocalReport.ReportPath = Path.Combine(reportsFolder, "rptThongKeDoanhThu.rdlc");
+            reportViewer.LocalReport.DataSources.Add(reportDataSource); reportViewer.LocalReport.ReportPath = Path.Combine(reportsFolder, "rptThongKeDoanhThu.rdlc");
+
+            ReportParameter reportParameter = new ReportParameter("MoTaKetQuaHienThi", "(Tất cả thời gian)");
+            reportViewer.LocalReport.SetParameters(reportParameter);
+
             reportViewer.SetDisplayMode(DisplayMode.PrintLayout);
-            reportViewer.ZoomMode = ZoomMode.PageWidth;
+            reportViewer.ZoomMode = ZoomMode.Percent;
             reportViewer.ZoomPercent = 100;
             reportViewer.RefreshReport();
+        }
+
+        private void btnLocKetQua_Click(object sender, EventArgs e)
+        {
+            var hoaDonList = context.HoaDons.Select(hd => new
+            {
+                hd.ID,
+                hd.NhanVienID,
+                HoVaTenNhanVien = hd.NhanVien.HoVaTen,
+                hd.KhachHangID,
+                HoVaTenKhachHang = hd.KhachHang.HoVaTen,
+                hd.NgayLap,
+                hd.GhiChuHoaDon,
+                TongTienHoaDon = hd.HoaDon_ChiTiets.Sum(ct => ct.SoLuongBan * ct.DonGiaBan)
+            }).Where(r => r.NgayLap >= dtpTuNgay.Value.Date && r.NgayLap < dtpDenNgay.Value.Date.AddDays(1)).ToList();
+
+            dsHoaDon.Clear();
+            foreach (var row in hoaDonList)
+            {
+                dsHoaDon.AddDanhSachHoaDonRow(
+               row.ID,
+               row.NhanVienID,
+               row.HoVaTenNhanVien,
+               row.KhachHangID,
+               row.HoVaTenKhachHang,
+               row.NgayLap,
+               row.GhiChuHoaDon ?? "",
+               row.TongTienHoaDon
+                );
+            }
+            ReportDataSource reportDataSource = new ReportDataSource();
+            reportDataSource.Name = "dsHoaDon";
+            reportDataSource.Value = dsHoaDon;
+            reportViewer.LocalReport.DataSources.Clear();
+            reportViewer.LocalReport.DataSources.Add(reportDataSource); reportViewer.LocalReport.ReportPath = Path.Combine(reportsFolder, "rptThongKeDoanhThu.rdlc");
+
+            ReportParameter reportParameter = new ReportParameter("MoTaKetQuaHienThi", "Từ ngày: " + dtpTuNgay.Text + " - Đến ngày: " + dtpDenNgay.Text);
+            reportViewer.LocalReport.SetParameters(reportParameter);
+
+            reportViewer.SetDisplayMode(DisplayMode.PrintLayout);
+            reportViewer.ZoomMode = ZoomMode.Percent;
+            reportViewer.ZoomPercent = 100;
+            reportViewer.RefreshReport();
+        }
+
+        private void btnHienTatCa_Click(object sender, EventArgs e)
+        {
+            frmThongKeDoanhThu_Load(sender, e);
         }
     }
 }

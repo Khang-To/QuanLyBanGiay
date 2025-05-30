@@ -49,6 +49,7 @@
             btnThem = new Button();
             txtTenThuongHieu = new TextBox();
             label1 = new Label();
+            helpProvider1 = new HelpProvider();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             toolStrip.SuspendLayout();
@@ -264,6 +265,10 @@
             label1.TabIndex = 0;
             label1.Text = "Tên thương hiệu:";
             // 
+            // helpProvider1
+            // 
+            helpProvider1.HelpNamespace = "https://maithiencan.github.io/helpqlbg/thuonghieu.html";
+            // 
             // frmThuongHieu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -271,8 +276,10 @@
             ClientSize = new Size(547, 450);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
+            helpProvider1.SetHelpKeyword(this, "F1");
             MinimumSize = new Size(563, 489);
             Name = "frmThuongHieu";
+            helpProvider1.SetShowHelp(this, true);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Thương hiệu giày";
             Load += frmThuongHieu_Load;
@@ -308,5 +315,6 @@
         private Button btnThem;
         private TextBox txtTenThuongHieu;
         private Label label1;
+        private HelpProvider helpProvider1;
     }
 }

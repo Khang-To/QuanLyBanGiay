@@ -35,6 +35,7 @@
             txtMatKhau = new TextBox();
             btnDangNhap = new Button();
             btnHuyBo = new Button();
+            helpProvider1 = new HelpProvider();
             SuspendLayout();
             // 
             // label1
@@ -115,6 +116,10 @@
             btnHuyBo.UseVisualStyleBackColor = false;
             btnHuyBo.Click += btnHuyBo_Click;
             // 
+            // helpProvider1
+            // 
+            helpProvider1.HelpNamespace = "https://maithiencan.github.io/helpqlbg/dangnhap.html";
+            // 
             // frmDangNhap
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -129,9 +134,11 @@
             Controls.Add(label1);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
+            helpProvider1.SetHelpKeyword(this, "F1");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmDangNhap";
+            helpProvider1.SetShowHelp(this, true);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ĐĂNG NHẬP";
             ResumeLayout(false);
@@ -147,5 +154,6 @@
         private Button btnHuyBo;
         public TextBox txtTenDangNhap;
         public TextBox txtMatKhau;
+        private HelpProvider helpProvider1;
     }
 }

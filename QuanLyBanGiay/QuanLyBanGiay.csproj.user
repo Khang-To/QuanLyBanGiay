@@ -44,6 +44,9 @@
     <Compile Update="Forms\frmSplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\frmThongTinPhamMem.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\frmThuongHieu.cs">
       <SubType>Form</SubType>
     </Compile>

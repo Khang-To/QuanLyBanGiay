@@ -49,6 +49,7 @@
             btnNhap = new ToolStripButton();
             btnXuat = new ToolStripButton();
             btnLamMoi = new ToolStripButton();
+            helpProvider1 = new HelpProvider();
             panel1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
@@ -261,6 +262,10 @@
             btnLamMoi.Text = "Làm mới";
             btnLamMoi.Click += btnLamMoi_Click;
             // 
+            // helpProvider1
+            // 
+            helpProvider1.HelpNamespace = "https://maithiencan.github.io/helpqlbg/maugiay.html";
+            // 
             // frmMauSac
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -268,8 +273,10 @@
             ClientSize = new Size(539, 500);
             Controls.Add(groupBox2);
             Controls.Add(panel1);
+            helpProvider1.SetHelpKeyword(this, "F1");
             MinimumSize = new Size(555, 539);
             Name = "frmMauSac";
+            helpProvider1.SetShowHelp(this, true);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Màu giày";
             Load += frmMauSac_Load;
@@ -305,5 +312,6 @@
         private ToolStripButton btnNhap;
         private ToolStripButton btnXuat;
         private ToolStripButton btnLamMoi;
+        private HelpProvider helpProvider1;
     }
 }

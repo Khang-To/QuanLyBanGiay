@@ -30,12 +30,13 @@
         {
             reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
             panel1 = new Panel();
+            btnLamMoi = new Button();
             btnLocKetQua = new Button();
             cboLoaiGiay = new ComboBox();
             label2 = new Label();
             cboThuongHieu = new ComboBox();
             label1 = new Label();
-            btnLamMoi = new Button();
+            helpProvider1 = new HelpProvider();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -62,8 +63,20 @@
             panel1.Size = new Size(800, 47);
             panel1.TabIndex = 1;
             // 
+            // btnLamMoi
+            // 
+            btnLamMoi.Anchor = AnchorStyles.Top;
+            btnLamMoi.Location = new Point(666, 15);
+            btnLamMoi.Name = "btnLamMoi";
+            btnLamMoi.Size = new Size(81, 23);
+            btnLamMoi.TabIndex = 5;
+            btnLamMoi.Text = "Làm mới";
+            btnLamMoi.UseVisualStyleBackColor = true;
+            btnLamMoi.Click += btnLamMoi_Click;
+            // 
             // btnLocKetQua
             // 
+            btnLocKetQua.Anchor = AnchorStyles.Top;
             btnLocKetQua.Location = new Point(570, 15);
             btnLocKetQua.Name = "btnLocKetQua";
             btnLocKetQua.Size = new Size(90, 23);
@@ -74,6 +87,7 @@
             // 
             // cboLoaiGiay
             // 
+            cboLoaiGiay.Anchor = AnchorStyles.Top;
             cboLoaiGiay.FormattingEnabled = true;
             cboLoaiGiay.Location = new Point(443, 16);
             cboLoaiGiay.Name = "cboLoaiGiay";
@@ -82,6 +96,7 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top;
             label2.AutoSize = true;
             label2.Location = new Point(380, 20);
             label2.Name = "label2";
@@ -91,6 +106,7 @@
             // 
             // cboThuongHieu
             // 
+            cboThuongHieu.Anchor = AnchorStyles.Top;
             cboThuongHieu.FormattingEnabled = true;
             cboThuongHieu.Location = new Point(210, 16);
             cboThuongHieu.Name = "cboThuongHieu";
@@ -99,6 +115,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
             label1.Location = new Point(119, 19);
             label1.Name = "label1";
@@ -106,15 +123,9 @@
             label1.TabIndex = 0;
             label1.Text = "Thương hiệu:";
             // 
-            // btnLamMoi
+            // helpProvider1
             // 
-            btnLamMoi.Location = new Point(666, 15);
-            btnLamMoi.Name = "btnLamMoi";
-            btnLamMoi.Size = new Size(81, 23);
-            btnLamMoi.TabIndex = 5;
-            btnLamMoi.Text = "Làm mới";
-            btnLamMoi.UseVisualStyleBackColor = true;
-            btnLamMoi.Click += btnLamMoi_Click;
+            helpProvider1.HelpNamespace = "https://maithiencan.github.io/helpqlbg/thongkegiay.html";
             // 
             // frmThongKeGiay
             // 
@@ -123,8 +134,10 @@
             ClientSize = new Size(800, 450);
             Controls.Add(reportViewer);
             Controls.Add(panel1);
+            helpProvider1.SetHelpKeyword(this, "F1");
             MinimumSize = new Size(816, 489);
             Name = "frmThongKeGiay";
+            helpProvider1.SetShowHelp(this, true);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Thống kê giày";
             Load += frmThongKeGiay_Load;
@@ -143,5 +156,6 @@
         private Label label1;
         private Button btnLocKetQua;
         private Button btnLamMoi;
+        private HelpProvider helpProvider1;
     }
 }

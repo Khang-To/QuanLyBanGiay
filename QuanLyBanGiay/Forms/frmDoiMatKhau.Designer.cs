@@ -37,6 +37,7 @@
             label1 = new Label();
             txtMatKhauMoi = new TextBox();
             label4 = new Label();
+            helpProvider1 = new HelpProvider();
             SuspendLayout();
             // 
             // btnHuyBo
@@ -134,6 +135,10 @@
             label4.TabIndex = 14;
             label4.Text = "Mật khẩu mới:";
             // 
+            // helpProvider1
+            // 
+            helpProvider1.HelpNamespace = "https://maithiencan.github.io/helpqlbg/doimatkhau.html";
+            // 
             // frmDoiMatKhau
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -149,7 +154,9 @@
             Controls.Add(label2);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            helpProvider1.SetHelpKeyword(this, "F1");
             Name = "frmDoiMatKhau";
+            helpProvider1.SetShowHelp(this, true);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Đổi mật khẩu";
             ResumeLayout(false);
@@ -167,5 +174,6 @@
         private Label label1;
         public TextBox txtMatKhauMoi;
         private Label label4;
+        private HelpProvider helpProvider1;
     }
 }

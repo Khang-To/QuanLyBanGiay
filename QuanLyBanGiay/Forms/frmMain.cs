@@ -31,6 +31,9 @@ namespace QuanLyBanGiay.Forms
         frmThongKeGiay? thongKeGiay = null;
         frmThongKeDoanhThu? thongKeDoanhThu = null;
         frmThongKePhieuNhap? thongKePhieuNhap = null;
+        frmThongTinPhamMem? thongTinPhanMem = null;
+        frmHoaDon_ChiTiet? hoaDonChiTiet = null;
+        frmPhieuNhap_ChiTiet? phieuNhapChiTiet = null;
         string hoVaTenNhanVien = "";
 
         frmSplashScreen splashScreen = new frmSplashScreen();
@@ -137,6 +140,10 @@ namespace QuanLyBanGiay.Forms
         private void ChuaPhanQuyen()
         {
             mnuDangNhap.Enabled = true;
+            btnBanGiay.Enabled = false;
+            btnDangNhap.Enabled = true;
+            btnDangXuat.Enabled = false;
+            btnNhapGiay.Enabled = false;
             mnuDangXuat.Enabled = false;
             mnuDanhMuc.Enabled = false;
             mnuKho.Enabled = false;
@@ -158,6 +165,10 @@ namespace QuanLyBanGiay.Forms
         {
             mnuDangNhap.Enabled = false;
             mnuDangXuat.Enabled = true;
+            btnBanGiay.Enabled = true;
+            btnDangNhap.Enabled = false;
+            btnDangXuat.Enabled = true;
+            btnNhapGiay.Enabled = true;
             mnuDanhMuc.Enabled = true;
             mnuKho.Enabled = true;
             mnuKhachHang.Enabled = true;
@@ -179,16 +190,20 @@ namespace QuanLyBanGiay.Forms
             mnuDangNhap.Enabled = false;
             mnuDangXuat.Enabled = true;
             mnuDanhMuc.Enabled = false;
+            btnBanGiay.Enabled = true;
+            btnDangNhap.Enabled = false;
+            btnDangXuat.Enabled = true;
+            btnNhapGiay.Enabled = false;
             mnuKho.Enabled = true;
             mnuDoiMatKhau.Enabled = true;
             mnuKhachHang.Enabled = true;
             mnuNhanVien.Enabled = false;
             mnuHoaDon.Enabled = true;
-            mnuNhapHang.Enabled = true;
+            mnuNhapHang.Enabled = false;
             mnuNhaCungCap.Enabled = false;
-            mnuThongKeGiay.Enabled = false;
-            mnuThongKeNhapHang.Enabled = false;
-            mnuThongKeDoanhThu.Enabled = false;
+            mnuThongKeGiay.Enabled = true;
+            mnuThongKeNhapHang.Enabled = true;
+            mnuThongKeDoanhThu.Enabled = true;
             lblTrangThai.ForeColor = Color.Green;
             lblTrangThai.Font = new Font(lblTrangThai.Font, FontStyle.Bold);
             lblTrangThai.Text = "Nhân viên: " + hoVaTenNhanVien;
@@ -418,6 +433,75 @@ namespace QuanLyBanGiay.Forms
             else
             {
                 thongKePhieuNhap.Activate();
+            }
+        }
+
+        private void mnuThongTinPhanMem_Click(object sender, EventArgs e)
+        {
+            if (thongTinPhanMem == null || thongTinPhanMem.IsDisposed)
+            {
+                thongTinPhanMem = new frmThongTinPhamMem();
+                thongTinPhanMem.MdiParent = this;
+                thongTinPhanMem.Show();
+            }
+            else
+            {
+                thongTinPhanMem.Activate();
+            }
+        }
+
+        private void btnDangNhap_Click(object sender, EventArgs e)
+        {
+            mnuDangNhap_Click(sender, e);
+        }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            mnuDangXuat_Click(sender, e);
+        }
+
+        private void btnBanGiay_Click(object sender, EventArgs e)
+        {
+            if (hoaDonChiTiet == null || hoaDonChiTiet.IsDisposed)
+            {
+                hoaDonChiTiet = new frmHoaDon_ChiTiet();
+                hoaDonChiTiet.MdiParent = this;
+                hoaDonChiTiet.Show();
+            }
+            else
+            {
+                hoaDonChiTiet.Activate();
+            }
+        }
+
+        private void btnNhapGiay_Click(object sender, EventArgs e)
+        {
+            if (phieuNhapChiTiet == null || phieuNhapChiTiet.IsDisposed)
+            {
+                phieuNhapChiTiet = new frmPhieuNhap_ChiTiet();
+                phieuNhapChiTiet.MdiParent = this;
+                phieuNhapChiTiet.Show();
+            }
+            else
+            {
+                phieuNhapChiTiet.Activate();
+            }
+        }
+
+        private void mnuHuongDanSuDung_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string url = "https://maithiencan.github.io/helpqlbg/";
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = url,
+                    UseShellExecute = true
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Không thể mở trình duyệt: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

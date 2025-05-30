@@ -74,8 +74,16 @@
             lblNgayGio = new ToolStripStatusLabel();
             lblLienKet = new ToolStripStatusLabel();
             timer = new System.Windows.Forms.Timer(components);
+            toolStrip1 = new ToolStrip();
+            btnDangNhap = new ToolStripButton();
+            btnDangXuat = new ToolStripButton();
+            toolStripSeparator8 = new ToolStripSeparator();
+            btnBanGiay = new ToolStripButton();
+            btnNhapGiay = new ToolStripButton();
+            helpProvider = new HelpProvider();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
+            toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
@@ -97,6 +105,7 @@
             // 
             // mnuDangNhap
             // 
+            mnuDangNhap.Image = Properties.Resources.login_4661334;
             mnuDangNhap.Name = "mnuDangNhap";
             mnuDangNhap.Size = new Size(167, 22);
             mnuDangNhap.Text = "ĐĂNG &NHẬP...";
@@ -104,6 +113,7 @@
             // 
             // mnuDangXuat
             // 
+            mnuDangXuat.Image = Properties.Resources._16697253;
             mnuDangXuat.Name = "mnuDangXuat";
             mnuDangXuat.Size = new Size(167, 22);
             mnuDangXuat.Text = "ĐĂNG &XUẤT...";
@@ -111,6 +121,7 @@
             // 
             // mnuDoiMatKhau
             // 
+            mnuDoiMatKhau.Image = Properties.Resources._6195699;
             mnuDoiMatKhau.Name = "mnuDoiMatKhau";
             mnuDoiMatKhau.Size = new Size(167, 22);
             mnuDoiMatKhau.Text = "ĐỔI &MẬT KHẨU...";
@@ -123,6 +134,7 @@
             // 
             // mnuThoat
             // 
+            mnuThoat.Image = Properties.Resources.Crystal_Clear_action_exit_svg;
             mnuThoat.Name = "mnuThoat";
             mnuThoat.ShortcutKeys = Keys.Alt | Keys.F4;
             mnuThoat.Size = new Size(167, 22);
@@ -139,6 +151,7 @@
             // mnuDanhMuc
             // 
             mnuDanhMuc.DropDownItems.AddRange(new ToolStripItem[] { mnuThuongHieu, mnuLoaiGiay, mnuMauGiay, toolStripSeparator4, mnuGiay });
+            mnuDanhMuc.Image = Properties.Resources.list_icon_png_265066;
             mnuDanhMuc.Name = "mnuDanhMuc";
             mnuDanhMuc.Size = new Size(175, 22);
             mnuDanhMuc.Text = "&DANH MỤC GIÀY...";
@@ -183,6 +196,7 @@
             // 
             // mnuNhaCungCap
             // 
+            mnuNhaCungCap.Image = Properties.Resources._4495474_200;
             mnuNhaCungCap.Name = "mnuNhaCungCap";
             mnuNhaCungCap.Size = new Size(175, 22);
             mnuNhaCungCap.Text = "&NHÀ CUNG CẤP...";
@@ -190,6 +204,7 @@
             // 
             // mnuKhachHang
             // 
+            mnuKhachHang.Image = Properties.Resources.user;
             mnuKhachHang.Name = "mnuKhachHang";
             mnuKhachHang.Size = new Size(175, 22);
             mnuKhachHang.Text = "&KHÁCH HÀNG...";
@@ -197,6 +212,7 @@
             // 
             // mnuNhanVien
             // 
+            mnuNhanVien.Image = Properties.Resources._16864284;
             mnuNhanVien.Name = "mnuNhanVien";
             mnuNhanVien.Size = new Size(175, 22);
             mnuNhanVien.Text = "NHÂN &VIÊN...";
@@ -209,6 +225,7 @@
             // 
             // mnuKho
             // 
+            mnuKho.Image = Properties.Resources._9096015;
             mnuKho.Name = "mnuKho";
             mnuKho.Size = new Size(175, 22);
             mnuKho.Text = "KH&O...";
@@ -223,6 +240,7 @@
             // 
             // mnuNhapHang
             // 
+            mnuNhapHang.Image = Properties.Resources._2264841;
             mnuNhapHang.Name = "mnuNhapHang";
             mnuNhapHang.Size = new Size(153, 22);
             mnuNhapHang.Text = "&NHẬP HÀNG...";
@@ -230,6 +248,7 @@
             // 
             // mnuHoaDon
             // 
+            mnuHoaDon.Image = Properties.Resources.bills_3;
             mnuHoaDon.Name = "mnuHoaDon";
             mnuHoaDon.Size = new Size(153, 22);
             mnuHoaDon.Text = "&HÓA ĐƠN...";
@@ -277,16 +296,20 @@
             // 
             // mnuThongTinPhanMem
             // 
+            mnuThongTinPhanMem.Image = Properties.Resources._3357329;
             mnuThongTinPhanMem.Name = "mnuThongTinPhanMem";
             mnuThongTinPhanMem.Size = new Size(253, 22);
             mnuThongTinPhanMem.Text = "&THÔNG TIN PHẦN MỀM...";
+            mnuThongTinPhanMem.Click += mnuThongTinPhanMem_Click;
             // 
             // mnuHuongDanSuDung
             // 
+            mnuHuongDanSuDung.Image = Properties.Resources.png_transparent_computer_icons_technical_support_help_miscellaneous_blue_text_thumbnail;
             mnuHuongDanSuDung.Name = "mnuHuongDanSuDung";
             mnuHuongDanSuDung.ShortcutKeys = Keys.Control | Keys.F1;
             mnuHuongDanSuDung.Size = new Size(253, 22);
             mnuHuongDanSuDung.Text = "HƯỚNG &DẪN SỬ DỤNG...";
+            mnuHuongDanSuDung.Click += mnuHuongDanSuDung_Click;
             // 
             // lOẠIGIÀYToolStripMenuItem
             // 
@@ -348,22 +371,24 @@
             // 
             lblTrangThai.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTrangThai.ForeColor = Color.Red;
+            lblTrangThai.Image = Properties.Resources.status_online_icon_152750;
             lblTrangThai.Name = "lblTrangThai";
-            lblTrangThai.Size = new Size(118, 21);
+            lblTrangThai.Size = new Size(138, 21);
             lblTrangThai.Text = "Chưa đăng nhập";
             // 
             // toolStripStatusLabel1
             // 
             toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            toolStripStatusLabel1.Size = new Size(712, 21);
+            toolStripStatusLabel1.Size = new Size(672, 21);
             toolStripStatusLabel1.Spring = true;
             // 
             // lblNgayGio
             // 
             lblNgayGio.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblNgayGio.ForeColor = Color.Red;
+            lblNgayGio.Image = Properties.Resources.calendar_clock_icon_34472;
             lblNgayGio.Name = "lblNgayGio";
-            lblNgayGio.Size = new Size(88, 21);
+            lblNgayGio.Size = new Size(108, 21);
             lblNgayGio.Text = "lblNgayGio";
             // 
             // lblLienKet
@@ -380,17 +405,83 @@
             timer.Interval = 1000;
             timer.Tick += timer_Tick;
             // 
+            // toolStrip1
+            // 
+            toolStrip1.AutoSize = false;
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnDangNhap, btnDangXuat, toolStripSeparator8, btnBanGiay, btnNhapGiay });
+            toolStrip1.Location = new Point(0, 24);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(1044, 54);
+            toolStrip1.TabIndex = 4;
+            toolStrip1.Text = "toolStrip1";
+            // 
+            // btnDangNhap
+            // 
+            btnDangNhap.Image = Properties.Resources.dang_nhap1;
+            btnDangNhap.ImageScaling = ToolStripItemImageScaling.None;
+            btnDangNhap.ImageTransparentColor = Color.Magenta;
+            btnDangNhap.Name = "btnDangNhap";
+            btnDangNhap.Size = new Size(80, 51);
+            btnDangNhap.Text = "ĐĂNG NHẬP";
+            btnDangNhap.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnDangNhap.Click += btnDangNhap_Click;
+            // 
+            // btnDangXuat
+            // 
+            btnDangXuat.Image = Properties.Resources.dang_xuat;
+            btnDangXuat.ImageScaling = ToolStripItemImageScaling.None;
+            btnDangXuat.ImageTransparentColor = Color.Magenta;
+            btnDangXuat.Name = "btnDangXuat";
+            btnDangXuat.Size = new Size(77, 51);
+            btnDangXuat.Text = "ĐĂNG XUẤT";
+            btnDangXuat.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnDangXuat.Click += btnDangXuat_Click;
+            // 
+            // toolStripSeparator8
+            // 
+            toolStripSeparator8.Name = "toolStripSeparator8";
+            toolStripSeparator8.Size = new Size(6, 54);
+            // 
+            // btnBanGiay
+            // 
+            btnBanGiay.Image = Properties.Resources.hoa_don;
+            btnBanGiay.ImageScaling = ToolStripItemImageScaling.None;
+            btnBanGiay.ImageTransparentColor = Color.Magenta;
+            btnBanGiay.Name = "btnBanGiay";
+            btnBanGiay.Size = new Size(63, 51);
+            btnBanGiay.Text = "BÁN GIÀY";
+            btnBanGiay.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnBanGiay.Click += btnBanGiay_Click;
+            // 
+            // btnNhapGiay
+            // 
+            btnNhapGiay.Image = Properties.Resources.san_pham;
+            btnNhapGiay.ImageScaling = ToolStripItemImageScaling.None;
+            btnNhapGiay.ImageTransparentColor = Color.Magenta;
+            btnNhapGiay.Name = "btnNhapGiay";
+            btnNhapGiay.Size = new Size(72, 51);
+            btnNhapGiay.Text = "NHẬP GIÀY";
+            btnNhapGiay.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnNhapGiay.Click += btnNhapGiay_Click;
+            // 
+            // helpProvider
+            // 
+            helpProvider.HelpNamespace = "https://maithiencan.github.io/helpqlbg/index.html";
+            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1044, 629);
+            Controls.Add(toolStrip1);
             Controls.Add(statusStrip1);
             Controls.Add(menuStrip1);
+            helpProvider.SetHelpKeyword(this, "F1");
             IsMdiContainer = true;
             MainMenuStrip = menuStrip1;
             MinimumSize = new Size(1060, 666);
             Name = "frmMain";
+            helpProvider.SetShowHelp(this, true);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Phần mềm quản lí bán giày đá bóng";
             WindowState = FormWindowState.Maximized;
@@ -399,6 +490,8 @@
             menuStrip1.PerformLayout();
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -450,5 +543,12 @@
         private System.Windows.Forms.Timer timer;
         private ToolStripMenuItem mnuDoiMatKhau;
         private ToolStripSeparator toolStripSeparator7;
+        private ToolStrip toolStrip1;
+        private ToolStripButton btnDangNhap;
+        private ToolStripButton btnDangXuat;
+        private ToolStripSeparator toolStripSeparator8;
+        private ToolStripButton btnBanGiay;
+        private ToolStripButton btnNhapGiay;
+        private HelpProvider helpProvider;
     }
 }
