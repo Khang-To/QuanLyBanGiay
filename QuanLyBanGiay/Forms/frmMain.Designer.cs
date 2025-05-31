@@ -283,27 +283,30 @@
             // 
             // mnuThongKeGiay
             // 
+            mnuThongKeGiay.Image = Properties.Resources.thong_ke_san_pham;
             mnuThongKeGiay.Name = "mnuThongKeGiay";
-            mnuThongKeGiay.Size = new Size(214, 22);
+            mnuThongKeGiay.Size = new Size(218, 26);
             mnuThongKeGiay.Text = "THỐNG KÊ &GIÀY...";
             mnuThongKeGiay.Click += mnuThongKeGiay_Click;
             // 
             // toolStripSeparator7
             // 
             toolStripSeparator7.Name = "toolStripSeparator7";
-            toolStripSeparator7.Size = new Size(211, 6);
+            toolStripSeparator7.Size = new Size(215, 6);
             // 
             // mnuThongKeNhapHang
             // 
+            mnuThongKeNhapHang.Image = Properties.Resources.thong_ke_doanh_thu;
             mnuThongKeNhapHang.Name = "mnuThongKeNhapHang";
-            mnuThongKeNhapHang.Size = new Size(214, 22);
+            mnuThongKeNhapHang.Size = new Size(218, 26);
             mnuThongKeNhapHang.Text = "THỐNG KÊ &NHẬP HÀNG...";
             mnuThongKeNhapHang.Click += mnuThongKeNhapHang_Click;
             // 
             // mnuThongKeDoanhThu
             // 
+            mnuThongKeDoanhThu.Image = Properties.Resources.Icon_Business_Set_00008_A_icon_icons_com_59853;
             mnuThongKeDoanhThu.Name = "mnuThongKeDoanhThu";
-            mnuThongKeDoanhThu.Size = new Size(214, 22);
+            mnuThongKeDoanhThu.Size = new Size(218, 26);
             mnuThongKeDoanhThu.Text = "THỐNG KÊ &DOANH THU...";
             mnuThongKeDoanhThu.Click += mnuThongKeDoanhThu_Click;
             // 
@@ -318,7 +321,7 @@
             // 
             mnuThongTinPhanMem.Image = Properties.Resources._3357329;
             mnuThongTinPhanMem.Name = "mnuThongTinPhanMem";
-            mnuThongTinPhanMem.Size = new Size(253, 22);
+            mnuThongTinPhanMem.Size = new Size(257, 26);
             mnuThongTinPhanMem.Text = "&THÔNG TIN PHẦN MỀM...";
             mnuThongTinPhanMem.Click += mnuThongTinPhanMem_Click;
             // 
@@ -327,7 +330,7 @@
             mnuHuongDanSuDung.Image = Properties.Resources.png_transparent_computer_icons_technical_support_help_miscellaneous_blue_text_thumbnail;
             mnuHuongDanSuDung.Name = "mnuHuongDanSuDung";
             mnuHuongDanSuDung.ShortcutKeys = Keys.Control | Keys.F1;
-            mnuHuongDanSuDung.Size = new Size(253, 22);
+            mnuHuongDanSuDung.Size = new Size(257, 26);
             mnuHuongDanSuDung.Text = "HƯỚNG &DẪN SỬ DỤNG...";
             mnuHuongDanSuDung.Click += mnuHuongDanSuDung_Click;
             // 
@@ -561,7 +564,7 @@
             // 
             lblSLNV.Anchor = AnchorStyles.Bottom;
             lblSLNV.AutoSize = true;
-            lblSLNV.Location = new Point(43, 546);
+            lblSLNV.Location = new Point(43, 601);
             lblSLNV.Name = "lblSLNV";
             lblSLNV.Size = new Size(47, 15);
             lblSLNV.TabIndex = 11;
@@ -571,7 +574,7 @@
             // 
             label4.Anchor = AnchorStyles.Bottom;
             label4.AutoSize = true;
-            label4.Location = new Point(10, 520);
+            label4.Location = new Point(10, 586);
             label4.Name = "label4";
             label4.Size = new Size(112, 15);
             label4.TabIndex = 10;
@@ -581,7 +584,7 @@
             // 
             lblSLGiay.Anchor = AnchorStyles.Bottom;
             lblSLGiay.AutoSize = true;
-            lblSLGiay.Location = new Point(50, 487);
+            lblSLGiay.Location = new Point(50, 554);
             lblSLGiay.Name = "lblSLGiay";
             lblSLGiay.Size = new Size(33, 15);
             lblSLGiay.TabIndex = 9;
@@ -591,7 +594,7 @@
             // 
             label2.Anchor = AnchorStyles.Bottom;
             label2.AutoSize = true;
-            label2.Location = new Point(4, 461);
+            label2.Location = new Point(4, 539);
             label2.Name = "label2";
             label2.Size = new Size(124, 15);
             label2.TabIndex = 8;
@@ -610,10 +613,11 @@
             // 
             // btnNhanVien
             // 
+            btnNhanVien.Anchor = AnchorStyles.Top;
             btnNhanVien.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnNhanVien.Location = new Point(12, 357);
+            btnNhanVien.Location = new Point(10, 317);
             btnNhanVien.Name = "btnNhanVien";
-            btnNhanVien.Size = new Size(108, 59);
+            btnNhanVien.Size = new Size(108, 45);
             btnNhanVien.TabIndex = 6;
             btnNhanVien.Text = "NHÂN  VIÊN";
             btnNhanVien.UseVisualStyleBackColor = true;
@@ -621,10 +625,11 @@
             // 
             // btnNhaCungCap
             // 
+            btnNhaCungCap.Anchor = AnchorStyles.Top;
             btnNhaCungCap.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnNhaCungCap.Location = new Point(12, 292);
+            btnNhaCungCap.Location = new Point(10, 260);
             btnNhaCungCap.Name = "btnNhaCungCap";
-            btnNhaCungCap.Size = new Size(108, 59);
+            btnNhaCungCap.Size = new Size(108, 45);
             btnNhaCungCap.TabIndex = 5;
             btnNhaCungCap.Text = "NHÀ CUNG CẤP";
             btnNhaCungCap.UseVisualStyleBackColor = true;
@@ -632,10 +637,11 @@
             // 
             // btnGiay
             // 
+            btnGiay.Anchor = AnchorStyles.Top;
             btnGiay.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnGiay.Location = new Point(12, 227);
+            btnGiay.Location = new Point(10, 203);
             btnGiay.Name = "btnGiay";
-            btnGiay.Size = new Size(108, 59);
+            btnGiay.Size = new Size(108, 45);
             btnGiay.TabIndex = 4;
             btnGiay.Text = "GIÀY";
             btnGiay.UseVisualStyleBackColor = true;
@@ -643,10 +649,11 @@
             // 
             // btnMauSac
             // 
+            btnMauSac.Anchor = AnchorStyles.Top;
             btnMauSac.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnMauSac.Location = new Point(12, 162);
+            btnMauSac.Location = new Point(10, 146);
             btnMauSac.Name = "btnMauSac";
-            btnMauSac.Size = new Size(108, 59);
+            btnMauSac.Size = new Size(108, 45);
             btnMauSac.TabIndex = 3;
             btnMauSac.Text = "MÀU SẮC";
             btnMauSac.UseVisualStyleBackColor = true;
@@ -654,10 +661,11 @@
             // 
             // btnLoaiGiay
             // 
+            btnLoaiGiay.Anchor = AnchorStyles.Top;
             btnLoaiGiay.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnLoaiGiay.Location = new Point(12, 97);
+            btnLoaiGiay.Location = new Point(10, 89);
             btnLoaiGiay.Name = "btnLoaiGiay";
-            btnLoaiGiay.Size = new Size(108, 59);
+            btnLoaiGiay.Size = new Size(108, 45);
             btnLoaiGiay.TabIndex = 2;
             btnLoaiGiay.Text = "LOẠI GIÀY";
             btnLoaiGiay.UseVisualStyleBackColor = true;
@@ -665,10 +673,11 @@
             // 
             // btnThuongHieu
             // 
+            btnThuongHieu.Anchor = AnchorStyles.Top;
             btnThuongHieu.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnThuongHieu.Location = new Point(12, 32);
+            btnThuongHieu.Location = new Point(10, 32);
             btnThuongHieu.Name = "btnThuongHieu";
-            btnThuongHieu.Size = new Size(108, 59);
+            btnThuongHieu.Size = new Size(108, 45);
             btnThuongHieu.TabIndex = 1;
             btnThuongHieu.Text = "THƯƠNG HIỆU";
             btnThuongHieu.UseVisualStyleBackColor = true;
@@ -676,6 +685,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(3, 12);
