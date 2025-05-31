@@ -35,6 +35,7 @@ namespace QuanLyBanGiay.Reports
                             .Include(p => p.PhieuNhapChiTiets)
                                 .ThenInclude(ct => ct.SizeGiay)
                                     .ThenInclude(sg => sg.Giay)
+                                        .ThenInclude(g => g.LoaiGiay)
                             .Include(p => p.PhieuNhapChiTiets)
                                 .ThenInclude(ct => ct.SizeGiay)
                                     .ThenInclude(sg => sg.MauSac)
@@ -49,6 +50,7 @@ namespace QuanLyBanGiay.Reports
                     ct.PhieuNhapID,
                     ct.SizeGiayID,
                     TenGiay = ct.SizeGiay.Giay.TenGiay,
+                    TenLoai = ct.SizeGiay.Giay.LoaiGiay.TenLoai,
                     TenMau = ct.SizeGiay.MauSac.TenMau,
                     Size = ct.SizeGiay.Size,
                     SoLuongNhap = ct.SoLuongNhap,
@@ -64,6 +66,7 @@ namespace QuanLyBanGiay.Reports
                         item.PhieuNhapID,
                         item.SizeGiayID,
                         item.TenGiay,
+                        item.TenLoai,
                         item.TenMau,
                         item.Size,
                         item.SoLuongNhap,
