@@ -74,6 +74,7 @@
             label12 = new Label();
             btnInHoaDon = new Button();
             btnLuu = new Button();
+            helpProvider1 = new HelpProvider();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
@@ -299,6 +300,7 @@
             // 
             // chkConHang
             // 
+            chkConHang.Anchor = AnchorStyles.Top;
             chkConHang.AutoSize = true;
             chkConHang.Checked = true;
             chkConHang.CheckState = CheckState.Checked;
@@ -572,6 +574,10 @@
             btnLuu.UseVisualStyleBackColor = true;
             btnLuu.Click += btnLuu_Click;
             // 
+            // helpProvider1
+            // 
+            helpProvider1.HelpNamespace = "https://maithiencan.github.io/helpqlbg/hoadon.html";
+            // 
             // frmHoaDon_ChiTiet
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -579,8 +585,10 @@
             ClientSize = new Size(825, 579);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
+            helpProvider1.SetHelpKeyword(this, "F1");
             MinimumSize = new Size(841, 618);
             Name = "frmHoaDon_ChiTiet";
+            helpProvider1.SetShowHelp(this, true);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Hóa đơn chi tiết";
             Load += frmHoaDon_ChiTiet_Load;
@@ -643,5 +651,6 @@
         private DataGridViewTextBoxColumn colSize;
         private DataGridViewTextBoxColumn MauSacID;
         private CheckBox chkConHang;
+        private HelpProvider helpProvider1;
     }
 }

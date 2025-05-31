@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHoaDon));
             groupBox1 = new GroupBox();
             dataGridView = new DataGridView();
@@ -52,6 +52,7 @@
             btnSua = new Button();
             btnInHoaDon = new Button();
             btnThem = new Button();
+            helpProvider1 = new HelpProvider();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             toolStrip.SuspendLayout();
@@ -119,11 +120,11 @@
             // TongTienHoaDon
             // 
             TongTienHoaDon.DataPropertyName = "TongTienHoaDon";
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.Blue;
-            dataGridViewCellStyle1.Format = "N0";
-            TongTienHoaDon.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.Blue;
+            dataGridViewCellStyle3.Format = "N0";
+            TongTienHoaDon.DefaultCellStyle = dataGridViewCellStyle3;
             TongTienHoaDon.HeaderText = "Tổng tiền";
             TongTienHoaDon.Name = "TongTienHoaDon";
             TongTienHoaDon.ReadOnly = true;
@@ -131,8 +132,8 @@
             // XemChiTiet
             // 
             XemChiTiet.DataPropertyName = "XemChiTiet";
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            XemChiTiet.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            XemChiTiet.DefaultCellStyle = dataGridViewCellStyle4;
             XemChiTiet.HeaderText = "Chi tiết";
             XemChiTiet.Name = "XemChiTiet";
             XemChiTiet.ReadOnly = true;
@@ -261,6 +262,10 @@
             btnThem.UseVisualStyleBackColor = true;
             btnThem.Click += btnThem_Click;
             // 
+            // helpProvider1
+            // 
+            helpProvider1.HelpNamespace = "https://maithiencan.github.io/helpqlbg/hoadon.html";
+            // 
             // frmHoaDon
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -268,8 +273,10 @@
             ClientSize = new Size(829, 491);
             Controls.Add(panel1);
             Controls.Add(groupBox1);
+            helpProvider1.SetHelpKeyword(this, "F1");
             MinimumSize = new Size(845, 530);
             Name = "frmHoaDon";
+            helpProvider1.SetShowHelp(this, true);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Hóa đơn";
             Load += frmHoaDon_Load;
@@ -305,5 +312,6 @@
         private DataGridViewTextBoxColumn NgayLap;
         private DataGridViewTextBoxColumn TongTienHoaDon;
         private DataGridViewLinkColumn XemChiTiet;
+        private HelpProvider helpProvider1;
     }
 }

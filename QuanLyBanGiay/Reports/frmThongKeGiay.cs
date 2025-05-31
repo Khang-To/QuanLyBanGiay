@@ -78,7 +78,7 @@ namespace QuanLyBanGiay.Reports
             ReportParameter reportParameter = new ReportParameter("MoTaKetQuaHienThi", "(Tất cả sản phẩm)");
             reportViewer.LocalReport.SetParameters(reportParameter);
             reportViewer.SetDisplayMode(DisplayMode.PrintLayout);
-            reportViewer.ZoomMode = ZoomMode.PageWidth;
+            reportViewer.ZoomMode = ZoomMode.Percent;
             reportViewer.ZoomPercent = 100;
             reportViewer.RefreshReport();
         }
@@ -147,7 +147,7 @@ namespace QuanLyBanGiay.Reports
                 ReportParameter reportParameter = new ReportParameter("MoTaKetQuaHienThi", "(" + thuongHieu + " - " + loaiGiay + ")");
                 reportViewer.LocalReport.SetParameters(reportParameter);
                 reportViewer.SetDisplayMode(DisplayMode.PrintLayout);
-                reportViewer.ZoomMode = ZoomMode.PageWidth;
+                reportViewer.ZoomMode = ZoomMode.Percent;
                 reportViewer.ZoomPercent = 100;
                 reportViewer.RefreshReport();
             }

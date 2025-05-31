@@ -64,6 +64,7 @@
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
+            helpProvider1 = new HelpProvider();
             toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             groupBox2.SuspendLayout();
@@ -425,6 +426,10 @@
             label4.TabIndex = 0;
             label4.Text = "Tên đăng nhập:";
             // 
+            // helpProvider1
+            // 
+            helpProvider1.HelpNamespace = "https://maithiencan.github.io/helpqlbg/nhanvien.html";
+            // 
             // frmNhanVien
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -432,8 +437,10 @@
             ClientSize = new Size(800, 546);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
+            helpProvider1.SetHelpKeyword(this, "F1");
             MinimumSize = new Size(816, 489);
             Name = "frmNhanVien";
+            helpProvider1.SetShowHelp(this, true);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Nhân viên";
             Load += frmNhanVien_Load;
@@ -486,5 +493,6 @@
         private DataGridViewTextBoxColumn TenDangNhap;
         private DataGridViewTextBoxColumn QuyenHan;
         private Button btnDoiMatKhau;
+        private HelpProvider helpProvider1;
     }
 }

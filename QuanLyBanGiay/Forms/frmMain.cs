@@ -31,6 +31,9 @@ namespace QuanLyBanGiay.Forms
         frmThongKeGiay? thongKeGiay = null;
         frmThongKeDoanhThu? thongKeDoanhThu = null;
         frmThongKePhieuNhap? thongKePhieuNhap = null;
+        frmThongTinPhamMem? thongTinPhanMem = null;
+        frmHoaDon_ChiTiet? hoaDonChiTiet = null;
+        frmPhieuNhap_ChiTiet? phieuNhapChiTiet = null;
         string hoVaTenNhanVien = "";
 
         frmSplashScreen splashScreen = new frmSplashScreen();
@@ -69,6 +72,14 @@ namespace QuanLyBanGiay.Forms
             timer.Start();
             ChuaPhanQuyen();
             DangNhap();
+            DemSLGiayHienCo();
+            DemSLNhanVien();
+        }
+
+        private void FormCon_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            DemSLGiayHienCo();
+            DemSLNhanVien();
         }
 
         private void DangNhap()
@@ -137,6 +148,12 @@ namespace QuanLyBanGiay.Forms
         private void ChuaPhanQuyen()
         {
             mnuDangNhap.Enabled = true;
+            pnAdminTools.Visible = false;
+            btnKho.Enabled = false;
+            btnBanGiay.Enabled = false;
+            btnDangNhap.Enabled = true;
+            btnDangXuat.Enabled = false;
+            btnNhapGiay.Enabled = false;
             mnuDangXuat.Enabled = false;
             mnuDanhMuc.Enabled = false;
             mnuKho.Enabled = false;
@@ -149,6 +166,9 @@ namespace QuanLyBanGiay.Forms
             mnuThongKeGiay.Enabled = false;
             mnuThongKeNhapHang.Enabled = false;
             mnuThongKeDoanhThu.Enabled = false;
+            btnThongKeDoanhThu.Enabled = false;
+            btnThongKePhieuNhap.Enabled = false;
+            btnThongKeGiay.Enabled = false;
             lblTrangThai.ForeColor = Color.Red;
             lblTrangThai.Font = new Font(lblTrangThai.Font, FontStyle.Bold);
             lblTrangThai.Text = "Chưa đăng nhập.";
@@ -157,7 +177,13 @@ namespace QuanLyBanGiay.Forms
         private void QuyenQuanLy()
         {
             mnuDangNhap.Enabled = false;
+            pnAdminTools.Visible = true;
+            btnKho.Enabled = true;
             mnuDangXuat.Enabled = true;
+            btnBanGiay.Enabled = true;
+            btnDangNhap.Enabled = false;
+            btnDangXuat.Enabled = true;
+            btnNhapGiay.Enabled = true;
             mnuDanhMuc.Enabled = true;
             mnuKho.Enabled = true;
             mnuKhachHang.Enabled = true;
@@ -169,6 +195,9 @@ namespace QuanLyBanGiay.Forms
             mnuThongKeGiay.Enabled = true;
             mnuThongKeNhapHang.Enabled = true;
             mnuThongKeDoanhThu.Enabled = true;
+            btnThongKeDoanhThu.Enabled = true;
+            btnThongKePhieuNhap.Enabled = true;
+            btnThongKeGiay.Enabled = true;
             lblTrangThai.ForeColor = Color.Blue;
             lblTrangThai.Font = new Font(lblTrangThai.Font, FontStyle.Bold);
             lblTrangThai.Text = "Quản lí: " + hoVaTenNhanVien;
@@ -177,18 +206,27 @@ namespace QuanLyBanGiay.Forms
         private void QuyenNhanVien()
         {
             mnuDangNhap.Enabled = false;
+            pnAdminTools.Visible = false;
+            btnKho.Enabled = true;
             mnuDangXuat.Enabled = true;
             mnuDanhMuc.Enabled = false;
+            btnBanGiay.Enabled = true;
+            btnDangNhap.Enabled = false;
+            btnDangXuat.Enabled = true;
+            btnNhapGiay.Enabled = false;
             mnuKho.Enabled = true;
             mnuDoiMatKhau.Enabled = true;
             mnuKhachHang.Enabled = true;
             mnuNhanVien.Enabled = false;
             mnuHoaDon.Enabled = true;
-            mnuNhapHang.Enabled = true;
+            mnuNhapHang.Enabled = false;
             mnuNhaCungCap.Enabled = false;
-            mnuThongKeGiay.Enabled = false;
+            mnuThongKeGiay.Enabled = true;
             mnuThongKeNhapHang.Enabled = false;
-            mnuThongKeDoanhThu.Enabled = false;
+            mnuThongKeDoanhThu.Enabled = true;
+            btnThongKeDoanhThu.Enabled = true;
+            btnThongKePhieuNhap.Enabled = false;
+            btnThongKeGiay.Enabled = true;
             lblTrangThai.ForeColor = Color.Green;
             lblTrangThai.Font = new Font(lblTrangThai.Font, FontStyle.Bold);
             lblTrangThai.Text = "Nhân viên: " + hoVaTenNhanVien;
@@ -310,6 +348,7 @@ namespace QuanLyBanGiay.Forms
             {
                 nhanVien = new frmNhanVien();
                 nhanVien.MdiParent = this;
+                nhanVien.FormClosed += FormCon_FormClosed;
                 nhanVien.Show();
             }
             else
@@ -324,6 +363,7 @@ namespace QuanLyBanGiay.Forms
             {
                 phieuNhap = new frmPhieuNhap();
                 phieuNhap.MdiParent = this;
+                phieuNhap.FormClosed += FormCon_FormClosed;
                 phieuNhap.Show();
             }
             else
@@ -352,6 +392,7 @@ namespace QuanLyBanGiay.Forms
             {
                 hoaDon = new frmHoaDon();
                 hoaDon.MdiParent = this;
+                hoaDon.FormClosed += FormCon_FormClosed;
                 hoaDon.Show();
             }
             else
@@ -419,6 +460,150 @@ namespace QuanLyBanGiay.Forms
             {
                 thongKePhieuNhap.Activate();
             }
+        }
+
+        private void mnuThongTinPhanMem_Click(object sender, EventArgs e)
+        {
+            if (thongTinPhanMem == null || thongTinPhanMem.IsDisposed)
+            {
+                thongTinPhanMem = new frmThongTinPhamMem();
+                thongTinPhanMem.MdiParent = this;
+                thongTinPhanMem.Show();
+            }
+            else
+            {
+                thongTinPhanMem.Activate();
+            }
+        }
+
+        private void btnDangNhap_Click(object sender, EventArgs e)
+        {
+            mnuDangNhap_Click(sender, e);
+        }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            mnuDangXuat_Click(sender, e);
+        }
+
+        private void btnBanGiay_Click(object sender, EventArgs e)
+        {
+            if (hoaDonChiTiet == null || hoaDonChiTiet.IsDisposed)
+            {
+                hoaDonChiTiet = new frmHoaDon_ChiTiet();
+                hoaDonChiTiet.MdiParent = this;
+                hoaDonChiTiet.FormClosed += FormCon_FormClosed;
+                hoaDonChiTiet.Show();
+            }
+            else
+            {
+                hoaDonChiTiet.Activate();
+            }
+        }
+
+        private void btnNhapGiay_Click(object sender, EventArgs e)
+        {
+            if (phieuNhapChiTiet == null || phieuNhapChiTiet.IsDisposed)
+            {
+                phieuNhapChiTiet = new frmPhieuNhap_ChiTiet();
+                phieuNhapChiTiet.MdiParent = this;
+                phieuNhapChiTiet.FormClosed += FormCon_FormClosed;
+                phieuNhapChiTiet.Show();
+            }
+            else
+            {
+                phieuNhapChiTiet.Activate();
+            }
+        }
+
+        private void mnuHuongDanSuDung_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string url = "https://maithiencan.github.io/helpqlbg/";
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = url,
+                    UseShellExecute = true
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Không thể mở trình duyệt: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnThongKeGiay_Click(object sender, EventArgs e)
+        {
+            mnuThongKeGiay_Click(sender, e);
+        }
+
+        private void btnThongKeDoanhThu_Click(object sender, EventArgs e)
+        {
+            mnuThongKeDoanhThu_Click(sender, e);
+        }
+
+        private void btnThongKePhieuNhap_Click(object sender, EventArgs e)
+        {
+            mnuThongKeNhapHang_Click(sender, e);
+        }
+
+        private void btnKho_Click(object sender, EventArgs e)
+        {
+            mnuKho_Click(sender, e);
+        }
+
+        private void btnThuongHieu_Click(object sender, EventArgs e)
+        {
+            mnuThuongHieu_Click(sender, e);
+        }
+
+        private void btnLoaiGiay_Click(object sender, EventArgs e)
+        {
+            mnuLoaiGiay_Click_1(sender, e);
+        }
+
+        private void btnMauSac_Click(object sender, EventArgs e)
+        {
+            mnuMauGiay_Click(sender, e);
+        }
+
+        private void btnGiay_Click(object sender, EventArgs e)
+        {
+            mnuGiay_Click(sender, e);
+        }
+
+        private void btnNhaCungCap_Click(object sender, EventArgs e)
+        {
+            mnuNhaCungCap_Click(sender, e);
+        }
+
+        private void btnNhanVien_Click(object sender, EventArgs e)
+        {
+            mnuNhanVien_Click(sender, e);
+        }
+
+        private void DemSLGiayHienCo()
+        {
+            using (var context = new QLBGDbContext())
+            {
+                int tongSoGiayTonKho = context.SizeGiays.Sum(s => s.SoLuongTon);
+                lblSLGiay.Text = $"{tongSoGiayTonKho} đôi";
+                lblSLGiay.ForeColor = Color.Blue;
+                lblSLGiay.Font = new Font(lblSLGiay.Font, FontStyle.Bold);
+            }
+        }
+
+        private void DemSLNhanVien()
+        {
+            using (var context = new QLBGDbContext())
+            {
+                int soLuongNhanVien = context.NhanViens.Count();
+                lblSLNV.Text = $"{soLuongNhanVien} người";
+                lblSLNV.ForeColor = Color.Blue;
+                lblSLNV.Font = new Font(lblSLNV.Font, FontStyle.Bold);
+            }
+
         }
     }
 }

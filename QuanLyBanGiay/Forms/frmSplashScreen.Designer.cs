@@ -69,6 +69,8 @@
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmSplashScreen";
+            ShowIcon = false;
+            ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmSplashScreen";
             Load += frmSplashScreen_Load;

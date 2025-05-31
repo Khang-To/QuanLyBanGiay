@@ -52,6 +52,7 @@
             btnThem = new Button();
             btnXoa = new Button();
             btnInPhieuNhap = new Button();
+            helpProvider1 = new HelpProvider();
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             groupBox2.SuspendLayout();
@@ -63,7 +64,7 @@
             btnXuat.Image = (Image)resources.GetObject("btnXuat.Image");
             btnXuat.ImageTransparentColor = Color.Magenta;
             btnXuat.Name = "btnXuat";
-            btnXuat.Size = new Size(72, 24);
+            btnXuat.Size = new Size(64, 24);
             btnXuat.Text = "Xuất...";
             btnXuat.Click += btnXuat_Click;
             // 
@@ -72,7 +73,7 @@
             btnNhap.Image = (Image)resources.GetObject("btnNhap.Image");
             btnNhap.ImageTransparentColor = Color.Magenta;
             btnNhap.Name = "btnNhap";
-            btnNhap.Size = new Size(78, 24);
+            btnNhap.Size = new Size(69, 24);
             btnNhap.Text = "Nhập...";
             btnNhap.Click += btnNhap_Click;
             // 
@@ -81,28 +82,28 @@
             btnTimKiem.Image = (Image)resources.GetObject("btnTimKiem.Image");
             btnTimKiem.ImageTransparentColor = Color.Magenta;
             btnTimKiem.Name = "btnTimKiem";
-            btnTimKiem.Size = new Size(58, 24);
+            btnTimKiem.Size = new Size(52, 24);
             btnTimKiem.Text = "Tìm";
             btnTimKiem.Click += btnTimKiem_Click;
             // 
             // txtTuKhoa
             // 
             txtTuKhoa.Name = "txtTuKhoa";
-            txtTuKhoa.Size = new Size(150, 27);
+            txtTuKhoa.Size = new Size(132, 27);
             // 
             // toolStripLabel1
             // 
             toolStripLabel1.Name = "toolStripLabel1";
-            toolStripLabel1.Size = new Size(73, 24);
+            toolStripLabel1.Size = new Size(60, 24);
             toolStripLabel1.Text = "Tìm kiếm:";
             // 
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(20, 20);
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, txtTuKhoa, btnTimKiem, btnNhap, btnXuat, btnLamMoi });
-            toolStrip1.Location = new Point(3, 23);
+            toolStrip1.Location = new Point(3, 18);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(1045, 27);
+            toolStrip1.Size = new Size(915, 27);
             toolStrip1.TabIndex = 0;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -111,7 +112,7 @@
             btnLamMoi.Image = (Image)resources.GetObject("btnLamMoi.Image");
             btnLamMoi.ImageTransparentColor = Color.Magenta;
             btnLamMoi.Name = "btnLamMoi";
-            btnLamMoi.Size = new Size(91, 24);
+            btnLamMoi.Size = new Size(78, 24);
             btnLamMoi.Text = "Làm mới";
             btnLamMoi.Click += btnLamMoi_Click;
             // 
@@ -123,13 +124,14 @@
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView.Columns.AddRange(new DataGridViewColumn[] { ID, HoVaTenNhanVien, TenNhaCungCap, NgayNhap, TongTienPhieuNhap, XemChiTiet });
             dataGridView.Dock = DockStyle.Fill;
-            dataGridView.Location = new Point(3, 50);
+            dataGridView.Location = new Point(3, 45);
+            dataGridView.Margin = new Padding(3, 2, 3, 2);
             dataGridView.MultiSelect = false;
             dataGridView.Name = "dataGridView";
             dataGridView.ReadOnly = true;
             dataGridView.RowHeadersWidth = 51;
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView.Size = new Size(1045, 447);
+            dataGridView.Size = new Size(915, 334);
             dataGridView.TabIndex = 2;
             dataGridView.CellClick += dataGridView_CellClick;
             // 
@@ -199,8 +201,10 @@
             groupBox2.Controls.Add(toolStrip1);
             groupBox2.Dock = DockStyle.Fill;
             groupBox2.Location = new Point(0, 0);
+            groupBox2.Margin = new Padding(3, 2, 3, 2);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1051, 500);
+            groupBox2.Padding = new Padding(3, 2, 3, 2);
+            groupBox2.Size = new Size(921, 381);
             groupBox2.TabIndex = 4;
             groupBox2.TabStop = false;
             groupBox2.Text = "Danh sách phiếu nhập";
@@ -212,17 +216,19 @@
             panel1.Controls.Add(btnXoa);
             panel1.Controls.Add(btnInPhieuNhap);
             panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(0, 500);
+            panel1.Location = new Point(0, 381);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1051, 99);
+            panel1.Size = new Size(921, 74);
             panel1.TabIndex = 5;
             // 
             // btnSua
             // 
             btnSua.Anchor = AnchorStyles.Top;
-            btnSua.Location = new Point(580, 38);
+            btnSua.Location = new Point(508, 28);
+            btnSua.Margin = new Padding(3, 2, 3, 2);
             btnSua.Name = "btnSua";
-            btnSua.Size = new Size(94, 29);
+            btnSua.Size = new Size(82, 22);
             btnSua.TabIndex = 6;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = true;
@@ -231,9 +237,10 @@
             // btnThem
             // 
             btnThem.Anchor = AnchorStyles.Top;
-            btnThem.Location = new Point(276, 38);
+            btnThem.Location = new Point(242, 28);
+            btnThem.Margin = new Padding(3, 2, 3, 2);
             btnThem.Name = "btnThem";
-            btnThem.Size = new Size(173, 29);
+            btnThem.Size = new Size(151, 22);
             btnThem.TabIndex = 4;
             btnThem.Text = "Lập phiếu nhập mới...";
             btnThem.UseVisualStyleBackColor = true;
@@ -243,9 +250,10 @@
             // 
             btnXoa.Anchor = AnchorStyles.Top;
             btnXoa.ForeColor = Color.Red;
-            btnXoa.Location = new Point(680, 38);
+            btnXoa.Location = new Point(595, 28);
+            btnXoa.Margin = new Padding(3, 2, 3, 2);
             btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(94, 29);
+            btnXoa.Size = new Size(82, 22);
             btnXoa.TabIndex = 7;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = true;
@@ -254,23 +262,31 @@
             // btnInPhieuNhap
             // 
             btnInPhieuNhap.Anchor = AnchorStyles.Top;
-            btnInPhieuNhap.Location = new Point(455, 38);
+            btnInPhieuNhap.Location = new Point(398, 28);
+            btnInPhieuNhap.Margin = new Padding(3, 2, 3, 2);
             btnInPhieuNhap.Name = "btnInPhieuNhap";
-            btnInPhieuNhap.Size = new Size(119, 29);
+            btnInPhieuNhap.Size = new Size(104, 22);
             btnInPhieuNhap.TabIndex = 5;
             btnInPhieuNhap.Text = "In phiếu nhập...";
             btnInPhieuNhap.UseVisualStyleBackColor = true;
             btnInPhieuNhap.Click += btnInPhieuNhap_Click;
             // 
+            // helpProvider1
+            // 
+            helpProvider1.HelpNamespace = "https://maithiencan.github.io/helpqlbg/phieunhap.html";
+            // 
             // frmPhieuNhap
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1051, 599);
+            ClientSize = new Size(921, 455);
             Controls.Add(groupBox2);
             Controls.Add(panel1);
-            MinimumSize = new Size(1069, 646);
+            helpProvider1.SetHelpKeyword(this, "F1");
+            Margin = new Padding(3, 2, 3, 2);
+            MinimumSize = new Size(937, 494);
             Name = "frmPhieuNhap";
+            helpProvider1.SetShowHelp(this, true);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Phiếu nhập";
             Load += frmPhieuNhap_Load;
@@ -304,5 +320,6 @@
         private DataGridViewTextBoxColumn TongTienPhieuNhap;
         private DataGridViewLinkColumn XemChiTiet;
         private ToolStripButton btnLamMoi;
+        private HelpProvider helpProvider1;
     }
 }
