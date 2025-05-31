@@ -300,6 +300,7 @@
             // 
             // chkConHang
             // 
+            chkConHang.Anchor = AnchorStyles.Top;
             chkConHang.AutoSize = true;
             chkConHang.Checked = true;
             chkConHang.CheckState = CheckState.Checked;

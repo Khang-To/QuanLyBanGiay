@@ -133,17 +133,20 @@
   <data name="2264841" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2264841.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="add2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add2.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="SplashScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SplashScreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="export2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\export2.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="find" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\find.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="add2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add2.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="9096015" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\9096015.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="thong-ke-san-pham" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\thong-ke-san-pham.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="dang-nhap1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dang-nhap1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,11 +166,14 @@
   <data name="16697253" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\16697253.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="san-pham" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\san-pham.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="import1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\import1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="4105931-add-to-cart-buy-cart-sell-shop-shopping-cart_1139191" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\4105931-add-to-cart-buy-cart-sell-shop-shopping-cart_1139191.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="export2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\export2.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bills-3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bills-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,14 +187,23 @@
   <data name="4495474-200" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\4495474-200.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="9096015" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\9096015.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="security-protection-protect-key-password-login_108554" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\security-protection-protect-key-password-login_108554.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="login_4661334" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\login_4661334.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="4105931-add-to-cart-buy-cart-sell-shop-shopping-cart_1139191" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\4105931-add-to-cart-buy-cart-sell-shop-shopping-cart_1139191.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_Business_Set_00008_A_icon-icons.com_59853" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_Business_Set_00008_A_icon-icons.com_59853.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="status_online_icon_152750" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\status_online_icon_152750.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="thong-ke-doanh-thu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\thong-ke-doanh-thu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="receipt_icon-icons.com_56151" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\receipt_icon-icons.com_56151.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,7 +220,7 @@
   <data name="6195699" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\6195699.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="san-pham" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\san-pham.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="warehouse_storage_unit_storehouse_icon_192428" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\warehouse_storage_unit_storehouse_icon_192428.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
